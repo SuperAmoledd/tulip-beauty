@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tulip Beauty Spa & Nail Salon - Relax & Rejuvenate</title>
+    <title>Our Services | Tulip Beauty Spa Melbourne</title>
+    <meta name="description"
+        content="Explore our full range of premium beauty services at Tulip Beauty Spa Melbourne — eyelash extensions, lash lift, cosmetic tattoos, laser hair removal, waxing and more.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -372,370 +374,131 @@
             transform: translateX(5px);
         }
 
-        /* --- HERO SECTION --- */
-        .hero {
-            height: 100vh;
+        /* --- PAGE HEADER --- */
+        .page-hero {
             position: relative;
+            height: 60vh;
+            min-height: 400px;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
             text-align: center;
             color: #fff;
-        }
-
-        .hero-bg-wrap {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 120%;
-            /* Extra height for parallax */
-            z-index: 0;
             overflow: hidden;
+            padding-top: 60px;
+            background-color: #1a1a1a;
         }
 
-        .hero-bg-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transform: scale(1.05);
-            /* Slight initial zoom */
-            filter: brightness(0.65);
-            /* Overlay dark to pop text */
-        }
-
-        .hero-overlay {
+        .page-hero-bg {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.6) 100%);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            padding: 0 40px;
-            width: 100%;
-            max-width: 1000px;
-        }
-
-        .hero-title-wrap {
-            overflow: hidden;
-            margin-bottom: 20px;
-        }
-
-        .hero-content h1 {
-            font-size: clamp(50px, 8vw, 110px);
-            line-height: 1.1;
-            color: #fff;
-            letter-spacing: 0.02em;
-            transform: translateY(120%);
-        }
-
-        .hero-content p {
-            font-size: clamp(14px, 2vw, 18px);
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 300;
-            max-width: 600px;
-            margin: 0 auto 40px;
-            letter-spacing: 1px;
-            line-height: 1.8;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .hero .cta-btn {
-            border-color: rgba(255, 255, 255, 0.6);
-            color: #fff;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .hero .cta-btn::before {
-            background: #fff;
-        }
-
-        .hero .cta-btn:hover {
-            color: #111;
-        }
-
-        /* --- PHILOSOPHY (ABOUT) SECTION --- */
-        .philosophy-sec {
-            padding: 150px 5vw;
-            background: var(--c-bg);
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 80px;
-            max-width: 1600px;
-            margin: 0 auto;
-        }
-
-        .philo-text {
-            flex: 0 0 40%;
-        }
-
-        .philo-text h2 {
-            font-size: clamp(40px, 4vw, 70px);
-            line-height: 1.2;
-            margin-bottom: 30px;
-            letter-spacing: -0.01em;
-        }
-
-        .philo-text p {
-            font-size: 16px;
-            color: #555;
-            margin-bottom: 20px;
-            line-height: 2;
-            font-weight: 300;
-        }
-
-        .philo-images {
-            flex: 1;
-            position: relative;
-            height: 800px;
-            width: 100%;
-        }
-
-        .img-parallax-1,
-        .img-parallax-2 {
-            position: absolute;
-            overflow: hidden;
-        }
-
-        .img-parallax-1 {
-            width: 60%;
-            height: 80%;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            border-radius: 200px 200px 0 0;
-        }
-
-        .img-parallax-2 {
-            width: 45%;
-            height: 60%;
-            bottom: 0;
-            right: 0;
-            z-index: 2;
-            box-shadow: -20px 20px 50px rgba(0, 0, 0, 0.1);
-        }
-
-        .img-parallax-1 img,
-        .img-parallax-2 img {
             width: 100%;
             height: 120%;
-            /* extra height for true parallax scrolling within container */
             object-fit: cover;
-        }
-
-        /* --- HORIZONTAL PORTFOLIO/SERVICES --- */
-        .h-scroll-wrap {
-            overflow: hidden;
-            background: var(--c-dark);
-            color: #fff;
-            padding-top: 100px;
-            position: relative;
-        }
-
-        .h-scroll-header {
-            padding: 0 5vw;
-            margin-bottom: 50px;
-        }
-
-        .h-scroll-header h2 {
-            color: #fff;
-            font-size: clamp(50px, 5vw, 80px);
-        }
-
-        .h-scroll-container {
-            display: flex;
-            flex-wrap: nowrap;
-            padding-bottom: 150px;
-            padding-left: 5vw;
-            padding-right: 5vw;
-            gap: 60px;
-        }
-
-        .h-item {
-            flex: 0 0 450px;
-            height: 600px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 40px;
-            overflow: hidden;
-        }
-
-        .h-item-img {
-            position: absolute;
-            inset: 0;
             z-index: 0;
+            filter: brightness(0.6);
         }
 
-        .h-item-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(0.7);
-            transition: transform 0.8s ease;
-        }
-
-        .h-item:hover .h-item-img img {
-            transform: scale(1.05);
-            filter: brightness(0.85);
-        }
-
-        .h-item-content {
+        .page-hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
+            padding: 0 20px;
         }
 
-        .h-item h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            font-weight: 400;
+        .page-hero h1 {
+            font-size: clamp(40px, 6vw, 70px);
+            color: #fff;
             margin-bottom: 10px;
         }
 
-        .h-item p {
-            font-size: 14px;
-            opacity: 0.8;
-            margin-bottom: 25px;
-            line-height: 1.6;
-            font-weight: 300;
+        .page-hero p {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--c-gold);
         }
 
-        .h-item .cta-btn {
-            border-color: rgba(255, 255, 255, 0.4);
-            color: #fff;
-            padding: 12px 25px;
-            font-size: 10px;
-        }
-
-        .h-item .cta-btn::before {
-            background: #fff;
-        }
-
-        .h-item .cta-btn:hover {
-            color: #111;
-        }
-
-        /* --- INFINITE MARQUEE GALLERY --- */
-        .marquee-section {
-            padding: 120px 0;
-            background: var(--c-bg);
-            overflow: hidden;
-        }
-
-        .marquee-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .marquee-wrapper {
-            display: flex;
-            width: max-content;
-            animation: marquee 30s linear infinite;
-        }
-
-        .marquee-wrapper:hover {
-            animation-play-state: paused;
-        }
-
-        .marquee-item {
-            width: 350px;
-            height: 450px;
-            margin: 0 15px;
-            overflow: hidden;
-            border-radius: 8px;
+        /* --- SERVICES LISTING --- */
+        .services-wrapper {
+            padding: 120px 5vw;
+            max-width: 1400px;
+            margin: 0 auto;
             position: relative;
         }
 
-        .marquee-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s;
-        }
-
-        .marquee-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .marquee-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.3);
-            opacity: 0;
-            transition: opacity 0.4s;
+        .srv-row {
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 24px;
+            gap: 80px;
+            margin-bottom: 120px;
+            opacity: 0;
+            transform: translateY(50px);
         }
 
-        .marquee-item:hover .marquee-overlay {
-            opacity: 1;
+        .srv-row:last-child {
+            margin-bottom: 0;
         }
 
-        @keyframes marquee {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
+        .srv-row:nth-child(even) {
+            flex-direction: row-reverse;
         }
 
-        /* --- BANNER CTA --- */
-        .banner {
-            padding: 150px 20px;
-            text-align: center;
-            background-image: linear-gradient(rgba(252, 251, 248, 0.9), rgba(252, 251, 248, 0.9)), url('https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=2670&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            border-top: 1px solid #eaeaea;
+        .srv-img-wrap {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            height: 500px;
         }
 
-        .banner h2 {
-            font-size: clamp(40px, 5vw, 60px);
-            margin-bottom: 30px;
+        .srv-img-wrap img {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 130%;
+            object-fit: cover;
+            object-position: center;
+            transform: translateY(-50%);
+            transition: 0.8s ease;
         }
 
-        .banner p {
-            max-width: 600px;
-            margin: 0 auto 40px;
+        .srv-content {
+            flex: 1;
+            padding: 20px 0;
+        }
+
+        .srv-content .sub-title {
+            margin-bottom: 10px;
+        }
+
+        .srv-content h2 {
+            font-size: clamp(32px, 3.5vw, 48px);
+            margin-bottom: 25px;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+
+        .srv-content p {
+            font-size: 15px;
             color: #555;
+            line-height: 1.9;
+            margin-bottom: 35px;
+            font-weight: 300;
         }
 
+        .srv-row:hover .srv-img-wrap img {
+            transform: scale(1.05);
+        }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 1024px) {
-            .philosophy-sec {
-                flex-direction: column;
-                gap: 60px;
-                padding: 100px 5vw;
+            .srv-row {
+                gap: 50px;
             }
 
-            .philo-text,
-            .philo-images {
-                width: 100%;
-            }
-
-            .philo-images {
-                height: 600px;
-            }
-
-            .h-item {
-                flex: 0 0 350px;
-                height: 500px;
+            .srv-img-wrap {
+                height: 400px;
             }
 
             .hamburger-btn {
@@ -762,19 +525,26 @@
         }
 
         @media (max-width: 768px) {
-            .marquee-item {
-                width: 250px;
+
+            .srv-row,
+            .srv-row:nth-child(even) {
+                flex-direction: column;
+                gap: 40px;
+                margin-bottom: 80px;
+                text-align: center;
+            }
+
+            .srv-img-wrap {
+                width: 100%;
                 height: 350px;
             }
 
-            .h-item {
-                flex: 0 0 300px;
-                height: 450px;
-                padding: 25px;
+            .srv-content {
+                padding: 0;
             }
 
-            .philo-images {
-                height: 400px;
+            .cta-btn {
+                margin: 0 auto;
             }
         }
 
@@ -1001,7 +771,7 @@
     <div id="page-loader">
         <div class="loader-text">Tulip Beauty Spa</div>
         <div class="loader-line" id="loaderLine"></div>
-        <div class="loader-sub" id="loaderSub">Melbourne</div>
+        <div class="loader-sub" id="loaderSub">Premium Services</div>
     </div>
 
     <!-- HEADER -->
@@ -1054,198 +824,222 @@
         </div>
     </div>
 
-    <!-- MAIN CONTENT START -->
     <main>
-        <!-- HERO -->
-        <section class="hero">
-            <div class="hero-bg-wrap">
-                <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=2670&auto=format&fit=crop"
-                    class="hero-bg-img" alt="Luxury Spa">
-            </div>
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <div class="sub-title" style="color: #fff; margin-bottom: 20px;">Welcome to Tulip Beauty Spa</div>
-                <div class="hero-title-wrap">
-                    <h1 id="heroTitle">Relax, Refresh<br><i>& Rejuvenate</i></h1>
-                </div>
-                <p id="heroDesc">A sanctuary that celebrates your natural beauty. Experience five-star beauty and
-                    wellness treatments with our expert nail artists and therapists.</p>
-                <a href="https://www.fresha.com/vi/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
-                    class="cta-btn" id="heroBtn">
-                    Discover More <span class="cta-arrow">→</span>
-                </a>
+        <!-- PAGE HERO -->
+        <section class="page-hero">
+            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2670&auto=format&fit=crop"
+                class="page-hero-bg" alt="">
+            <div class="page-hero-content">
+                <p>Relax, Refresh & Rejuvenate</p>
+                <h1>Our Services</h1>
             </div>
         </section>
 
-        <!-- PHILOSOPHY / ABOUT -->
-        <section class="philosophy-sec">
-            <div class="philo-text">
-                <div class="sub-title">Our Philosophy</div>
-                <h2>The Art of<br>Minimalist Beauty.</h2>
-                <p>We focus on the core wellbeing of your body and nails. Using premium products and personalised
-                    techniques, every treatment goes beyond aesthetics — creating a space for true restoration and
-                    healing.</p>
-                <p>From intricate, artisan nail designs to soothing spa therapies, Tulip Beauty Spa invites you to step
-                    into a world that is truly set apart.</p>
-                <br>
-                <a href="/about-us/" class="cta-btn">
-                    Read Our Story <span class="cta-arrow">→</span>
-                </a>
-            </div>
-            <div class="philo-images">
-                <div class="img-parallax-1">
-                    <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?q=80&w=2000&auto=format&fit=crop"
-                        alt="Spa Procedure">
+        <!-- SERVICES LISTING -->
+        <section class="services-wrapper">
+
+            <!-- Service 1 -->
+            <div class="srv-row">
+                <div class="srv-img-wrap">
+                    <img src="/img/services/eyelash-extension/eyelash-extension.jpg" alt="Eyelash Extensions"
+                        class="srv-img-inner">
                 </div>
-                <div class="img-parallax-2">
-                    <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/beautiful-woman-face-close-up-portrait-happy-studio-on-white-1024x789.jpg"
-                        alt="Nail Art Display">
+                <div class="srv-content">
+                    <div class="sub-title">Signature Treatment</div>
+                    <h2>Eyelash Extensions</h2>
+                    <p>Define your gaze with our signature eyelash extension styles at Tulip Beauty Spa. Our ultra-fine,
+                        featherweight application technique uses only premium materials to achieve a naturally full,
+                        curled lash line — beautiful, long-lasting, and never heavy on the eye.</p>
+                    <a href="/services/eyelash-extensions/" class="cta-btn">View Details <span
+                            class="cta-arrow">→</span></a>
                 </div>
             </div>
+
+            <!-- Service 2 -->
+            <div class="srv-row">
+                <div class="srv-img-wrap">
+                    <img src="/img/services/eyelash-treatment/Eyelash-Treatment.webp" alt="Eyelash Treatments"
+                        class="srv-img-inner">
+                </div>
+                <div class="srv-content">
+                    <div class="sub-title">Natural Enhancements</div>
+                    <h2>Eyelash Treatments</h2>
+                    <p>Celebrate your natural lashes with our Lash Lift &amp; Tint treatments. We nourish and
+                        condition your lashes from root to tip, delivering a perfect curl and rich, lasting colour
+                        &mdash; no extensions required, just beautifully enhanced lashes.</p>
+                    <a href="/services/eyelash-treatments/" class="cta-btn">View Details <span
+                            class="cta-arrow">→</span></a>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="srv-row">
+                <div class="srv-img-wrap">
+                    <img src="/img/services/cosmetic-tattoos/Cosmetic-Tattoos.jpg" alt="Cosmetic Tattoos"
+                        class="srv-img-inner">
+                </div>
+                <div class="srv-content">
+                    <div class="sub-title">Permanent Beauty</div>
+                    <h2>Cosmetic Tattoos</h2>
+                    <p>Elevate your facial features with our professional cosmetic tattoo services. From delicate
+                        feather-stroke brow microblading to luscious lip blush &mdash; our advanced techniques ensure
+                        absolute safety, natural-looking results, and colour that lasts beautifully for years.</p>
+                    <a href="/services/comestic-tattoos/" class="cta-btn">View Details <span
+                            class="cta-arrow">→</span></a>
+                </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="srv-row">
+                <div class="srv-img-wrap">
+                    <img src="/img/services/body-tattoo-removal/body-tattoo-removal-1.jpg" alt="Body Tattoo Removal"
+                        class="srv-img-inner">
+                </div>
+                <div class="srv-content">
+                    <div class="sub-title">Laser Technology</div>
+                    <h2>Body Tattoo Removal</h2>
+                    <p>Effectively and permanently remove unwanted tattoos with our state-of-the-art laser technology.
+                        The process is gentle, minimally invasive, and leaves no scarring — restoring your skin to a
+                        smooth, even tone you'll feel confident in again.</p>
+                    <a href="/services/body-tattoo-removal/" class="cta-btn">View Details <span
+                            class="cta-arrow">→</span></a>
+                </div>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="srv-row">
+                <div class="srv-img-wrap">
+                    <img src="/img/services/hair-removal/hair-removal.jpg" alt="Hair Removal" class="srv-img-inner">
+                </div>
+                <div class="srv-content">
+                    <div class="sub-title">Silky Smooth Skin</div>
+                    <h2>Hair Removal</h2>
+                    <p>Achieve silky-smooth skin with our advanced hair removal treatments, safe and effective for all
+                        body areas. Our cutting-edge technology targets hair follicles with precision, delivering
+                        long-lasting results with minimal discomfort and zero downtime.</p>
+                    <a href="/services/hair-removal/" class="cta-btn">View Details <span class="cta-arrow">→</span></a>
+                </div>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="srv-row">
+                <div class="srv-img-wrap">
+                    <img src="/img/services/waxing&tinting/Waxing&Tinting.jpg" alt="Waxing & Tinting"
+                        class="srv-img-inner">
+                </div>
+                <div class="srv-content">
+                    <div class="sub-title">Precision Grooming</div>
+                    <h2>Waxing & Tinting</h2>
+                    <p>We use premium organic wax at the perfect temperature for a comfortable, smooth experience every
+                        time. Our gentle waxing service, paired with bespoke brow and lash tinting options, creates a
+                        polished, defined look that truly frames your face.</p>
+                    <a href="/services/waxing-tinting/" class="cta-btn">View Details <span
+                            class="cta-arrow">→</span></a>
+                </div>
+            </div>
+
+            <!-- Service 7 -->
+            <div class="srv-row">
+                <div class="srv-img-wrap">
+                    <img src="/img/services/special-treatments/special-treatments-1.jpg" alt="Special Treatments"
+                        class="srv-img-inner">
+                </div>
+                <div class="srv-content">
+                    <div class="sub-title">Ultimate Relaxation</div>
+                    <h2>Special Treatments</h2>
+                    <p>Immerse yourself in our premium treatment packages, including deep facial care and relaxation
+                        massage. These restorative experiences are designed to recharge your energy, calm your mind, and
+                        soothe every sense — the perfect reward after a busy day.</p>
+                    <a href="/services/special-treatments/" class="cta-btn">View Details <span
+                            class="cta-arrow">→</span></a>
+                </div>
+            </div>
+
+            <!-- Service 8 -->
+            <div class="srv-row">
+                <div class="srv-img-wrap">
+                    <img src="/img/services/brow-lamination/brow-lamination.jpg" alt="Brow Lamination"
+                        class="srv-img-inner">
+                </div>
+                <div class="srv-content">
+                    <div class="sub-title">Perfectly Styled Brows</div>
+                    <h2>Brow Lamination</h2>
+                    <p>Achieve the look of fuller, more defined eyebrows with our brow lamination service. This
+                        treatment realigns your brow hairs to give them a uniform shape and a naturally brushed-up
+                        appearance that lasts for weeks.</p>
+                    <a href="/services/brow-lamination/" class="cta-btn">View Details <span
+                            class="cta-arrow">→</span></a>
+                </div>
+            </div>
+
+            <!-- Service 9 -->
+            <div class="srv-row">
+                <div class="srv-img-wrap">
+                    <img src="/img/services/hifu/hifu.jpg" alt="HIFU Treatment" class="srv-img-inner">
+                </div>
+                <div class="srv-content">
+                    <div class="sub-title">Non-Surgical Facelift</div>
+                    <h2>HIFU Treatment</h2>
+                    <p>Experience the power of High-Intensity Focused Ultrasound (HIFU) for skin lifting and tightening.
+                        This non-invasive treatment stimulates collagen production, reducing wrinkles and giving you a
+                        youthful, rejuvenated look with no downtime.</p>
+                    <a href="/services/hifu/" class="cta-btn">View Details <span class="cta-arrow">→</span></a>
+                </div>
+            </div>
+
+            <!-- Service 10 -->
+            <div class="srv-row">
+                <div class="srv-img-wrap">
+                    <img src="/img/services/laser-tattoo-removal/laser-tattoo-removal.jpg" alt="Laser Tattoo Removal"
+                        class="srv-img-inner">
+                </div>
+                <div class="srv-content">
+                    <div class="sub-title">Clear & Flawless Skin</div>
+                    <h2>Laser Tattoo Removal</h2>
+                    <p>Safely and effectively fade or completely remove unwanted tattoos with our advanced laser
+                        technology. Our specialized treatments break down ink particles, leaving your skin clear and
+                        smooth while minimizing discomfort.</p>
+                    <a href="/services/laser-tattoo-removal/" class="cta-btn">View Details <span
+                            class="cta-arrow">→</span></a>
+                </div>
+            </div>
+
+            <!-- Service 11 -->
+            <div class="srv-row">
+                <div class="srv-img-wrap">
+                    <img src="/img/services/lip-blush-tattoo/lip-blush-tattoo.jpg" alt="Lip Blush Tattoo"
+                        class="srv-img-inner">
+                </div>
+                <div class="srv-content">
+                    <div class="sub-title">Luscious & Tinted Lips</div>
+                    <h2>Lip Blush Tattoo</h2>
+                    <p>Enhance your natural lip color and shape with our lip blush cosmetic tattoo. This semi-permanent
+                        treatment provides a subtle, natural tint and creates the illusion of fuller lips, saving you
+                        time on your daily makeup routine.</p>
+                    <a href="/services/lip-blush-tattoo/" class="cta-btn">View Details <span
+                            class="cta-arrow">→</span></a>
+                </div>
+            </div>
+
+            <!-- Service 12 -->
+            <div class="srv-row">
+                <div class="srv-img-wrap">
+                    <img src="/img/services/nano-brows/nano-brows.jpg" alt="Nano Brows" class="srv-img-inner">
+                </div>
+                <div class="srv-content">
+                    <div class="sub-title">Ultra-Realistic Strokes</div>
+                    <h2>Nano Brows</h2>
+                    <p>Get the most natural-looking eyebrows with our nano brow technique. Using a highly precise
+                        machine, we create ultra-fine hair-like strokes that blend seamlessly with your natural brows
+                        for a perfectly sculpted, long-lasting finish.</p>
+                    <a href="/services/nano-brows/" class="cta-btn">View Details <span class="cta-arrow">→</span></a>
+                </div>
+            </div>
+
         </section>
-
-        <!-- HORIZONTAL SCROLL SERVICES -->
-        <section class="h-scroll-wrap" id="servicesSection">
-            <div class="h-scroll-header">
-                <div class="sub-title">Premium Treatments</div>
-                <h2>Our Services</h2>
-            </div>
-
-            <div class="h-scroll-container">
-
-                <div class="h-item">
-                    <div class="h-item-img">
-                        <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=2669&auto=format&fit=crop"
-                            alt="Nail Art">
-                    </div>
-                    <div class="h-item-content">
-                        <h3>Nail Art & Care</h3>
-                        <p>From relaxing classic manicures and pedicures to intricate powder, gel, and artistic floral
-                            nail designs crafted by professionals.</p>
-                        <a href="#" class="cta-btn">Explore <span class="cta-arrow">→</span></a>
-                    </div>
-                </div>
-
-                <div class="h-item">
-                    <div class="h-item-img">
-                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2670&auto=format&fit=crop"
-                            alt="Spa & Massage">
-                    </div>
-                    <div class="h-item-content">
-                        <h3>Spa Massage</h3>
-                        <p>Therapeutic acupressure and relaxation massage targeting neck, shoulders and muscle tension —
-                            restoring circulation and melting away fatigue.</p>
-                        <a href="#" class="cta-btn">Explore <span class="cta-arrow">→</span></a>
-                    </div>
-                </div>
-
-                <div class="h-item">
-                    <div class="h-item-img">
-                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=2670&auto=format&fit=crop"
-                            alt="Facial">
-                    </div>
-                    <div class="h-item-content">
-                        <h3>Facial Care</h3>
-                        <p>Revitalise your skin with premium natural products, deep pore cleansing, and intensive
-                            hydration that leaves your complexion radiant and supple.</p>
-                        <a href="#" class="cta-btn">Explore <span class="cta-arrow">→</span></a>
-                    </div>
-                </div>
-
-                <div class="h-item">
-                    <div class="h-item-img">
-                        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=2670&auto=format&fit=crop"
-                            alt="Lashes">
-                    </div>
-                    <div class="h-item-content">
-                        <h3>Eyelashes & Brows</h3>
-                        <p>Precision brow sculpting and ultra-lightweight lash extensions — delivering a naturally
-                            captivating look that's effortlessly elegant.</p>
-                        <a href="#" class="cta-btn">Explore <span class="cta-arrow">→</span></a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- INFINITE MARQUEE GALLERY -->
-        <section class="marquee-section">
-            <div class="marquee-header">
-                <div class="sub-title">Glimpse of Perfection</div>
-                <h2>The Tulip Beauty Spa Gallery</h2>
-            </div>
-            <div class="marquee-wrapper">
-                <!-- Set 1 -->
-                <div class="marquee-item"><img
-                        src="https://images.unsplash.com/photo-1632516428751-bb386348ef53?q=80&w=800&auto=format&fit=crop"
-                        alt="Nail">
-                    <div class="marquee-overlay"><i class="fa-brands fa-instagram"></i></div>
-                </div>
-                <div class="marquee-item"><img
-                        src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?q=80&w=800&auto=format&fit=crop"
-                        alt="Spa">
-                    <div class="marquee-overlay"><i class="fa-brands fa-instagram"></i></div>
-                </div>
-                <div class="marquee-item"><img
-                        src="https://images.unsplash.com/photo-1522771730846-57324c4dc8c9?q=80&w=800&auto=format&fit=crop"
-                        alt="Nail Polish">
-                    <div class="marquee-overlay"><i class="fa-brands fa-instagram"></i></div>
-                </div>
-                <div class="marquee-item"><img
-                        src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=800&auto=format&fit=crop"
-                        alt="Nail Art">
-                    <div class="marquee-overlay"><i class="fa-brands fa-instagram"></i></div>
-                </div>
-                <div class="marquee-item"><img
-                        src="https://images.unsplash.com/photo-1552693673-1bf958298935?q=80&w=800&auto=format&fit=crop"
-                        alt="Massage">
-                    <div class="marquee-overlay"><i class="fa-brands fa-instagram"></i></div>
-                </div>
-
-                <!-- Duplicate for infinite seamless scroll -->
-                <div class="marquee-item"><img
-                        src="https://images.unsplash.com/photo-1632516428751-bb386348ef53?q=80&w=800&auto=format&fit=crop"
-                        alt="Nail">
-                    <div class="marquee-overlay"><i class="fa-brands fa-instagram"></i></div>
-                </div>
-                <div class="marquee-item"><img
-                        src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?q=80&w=800&auto=format&fit=crop"
-                        alt="Spa">
-                    <div class="marquee-overlay"><i class="fa-brands fa-instagram"></i></div>
-                </div>
-                <div class="marquee-item"><img
-                        src="https://images.unsplash.com/photo-1522771730846-57324c4dc8c9?q=80&w=800&auto=format&fit=crop"
-                        alt="Nail Polish">
-                    <div class="marquee-overlay"><i class="fa-brands fa-instagram"></i></div>
-                </div>
-                <div class="marquee-item"><img
-                        src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=800&auto=format&fit=crop"
-                        alt="Nail Art">
-                    <div class="marquee-overlay"><i class="fa-brands fa-instagram"></i></div>
-                </div>
-                <div class="marquee-item"><img
-                        src="https://images.unsplash.com/photo-1552693673-1bf958298935?q=80&w=800&auto=format&fit=crop"
-                        alt="Massage">
-                    <div class="marquee-overlay"><i class="fa-brands fa-instagram"></i></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- BOTTOM BANNER -->
-        <section class="banner">
-            <div class="sub-title">Your Moment</div>
-            <h2>Ready to Glow?</h2>
-            <p>Let us take care of every detail, from head to toe. Book today and treat yourself to the ultimate
-                relaxation experience.</p>
-            <a href="https://www.fresha.com/vi/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
-                class="cta-btn" style="border-color:#111;">
-                Book an Appointment <span class="cta-arrow">→</span>
-            </a>
-        </section>
-
     </main>
-    <!-- MAIN CONTENT END -->
 
+    <!-- FOOTER -->
     <footer class="site-footer">
         <div class="footer-main">
             <div class="footer-brand footer-col">
@@ -1308,7 +1102,7 @@
     <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
 
     <script>
-        gsap.registerPlugin(Draggable, ScrollTrigger);
+        gsap.registerPlugin(ScrollTrigger);
 
         /* ---- CUSTOM CURSOR ---- */
         const _dot = document.getElementById('cursorDot');
@@ -1323,7 +1117,7 @@
             gsap.set(_ring, { x: _rx, y: _ry });
             requestAnimationFrame(_animRing);
         })();
-        document.querySelectorAll('a, button, .cta-btn, .h-item, .marquee-item').forEach(el => {
+        document.querySelectorAll('a, button, .cta-btn, .hamburger-btn, .srv-row').forEach(el => {
             el.addEventListener('mouseenter', () => {
                 gsap.to(_ring, { width: 60, height: 60, borderColor: '#c9a96e', duration: 0.3 });
                 gsap.to(_dot, { scale: 0, duration: 0.3 });
@@ -1341,7 +1135,8 @@
                     yPercent: -100, duration: 1, ease: 'power4.inOut',
                     onComplete: () => {
                         document.getElementById('page-loader').style.display = 'none';
-                        initHeroAnimations();
+                        // Trigger image entrance animations
+                        ScrollTrigger.refresh();
                     }
                 });
             }
@@ -1387,78 +1182,56 @@
             duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         });
-
         lenis.on('scroll', ScrollTrigger.update);
-
-        gsap.ticker.add((time) => {
-            lenis.raf(time * 1000);
-        });
+        gsap.ticker.add((time) => { lenis.raf(time * 1000); });
         gsap.ticker.lagSmoothing(0);
 
-        /* ---- GSAP ANIMATIONS ---- */
+        /* ---- PARALLAX & ENTRANCE ANIMATIONS ---- */
 
-        function initHeroAnimations() {
-            const tl = gsap.timeline();
-            tl.to('.hero-bg-img', { scale: 1, duration: 2, ease: 'power3.out' })
-                .to('#heroTitle', { y: '0%', duration: 1.2, ease: 'power4.out' }, '-=1.5')
-                .to('#heroDesc', { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }, '-=0.8')
-                .to('#heroBtn', { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }, '-=0.7');
-        }
-
-        // Hero Parallax on Scroll
-        gsap.to('.hero-bg-img', {
+        // Hero Background Parallax
+        gsap.to('.page-hero-bg', {
             yPercent: 30,
             ease: "none",
             scrollTrigger: {
-                trigger: '.hero',
+                trigger: '.page-hero',
                 start: 'top top',
                 end: 'bottom top',
                 scrub: true
             }
         });
 
-        // Philosophy Images Parallax
-        gsap.to('.img-parallax-1 img', {
-            yPercent: -20,
-            ease: "none",
-            scrollTrigger: {
-                trigger: '.philosophy-sec',
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: true
-            }
-        });
-        gsap.to('.img-parallax-2 img', {
-            yPercent: 20,
-            ease: "none",
-            scrollTrigger: {
-                trigger: '.philosophy-sec',
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: true
-            }
-        });
-
-        // Horizontal Scroll Services
-        const hContainer = document.querySelector('.h-scroll-container');
-        if (hContainer && window.innerWidth > 1024) {
-            let containerWidth = hContainer.scrollWidth;
-            let viewportWidth = window.innerWidth;
-            let scrollDistance = containerWidth - viewportWidth + 100; // 100px buffer
-
-            gsap.to(hContainer, {
-                x: -scrollDistance,
-                ease: "none",
+        // Services Row Entrance
+        const srvRows = document.querySelectorAll('.srv-row');
+        srvRows.forEach(row => {
+            gsap.to(row, {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: 'power3.out',
                 scrollTrigger: {
-                    trigger: '.h-scroll-wrap',
-                    start: "top top",
-                    end: "+=" + scrollDistance, // Scroll length correlates to visual length
-                    pin: true,
-                    scrub: 1,
-                    anticipatePin: 1
+                    trigger: row,
+                    start: 'top 85%',
                 }
             });
-        }
+
+            // Minor image parallax inside the card
+            const img = row.querySelector('.srv-img-inner');
+            if (img) {
+                gsap.fromTo(img,
+                    { y: -40 },
+                    {
+                        y: 40,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: row,
+                            start: 'top bottom',
+                            end: 'bottom top',
+                            scrub: true
+                        }
+                    }
+                );
+            }
+        });
 
     </script>
 </body>

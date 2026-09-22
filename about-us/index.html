@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Tulip Beauty Spa</title>
+    <meta name="description" content="Discover our story — where beauty meets luxury at Tulip Beauty Spa Melbourne.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <style>
+        /* ============================================================
+           RESET & BASE
+        ============================================================ */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --cream: #faf9f6;
+            --warm: #f5f0e8;
+            --gold: #c9a96e;
+            --gold-lt: #e8d5b0;
+            --dark: #1a1a1a;
+            --mid: #555;
+            --lt: #999;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: auto;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark);
+            background: var(--cream);
+            overflow-x: hidden;
+            cursor: none;
+            /* custom cursor */
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ============================================================
+           CUSTOM CURSOR
+        ============================================================ */
+        .cursor-dot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gold);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s, width 0.3s, height 0.3s, background 0.3s;
+        }
+
+        .cursor-ring {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9998;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 169, 110, 0.6);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: transform 0.15s ease, width 0.3s, height 0.3s;
+        }
+
+        body:hover .cursor-dot {
+            opacity: 1;
+        }
+
+        a:hover~.cursor-dot,
+        button:hover~.cursor-dot {
+            transform: translate(-50%, -50%) scale(3);
+        }
+
+        /* --- HEADER --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: transparent;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: background 0.4s, padding 0.4s;
+        }
+
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 15px 40px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        header.scrolled nav a,
+        header.scrolled .nav-right a {
+            color: #111;
+        }
+
+        header.scrolled .hamburger-btn span {
+            background-color: #111;
+        }
+
+        .logo img {
+            height: 35px;
+            transition: 0.4s;
+        }
+
+        header.scrolled .logo img {
+            filter: brightness(0);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #fff;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        .nav-right {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .nav-right a {
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: color 0.3s;
+        }
+
+        .nav-right a:hover {
+            color: var(--gold);
+        }
+
+        /* --- PROFESSIONAL FULLSCREEN MENU STYLES --- */
+        .hamburger-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            z-index: 2001;
+        }
+
+        .hamburger-btn span {
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: #fff;
+            transition: 0.3s;
+        }
+
+        .pro-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--cream);
+            z-index: 2000;
+            visibility: hidden;
+            opacity: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pro-menu-content {
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+        }
+
+        .pro-close-btn {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            color: #888;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pro-nav-links {
+            margin-bottom: 50px;
+        }
+
+        .menu-item-wrap {
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .pro-link {
+            display: block;
+            font-size: 36px;
+            font-weight: 300;
+            color: #1a1a1a;
+            font-family: 'Playfair Display', serif;
+            transition: color 0.3s;
+            transform: translateY(100%);
+        }
+
+        .pro-link:hover {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .pro-menu-footer {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .pro-booking-btn {
+            display: inline-block;
+            border: 1px solid #000;
+            padding: 15px 40px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            transition: 0.3s;
+            color: #000;
+            font-weight: 600;
+        }
+
+        .pro-booking-btn:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        .pro-address {
+            font-size: 12px;
+            color: #999;
+            margin-top: 10px;
+        }
+
+        /* ============================================================
+           PAGE LOADER
+        ============================================================ */
+        #page-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 8000;
+            background: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .loader-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 6vw, 72px);
+            font-weight: 400;
+            color: #fff;
+            letter-spacing: 0.05em;
+            overflow: hidden;
+        }
+
+        .loader-text span {
+            display: inline-block;
+        }
+
+        .loader-line {
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .loader-sub {
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold-lt);
+            opacity: 0;
+        }
+
+        /* ============================================================
+           HERO SECTION — Fullscreen cinematic
+        ============================================================ */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            padding-bottom: 80px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1800&q=80') center/cover no-repeat;
+            transform-origin: center;
+            will-change: transform;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.75) 0%, rgba(10, 10, 10, 0.1) 60%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            width: 100%;
+        }
+
+        .hero-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .hero-eyebrow span {
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold-lt);
+            font-weight: 600;
+            transform: translateY(100%);
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            display: block;
+            width: 0;
+            height: 1px;
+            background: var(--gold-lt);
+            opacity: 0.7;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(52px, 8vw, 110px);
+            font-weight: 400;
+            line-height: 0.95;
+            color: #fff;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .hero-title .line {
+            display: block;
+            overflow: hidden;
+        }
+
+        .hero-title .word {
+            display: inline-block;
+            transform: translateY(110%);
+        }
+
+        .hero-title em {
+            font-style: italic;
+            color: var(--gold-lt);
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-meta p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.65);
+            max-width: 320px;
+            line-height: 1.7;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .hero-scroll-hint {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            opacity: 0;
+        }
+
+        .hero-scroll-hint span {
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            writing-mode: vertical-rl;
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 50px;
+            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.5));
+            animation: scrollPulse 2s ease infinite;
+        }
+
+        @keyframes scrollPulse {
+
+            0%,
+            100% {
+                transform: scaleY(0);
+                transform-origin: top;
+            }
+
+            50% {
+                transform: scaleY(1);
+                transform-origin: top;
+            }
+
+            51% {
+                transform-origin: bottom;
+            }
+        }
+
+        /* ============================================================
+           STORY SECTION — Large text + image split
+        ============================================================ */
+        .story-section {
+            padding: 120px 0;
+            background: var(--cream);
+            overflow: hidden;
+        }
+
+        .story-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 60px;
+        }
+
+        .section-badge::before {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .section-badge span {
+            font-size: 10px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .story-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(36px, 4vw, 56px);
+            font-weight: 400;
+            line-height: 1.15;
+            margin-bottom: 30px;
+            color: var(--dark);
+        }
+
+        .story-text h2 em {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .story-text p {
+            font-size: 15px;
+            color: var(--mid);
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .story-text .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 36px;
+            border: 1px solid var(--dark);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--dark);
+            margin-top: 20px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-text .cta-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--dark);
+            transform: translateX(-101%);
+            transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+        }
+
+        .story-text .cta-btn:hover {
+            color: #fff;
+            border-color: var(--dark);
+        }
+
+        .story-text .cta-btn:hover::before {
+            transform: translateX(0);
+        }
+
+        .story-text .cta-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .story-image-wrap {
+            position: relative;
+        }
+
+        .story-image-wrap img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            clip-path: inset(100% 0 0 0);
+        }
+
+        .story-image-accent {
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 180px;
+            height: 180px;
+            background: var(--warm);
+            border: 1px solid var(--gold-lt);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            opacity: 0;
+        }
+
+        .story-image-accent .num {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 400;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .story-image-accent .lbl {
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--mid);
+        }
+
+        /* ============================================================
+           MARQUEE STRIP
+        ============================================================ */
+        .marquee-strip {
+            background: var(--dark);
+            padding: 22px 0;
+            overflow: hidden;
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 50px;
+            white-space: nowrap;
+            animation: marqueeMove 18s linear infinite;
+        }
+
+        .marquee-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+            flex-shrink: 0;
+        }
+
+        .marquee-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--gold);
+        }
+
+        @keyframes marqueeMove {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* ============================================================
+           VALUES SECTION — Staggered cards
+        ============================================================ */
+        .values-section {
+            padding: 120px 0;
+            background: var(--warm);
+        }
+
+        .values-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .values-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: end;
+            margin-bottom: 80px;
+        }
+
+        .values-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(36px, 4.5vw, 60px);
+            font-weight: 400;
+            line-height: 1.1;
+            color: var(--dark);
+        }
+
+        .values-header p {
+            font-size: 15px;
+            color: var(--mid);
+            line-height: 1.8;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: #ddd;
+        }
+
+        .value-card {
+            background: var(--warm);
+            padding: 50px 30px;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.4s ease;
+        }
+
+        .value-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .value-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .value-card:hover {
+            background: #fff;
+        }
+
+        .value-card .icon {
+            font-size: 22px;
+            color: var(--gold);
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .value-card h3 {
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .value-card p {
+            font-size: 14px;
+            color: var(--mid);
+            line-height: 1.8;
+        }
+
+        .value-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 60px;
+            font-weight: 400;
+            color: rgba(0, 0, 0, 0.04);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        /* ============================================================
+           STATS SECTION — Dark cinematic banner
+        ============================================================ */
+        .stats-section {
+            position: relative;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .stats-bg {
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=1600&q=60') center/cover no-repeat;
+            filter: brightness(0.3);
+            transform: scale(1.05);
+        }
+
+        .stats-inner {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            padding: 70px 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        .stat-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 25%;
+            bottom: 25%;
+            width: 1px;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-icon {
+            font-size: 28px;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .stat-num {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(42px, 5vw, 68px);
+            font-weight: 400;
+            color: #fff;
+            line-height: 1;
+            margin-bottom: 14px;
+            letter-spacing: -0.01em;
+        }
+
+        .stat-num .counter {
+            display: inline-block;
+        }
+
+        .stat-unit {
+            color: var(--gold);
+            font-size: 0.6em;
+            vertical-align: super;
+            font-weight: 600;
+        }
+
+        .stat-lbl {
+            font-size: 10px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.55);
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            .stats-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-item:not(:last-child)::after {
+                display: none;
+            }
+
+            .stat-item {
+                padding: 50px 30px;
+            }
+        }
+
+        /* ============================================================
+           TEAM / PHOTO GALLERY — Full-width horizontal
+        ============================================================ */
+        .gallery-section {
+            padding: 120px 0;
+            background: var(--cream);
+            overflow: hidden;
+        }
+
+        .gallery-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .gallery-header {
+            margin-bottom: 60px;
+        }
+
+        .gallery-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(36px, 4.5vw, 60px);
+            font-weight: 400;
+            color: var(--dark);
+        }
+
+        .gallery-track-wrap {
+            overflow: hidden;
+        }
+
+        .gallery-track {
+            display: flex;
+            gap: 20px;
+            padding-bottom: 20px;
+        }
+
+        .gallery-img {
+            flex: 0 0 auto;
+            width: 380px;
+            height: 480px;
+            object-fit: cover;
+            filter: grayscale(20%);
+            transition: filter 0.5s ease, transform 0.5s ease;
+        }
+
+        .gallery-img:hover {
+            filter: grayscale(0%);
+            transform: scale(1.02);
+        }
+
+        /* ============================================================
+           QUOTE SECTION — Fullscreen dark
+        ============================================================ */
+        .quote-section {
+            padding: 180px 40px;
+            background: var(--dark);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-bg-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(100px, 18vw, 250px);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.03);
+            white-space: nowrap;
+            pointer-events: none;
+            letter-spacing: -0.02em;
+        }
+
+        .quote-section blockquote {
+            position: relative;
+            z-index: 1;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(22px, 3.5vw, 44px);
+            font-weight: 400;
+            font-style: italic;
+            color: #fff;
+            line-height: 1.5;
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
+
+        .quote-author {
+            position: relative;
+            z-index: 1;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .quote-section .quote-line {
+            width: 60px;
+            height: 1px;
+            background: var(--gold);
+            margin: 20px auto;
+        }
+
+        /* ============================================================
+           FOOTER — Dark 4-column
+        ============================================================ */
+        .site-footer {
+            background: #1a1c22;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .footer-main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 70px 40px 50px;
+            display: grid;
+            grid-template-columns: 1.2fr 1.2fr 1fr 1.4fr;
+            gap: 50px;
+        }
+
+        /* Col 1 - Brand */
+        .footer-brand .footer-logo img {
+            height: 70px;
+            margin-bottom: 20px;
+            filter: brightness(1.1);
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .footer-socials a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-socials a:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: #fff;
+        }
+
+        /* Col 2,3 headings */
+        .footer-col h4 {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 22px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-col p,
+        .footer-col address {
+            font-style: normal;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.9;
+        }
+
+        .footer-col a {
+            color: rgba(255, 255, 255, 0.65);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: #c9a96e;
+        }
+
+        /* Hours table */
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .hours-table tr td {
+            padding: 3px 0;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        .hours-table tr td:first-child {
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.85);
+            padding-right: 16px;
+            white-space: nowrap;
+        }
+
+        .hours-open {
+            color: #c9a96e !important;
+        }
+
+        /* Contact form */
+        .footer-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-form input,
+        .footer-form textarea {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px 0;
+            color: #fff;
+            font-size: 13px;
+            font-family: 'Open Sans', sans-serif;
+            outline: none;
+            width: 100%;
+            transition: border-color 0.3s;
+        }
+
+        .footer-form input::placeholder,
+        .footer-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.35);
+        }
+
+        .footer-form input:focus,
+        .footer-form textarea:focus {
+            border-bottom-color: #c9a96e;
+        }
+
+        .footer-form textarea {
+            resize: vertical;
+            min-height: 70px;
+        }
+
+        .footer-form .submit-btn {
+            margin-top: 8px;
+            padding: 12px 30px;
+            background: #c9a96e;
+            color: #fff;
+            border: none;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            cursor: pointer;
+            align-self: flex-start;
+            transition: background 0.3s;
+        }
+
+        .footer-form .submit-btn:hover {
+            background: #b8945a;
+        }
+
+        /* Bottom bar */
+        .footer-bottom {
+            background: #13151a;
+            text-align: center;
+            padding: 16px 20px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 0.5px;
+        }
+
+        .footer-bottom a {
+            color: #c9a96e;
+            text-decoration: none;
+        }
+
+        .footer-bottom span {
+            margin: 0 8px;
+            opacity: 0.3;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .footer-main {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                padding: 50px 20px 30px;
+            }
+        }
+
+        @media (max-width: 580px) {
+            .footer-main {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================================
+           RESPONSIVE
+        ============================================================ */
+        @media (max-width: 900px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            .hamburger-btn {
+                display: flex;
+            }
+
+            .desktop-nav,
+            .nav-right {
+                display: none;
+            }
+
+            .hero-content {
+                padding: 0 20px;
+            }
+
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .story-image-wrap img {
+                height: 350px;
+            }
+
+            .story-image-accent {
+                display: none;
+            }
+
+            .values-header {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stats-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stat-item {
+                border-bottom: 1px solid #ece8e0;
+            }
+
+            .gallery-img {
+                width: 260px;
+                height: 340px;
+            }
+
+            .story-inner,
+            .values-inner,
+            .gallery-inner {
+                padding: 0 20px;
+            }
+        }
+
+        @media (max-width: 580px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* ============================================================
+           LENIS
+        ============================================================ */
+        html.lenis,
+        html.lenis body {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CUSTOM CURSOR -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- PAGE LOADER -->
+    <div id="page-loader">
+        <div class="loader-text"><span>About Us</span></div>
+        <div class="loader-line" id="loaderLine"></div>
+        <div class="loader-sub" id="loaderSub">Tulip Beauty Melbourne</div>
+    </div>
+
+    <!-- =================== HEADER =================== -->
+    <header id="mainHeader">
+        <div class="hamburger-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="logo">
+            <a href="/">
+                <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/Original-Logo-without-slogan-White.png"
+                    alt="Tulip Logo">
+            </a>
+        </div>
+
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about-us/">About</a></li>
+                <li><a href="/services/">Services</a></li>
+                <li><a href="/after-care/">After Care</a></li>
+                <li><a href="/contact/">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-right">
+            <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                target="_blank">BOOKINGS</a>
+        </div>
+    </header>
+
+    <!-- MOBILE FULLSCREEN MENU -->
+    <div class="pro-menu-overlay">
+        <div class="pro-menu-content">
+            <div class="pro-close-btn">Close <span style="font-size:20px">&times;</span></div>
+            <nav class="pro-nav-links">
+                <div class="menu-item-wrap"><a href="/" class="pro-link">Home</a></div>
+                <div class="menu-item-wrap"><a href="/about-us/" class="pro-link">About</a></div>
+                <div class="menu-item-wrap"><a href="/eyelash-extensions/" class="pro-link">Services</a></div>
+                <div class="menu-item-wrap"><a href="/after-care/" class="pro-link">After Care</a></div>
+                <div class="menu-item-wrap"><a href="/contact/" class="pro-link">Contact</a></div>
+            </nav>
+            <div class="pro-menu-footer">
+                <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                    class="pro-booking-btn" target="_blank">Book Appointment</a>
+                <p class="pro-address">Tulip Beauty | 516 Macaulay Rd, Kensington VIC 3031</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg" id="heroBg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-eyebrow">
+                <span>ABOUT US</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="line"><span class="word">Your Talented</span></span>
+                <span class="line"><span class="word">Beauty <em>SPECIALISTS</em></span></span>
+            </h1>
+            <div class="hero-meta">
+                <p>Over a decade of delivering premium beauty experiences in the heart of Melbourne.</p>
+                <div class="hero-scroll-hint">
+                    <div class="scroll-line"></div>
+                    <span>Scroll</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== MARQUEE ===================== -->
+    <div class="marquee-strip">
+        <div class="marquee-track">
+            <div class="marquee-item"><span class="marquee-dot"></span> Eyelash Extensions</div>
+            <div class="marquee-item"><span class="marquee-dot"></span> Brow Shaping</div>
+            <div class="marquee-item"><span class="marquee-dot"></span> Lash Lifting</div>
+            <div class="marquee-item"><span class="marquee-dot"></span> Nail Care</div>
+            <div class="marquee-item"><span class="marquee-dot"></span> Skin Treatments</div>
+            <div class="marquee-item"><span class="marquee-dot"></span> Melbourne Since 2012</div>
+            <!-- Duplicate for seamless loop -->
+            <div class="marquee-item"><span class="marquee-dot"></span> Eyelash Extensions</div>
+            <div class="marquee-item"><span class="marquee-dot"></span> Brow Shaping</div>
+            <div class="marquee-item"><span class="marquee-dot"></span> Lash Lifting</div>
+            <div class="marquee-item"><span class="marquee-dot"></span> Nail Care</div>
+            <div class="marquee-item"><span class="marquee-dot"></span> Skin Treatments</div>
+            <div class="marquee-item"><span class="marquee-dot"></span> Melbourne Since 2012</div>
+        </div>
+    </div>
+
+    <!-- ===================== STORY ===================== -->
+    <section class="story-section">
+        <div class="story-inner">
+            <div class="section-badge"><span>TULIP BEAUTY</span></div>
+            <div class="story-grid">
+                <div class="story-text" data-reveal>
+                    <h2>LASHES. <em>BROWS. </em> ACADEMY.</h2>
+                    <p>Our beauty salon was established in 2019, and since then have endeavoured to deliver personalized
+                        and professional beauty services that help our customers achieve their beauty goals.</p>
+                    <p>Our highly qualified beauticians has over a decade of experiences between them with
+                        certifications to match, adhering to a healthy hygienic practices and fully insured for your
+                        peace of mind. Professionalism would be an understatement and we strive to impress, over and
+                        over again.</p>
+                    <p>We specialise in Eye Lash Extensions; from Classic to Russian, Cosmetic Tattoo including
+                        Microblading tattoo for Brows, Lips and Scalp, Laser Hair Removal and Waxing.</p>
+                    <p>We pride ourselves in giving you a relaxing experience and committed to perform and conduct your
+                        treatments in a safe and professional environment and of course WOW results every time for
+                        days/months to come! Are you ready to be impressed? Don’t hesitate. Book Now!</p>
+                    <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                        class="cta-btn">
+                        <span>Book Appointment</span>
+                        <span>→</span>
+                    </a>
+                </div>
+                <div class="story-image-wrap" id="storyImgWrap">
+                    <img id="storyImg" src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80"
+                        alt="Our salon interior">
+                    <div class="story-image-accent" id="storyAccent">
+                        <div class="num">12+</div>
+                        <div class="lbl">Years of Excellence</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== STATS ===================== -->
+    <section class="stats-section">
+        <div class="stats-bg"></div>
+        <div class="stats-inner">
+            <div class="stat-item">
+                <i class="fa-solid fa-users stat-icon"></i>
+                <div class="stat-num"><span class="counter" data-target="5000">0</span><span class="stat-unit">+</span>
+                </div>
+                <div class="stat-lbl">Happy Customers</div>
+            </div>
+            <div class="stat-item">
+                <i class="fa-regular fa-star stat-icon"></i>
+                <div class="stat-num"><span class="counter" data-target="12">0</span><span class="stat-unit">+</span>
+                </div>
+                <div class="stat-lbl">Years of Excellence</div>
+            </div>
+            <div class="stat-item">
+                <i class="fa-solid fa-award stat-icon"></i>
+                <div class="stat-num"><span class="counter" data-target="98">0</span><span class="stat-unit">%</span>
+                </div>
+                <div class="stat-lbl">Satisfaction Rate</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== VALUES ===================== -->
+    <section class="values-section">
+        <div class="values-inner">
+            <div class="values-header">
+                <h2>What We <em style="font-style:italic; color:var(--gold)">Stand</em> For</h2>
+                <p>Every decision we make stems from four core values that form the heart and soul of Tulip Beauty.</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card" data-reveal-card>
+                    <span class="value-number">01</span>
+                    <i class="fa-regular fa-gem icon"></i>
+                    <h3>Quality</h3>
+                    <p>We use only premium, ethically sourced and safe products — ensuring the best results every single
+                        time.</p>
+                </div>
+                <div class="value-card" data-reveal-card>
+                    <span class="value-number">02</span>
+                    <i class="fa-regular fa-heart icon"></i>
+                    <h3>Dedication</h3>
+                    <p>Every client is at the centre of what we do. We listen, understand, and personalise every
+                        treatment to suit your needs.</p>
+                </div>
+                <div class="value-card" data-reveal-card>
+                    <span class="value-number">03</span>
+                    <i class="fa-solid fa-award icon"></i>
+                    <h3>Professionalism</h3>
+                    <p>Our team is thoroughly trained and continually upskilled with the latest global trends and
+                        techniques in beauty.</p>
+                </div>
+                <div class="value-card" data-reveal-card>
+                    <span class="value-number">04</span>
+                    <i class="fa-regular fa-star icon"></i>
+                    <h3>Ambience</h3>
+                    <p>Luxurious yet warm by design — a space where you can truly unwind and reconnect with yourself.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== GALLERY ===================== -->
+    <section class="gallery-section">
+        <div class="gallery-inner">
+            <div class="gallery-header" data-reveal>
+                <div class="section-badge"><span>Our Space</span></div>
+                <h2>A Sanctuary Designed for You</h2>
+            </div>
+        </div>
+        <div class="gallery-track-wrap">
+            <div class="gallery-track" id="galleryTrack">
+                <img class="gallery-img" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80"
+                    alt="Salon 1">
+                <img class="gallery-img" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80"
+                    alt="Salon 2">
+                <img class="gallery-img" src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=600&q=80"
+                    alt="Salon 3">
+                <img class="gallery-img" src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&q=80"
+                    alt="Salon 4">
+                <img class="gallery-img" src="https://images.unsplash.com/photo-1621798917430-44e3c2a2b44e?w=600&q=80"
+                    alt="Salon 5">
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== QUOTE ===================== -->
+    <section class="quote-section">
+        <div class="quote-bg-text">LET US MAKE YOU SHINE</div>
+        <div class="section-badge" style="justify-content:center; margin-bottom:40px;">
+            <span style="color:var(--gold)">TREAT YOURSELF</span>
+        </div>
+        <blockquote data-reveal-quote>
+            "LET US MAKE YOU SHINE"
+        </blockquote>
+        <div class="quote-line"></div>
+        <div class="quote-author">Tulip Beauty</div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="site-footer">
+        <div class="footer-main">
+
+            <!-- Brand -->
+            <div class="footer-brand footer-col">
+                <div class="footer-logo">
+                    <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/Original-Logo-without-slogan-White.png"
+                        alt="Tulip Beauty Logo">
+                </div>
+                <div class="footer-socials">
+                    <a href="https://www.facebook.com/tulipbeauty.au" aria-label="Facebook" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://wa.me/+61404529787" aria-label="WhatsApp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/tulipbeauty.au/" aria-label="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Information -->
+            <div class="footer-col">
+                <h4>Information</h4>
+                <address>
+                    516 Macaulay Rd, Kensington VIC 3031<br><br>
+                    <strong style="color:rgba(255,255,255,0.9)">Email:</strong> <a
+                        href="mailto:customer-service@tulipbeauty.com.au">customer-service@tulipbeauty.com.au</a><br><br>
+                    <strong style="color:rgba(255,255,255,0.9)">Phone:</strong> <a href="tel:0404529787">0404 529 787</a>
+                </address>
+            </div>
+
+            <!-- Opening Hours -->
+            <div class="footer-col">
+                <h4>Opening Hours</h4>
+                <table class="hours-table">
+                    <tr>
+                        <td>Monday:</td>
+                        <td>10am – 4 pm</td>
+                    </tr>
+                    <tr>
+                        <td>Tue - Fri:</td>
+                        <td>10am – 6 pm</td>
+                    </tr>
+                    <tr>
+                        <td>Saturday:</td>
+                        <td>9am – 5 pm</td>
+                    </tr>
+                    <tr>
+                        <td>Sunday:</td>
+                        <td style="color:#e05555">Closed</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <p style="margin-bottom:18px;">Stay updated with our latest trends and exclusive offers.</p>
+                <form class="footer-form" onsubmit="return false;">
+                    <input type="email" placeholder="Your Email Address">
+                    <button class="submit-btn" type="submit">Subscribe</button>
+                </form>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            © Tulip Beauty 2026. <a href="/privacy-policy/">Privacy Policy</a> <span>|</span> <a href="#">Terms of Service</a>
+        </div>
+    </footer>
+
+    <!-- ===================== SCRIPTS ===================== -->
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger, TextPlugin);
+
+        /* =============================================
+           CUSTOM CURSOR
+        ============================================= */
+        const dot = document.getElementById('cursorDot');
+        const ring = document.getElementById('cursorRing');
+        let mouseX = 0, mouseY = 0;
+        let ringX = 0, ringY = 0;
+
+        window.addEventListener('mousemove', e => {
+            mouseX = e.clientX; mouseY = e.clientY;
+            gsap.to(dot, { x: mouseX, y: mouseY, duration: 0.1 });
+        });
+
+        // Ring follows with lag
+        (function animateRing() {
+            ringX += (mouseX - ringX) * 0.08;
+            ringY += (mouseY - ringY) * 0.08;
+            gsap.set(ring, { x: ringX, y: ringY });
+            requestAnimationFrame(animateRing);
+        })();
+
+        document.querySelectorAll('a, button, .value-card, .gallery-img').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                gsap.to(ring, { width: 60, height: 60, borderColor: 'var(--gold)', duration: 0.3 });
+                gsap.to(dot, { scale: 0, duration: 0.3 });
+            });
+            el.addEventListener('mouseleave', () => {
+                gsap.to(ring, { width: 36, height: 36, borderColor: 'rgba(201,169,110,0.6)', duration: 0.3 });
+                gsap.to(dot, { scale: 1, duration: 0.3 });
+            });
+        });
+
+        /* =============================================
+           PAGE LOADER
+        ============================================= */
+        const loaderTl = gsap.timeline({
+            onComplete: () => {
+                gsap.to('#page-loader', {
+                    yPercent: -100, duration: 0.8, ease: 'power3.inOut',
+                    onComplete: () => {
+                        document.getElementById('page-loader').style.display = 'none';
+                        initHeroAnim();
+                    }
+                });
+            }
+        });
+        loaderTl
+            .to('.loader-line', { width: '200px', duration: 1.2, ease: 'power2.inOut' })
+            .to('#loaderSub', { autoAlpha: 1, y: 0, duration: 0.5 }, '-=0.3')
+            .to({}, { duration: 0.4 }); // brief pause
+
+        /* =============================================
+           HERO ANIMATION (after loader)
+        ============================================= */
+        function initHeroAnim() {
+            const heroTl = gsap.timeline({ delay: 0.1 });
+            heroTl
+                .to('.hero-eyebrow span', { y: 0, duration: 0.8, ease: 'power3.out' })
+                .to('.hero-eyebrow::before', {}, '<')
+                .to('.hero-title .word', {
+                    y: 0, stagger: 0.15, duration: 1, ease: 'power3.out'
+                }, '-=0.4')
+                .to('.hero-meta p', {
+                    autoAlpha: 1, y: 0, duration: 0.7, ease: 'power2.out'
+                }, '-=0.5')
+                .to('.hero-scroll-hint', {
+                    autoAlpha: 1, duration: 0.7
+                }, '-=0.3');
+        }
+
+        /* =============================================
+           PARALLAX HERO BACKGROUND
+        ============================================= */
+        gsap.to('#heroBg', {
+            yPercent: 20,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '#hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: 1.5
+            }
+        });
+
+        /* =============================================
+           STORY IMAGE CLIP-PATH REVEAL
+        ============================================= */
+        gsap.to('#storyImg', {
+            clipPath: 'inset(0% 0 0 0)',
+            duration: 1.4,
+            ease: 'power3.inOut',
+            scrollTrigger: {
+                trigger: '#storyImgWrap',
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            }
+        });
+        gsap.to('#storyAccent', {
+            autoAlpha: 1, y: 0, duration: 0.8, delay: 0.6,
+            scrollTrigger: {
+                trigger: '#storyImgWrap',
+                start: 'top 70%'
+            }
+        });
+
+        /* =============================================
+           GENERIC REVEAL — [data-reveal]
+        ============================================= */
+        document.querySelectorAll('[data-reveal]').forEach(el => {
+            const children = el.children;
+            gsap.fromTo([...children],
+                { y: 60, autoAlpha: 0 },
+                {
+                    y: 0, autoAlpha: 1, stagger: 0.15, duration: 1,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: el, start: 'top 80%'
+                    }
+                }
+            );
+        });
+
+        /* =============================================
+           VALUE CARDS — stagger from bottom
+        ============================================= */
+        gsap.fromTo('[data-reveal-card]',
+            { y: 80, autoAlpha: 0 },
+            {
+                y: 0, autoAlpha: 1, stagger: 0.12, duration: 0.9,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.values-grid', start: 'top 75%'
+                }
+            }
+        );
+
+        /* =============================================
+           ANIMATED COUNTERS
+        ============================================= */
+        document.querySelectorAll('.counter').forEach(counter => {
+            const target = parseInt(counter.dataset.target);
+            ScrollTrigger.create({
+                trigger: counter,
+                start: 'top 85%',
+                once: true,
+                onEnter: () => {
+                    gsap.to({ val: 0 }, {
+                        val: target,
+                        duration: 2,
+                        ease: 'power2.out',
+                        onUpdate: function () {
+                            counter.textContent = Math.round(this.targets()[0].val).toLocaleString();
+                        }
+                    });
+                }
+            });
+        });
+
+        /* =============================================
+           GALLERY — drag-to-scroll horizontal
+        ============================================= */
+        const track = document.getElementById('galleryTrack');
+        let isDragging = false, startX = 0, scrollLeft = 0;
+        track.style.cursor = 'grab';
+        track.style.overflowX = 'auto'; track.style.scrollbarWidth = 'none';
+        track.addEventListener('mousedown', e => {
+            isDragging = true; startX = e.pageX - track.offsetLeft;
+            scrollLeft = track.scrollLeft; track.style.cursor = 'grabbing';
+        });
+        track.addEventListener('mouseleave', () => { isDragging = false; track.style.cursor = 'grab'; });
+        track.addEventListener('mouseup', () => { isDragging = false; track.style.cursor = 'grab'; });
+        track.addEventListener('mousemove', e => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX - track.offsetLeft;
+            track.scrollLeft = scrollLeft - (x - startX) * 1.5;
+        });
+
+        // Auto-drift with GSAP when in view
+        gsap.to(track, {
+            scrollLeft: () => track.scrollWidth - track.clientWidth,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.gallery-section',
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: 2
+            }
+        });
+
+        /* =============================================
+           QUOTE REVEAL — word by word
+        ============================================= */
+        const quoteEl = document.querySelector('[data-reveal-quote]');
+        if (quoteEl) {
+            const text = quoteEl.textContent.trim();
+            const words = text.split(' ');
+            quoteEl.innerHTML = words
+                .map(w => `<span style="display:inline-block; overflow:hidden; padding-bottom:2px"><span style="display:inline-block; transform:translateY(100%)">${w}&nbsp;</span></span>`)
+                .join('');
+
+            ScrollTrigger.create({
+                trigger: quoteEl,
+                start: 'top 75%',
+                once: true,
+                onEnter: () => {
+                    gsap.to(quoteEl.querySelectorAll('span > span'), {
+                        y: 0, stagger: 0.04, duration: 0.7, ease: 'power3.out'
+                    });
+                }
+            });
+        }
+
+        /* =============================================
+           MOBILE MENU (GSAP)
+        ============================================= */
+        const hamburgerBtn = document.querySelector('.hamburger-btn');
+        const proMenuOverlay = document.querySelector('.pro-menu-overlay');
+        const proCloseBtn = document.querySelector('.pro-close-btn');
+        const proLinks_m = document.querySelectorAll('.pro-link');
+        const proFooter_m = document.querySelector('.pro-menu-footer');
+
+        const menuTl = gsap.timeline({ paused: true, reversed: true });
+        menuTl
+            .to(proMenuOverlay, { autoAlpha: 1, duration: 0.5, ease: 'power2.inOut' })
+            .to(proLinks_m, { y: 0, stagger: 0.1, duration: 0.6, ease: 'power3.out' }, '-=0.2')
+            .to(proFooter_m, { y: 0, autoAlpha: 1, duration: 0.5 }, '-=0.4');
+
+        function toggleProMenu() {
+            menuTl.reversed() ? menuTl.play() : menuTl.reverse();
+        }
+        hamburgerBtn.addEventListener('click', toggleProMenu);
+        proCloseBtn.addEventListener('click', toggleProMenu);
+        proLinks_m.forEach(l => l.addEventListener('click', toggleProMenu));
+
+        /* =============================================
+           LENIS SMOOTH SCROLL
+        ============================================= */
+        const lenis = new Lenis({
+            duration: 1.4,
+            easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smoothWheel: true,
+        });
+        function raf(time) {
+            lenis.raf(time);
+            ScrollTrigger.update();
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+    </script>
+</body>
+
+</html>

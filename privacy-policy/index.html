@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy – Tulip Beauty | Your Data Protection</title>
+    <meta name="description" content="Discover how Tulip Beauty prioritizes your privacy and safeguards your personal information. Learn more about our commitment to data security.">
+    <link rel="canonical" href="https://tulipbeauty.com.au/privacy-policy/">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/`gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <style>
+        /* --- RESET & BASE --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #333; line-height: 1.6;
+            background-color: #fdfaf6;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* --- CUSTOM CURSOR --- */
+        .cursor-dot {
+            position: fixed; top: 0; left: 0; z-index: 9999;
+            width: 8px; height: 8px; border-radius: 50%;
+            background: #c9a96e; pointer-events: none;
+            transform: translate(-50%,-50%);
+            transition: width 0.3s, height 0.3s, background 0.3s;
+        }
+        .cursor-ring {
+            position: fixed; top: 0; left: 0; z-index: 9998;
+            width: 36px; height: 36px; border-radius: 50%;
+            border: 1px solid rgba(201,169,110,0.6);
+            pointer-events: none; transform: translate(-50%,-50%);
+        }
+
+        /* --- PAGE LOADER --- */
+        #page-loader {
+            position: fixed; inset: 0; z-index: 8000;
+            background: #1a1a1a;
+            display: flex; align-items: center; justify-content: center;
+            flex-direction: column; gap: 20px;
+        }
+        .loader-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 5vw, 60px);
+            font-weight: 400; color: #fff; letter-spacing: 0.05em;
+        }
+        .loader-line { width: 0; height: 1px; background: #c9a96e; }
+        .loader-sub {
+            font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+            color: #e8d5b0; opacity: 0;
+        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; object-fit: cover; }
+
+        /* --- HEADER --- */
+        header.site-header {
+            position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.98);
+            padding: 15px 40px; display: flex; justify-content: space-between;
+            align-items: center; z-index: 1000; border-bottom: 1px solid #f0f0f0;
+        }
+        .logo img { height: 35px; filter: brightness(0); }
+        nav ul { display: flex; gap: 25px; }
+        nav a { font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #333; }
+        nav a:hover { color: #c9a96e; }
+        .nav-right { font-size: 12px; font-weight: 600; letter-spacing: 1px; }
+        .nav-right a:hover { color: #c9a96e; }
+
+        /* --- HAMBURGER --- */
+        .hamburger-btn {
+            display: none; flex-direction: column; justify-content: center;
+            gap: 6px; width: 30px; height: 30px; cursor: pointer; z-index: 2001;
+        }
+        .hamburger-btn span { display: block; width: 100%; height: 1px; background-color: #000; transition: 0.3s; }
+
+        /* --- MOBILE / FULLSCREEN MENU --- */
+        .pro-menu-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background-color: #fcfbf8; z-index: 2000;
+            visibility: hidden; opacity: 0;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+        }
+        .pro-menu-content { text-align: center; width: 100%; max-width: 500px; padding: 20px; }
+        .pro-close-btn {
+            position: absolute; top: 30px; right: 30px;
+            font-size: 12px; text-transform: uppercase; letter-spacing: 2px;
+            cursor: pointer; color: #888; font-weight: 600;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .pro-nav-links { margin-bottom: 50px; }
+        .menu-item-wrap { overflow: hidden; margin-bottom: 15px; }
+        .pro-link {
+            display: block; font-size: 32px; font-weight: 300; color: #1a1a1a;
+            text-transform: capitalize; font-family: 'Open Sans', sans-serif;
+            transition: color 0.3s; transform: translateY(100%);
+        }
+        .pro-link:hover { color: #b78f6d; font-style: italic; }
+        .pro-menu-footer { opacity: 0; transform: translateY(20px); }
+        .pro-booking-btn {
+            display: inline-block; border: 1px solid #000; padding: 15px 40px;
+            font-size: 12px; text-transform: uppercase; letter-spacing: 2px;
+            margin-bottom: 20px; transition: 0.3s;
+        }
+        .pro-booking-btn:hover { background: #000; color: #fff; }
+        .pro-address { font-size: 12px; color: #999; margin-top: 10px; }
+
+        /* --- PAGE HERO (MINIMAL) --- */
+        .page-hero {
+            padding-top: 100px;
+            background: #1a1c22;
+            text-align: center;
+            padding-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=2126&auto=format&fit=crop') center/cover;
+            opacity: 0.08;
+        }
+        .page-hero-inner { position: relative; z-index: 1; padding: 60px 20px 40px; }
+        .page-hero .eyebrow {
+            font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+            color: #c9a96e; font-weight: 600; margin-bottom: 18px; display: block;
+        }
+        .page-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(36px, 6vw, 72px);
+            font-weight: 400; color: #fff; letter-spacing: 0.02em;
+            line-height: 1.1; margin-bottom: 20px;
+        }
+        .page-hero p {
+            color: rgba(255,255,255,0.55); font-size: 14px;
+            letter-spacing: 0.5px; max-width: 500px; margin: 0 auto;
+        }
+        .page-hero-divider {
+            width: 60px; height: 1px; background: #c9a96e;
+            margin: 28px auto 0;
+        }
+
+        /* --- POLICY CONTENT --- */
+        .policy-wrapper {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 80px 40px 100px;
+        }
+        .policy-intro {
+            font-size: 16px; color: #555; line-height: 1.9;
+            margin-bottom: 60px;
+            border-left: 3px solid #c9a96e;
+            padding-left: 24px;
+        }
+        .policy-section {
+            margin-bottom: 52px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .policy-section.active { opacity: 1; transform: translateY(0); }
+        .policy-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px; font-weight: 400; color: #1a1a1a;
+            margin-bottom: 16px; padding-bottom: 12px;
+            border-bottom: 1px solid #e8e0d5;
+            display: flex; align-items: center; gap: 12px;
+        }
+        .policy-section h2 .section-num {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 11px; letter-spacing: 2px; color: #c9a96e;
+            font-weight: 600; min-width: 30px;
+        }
+        .policy-section p {
+            font-size: 14.5px; color: #555; line-height: 1.9; margin-bottom: 14px;
+        }
+        .policy-section p:last-child { margin-bottom: 0; }
+        .policy-section ul {
+            list-style: none; padding: 0; margin: 14px 0;
+        }
+        .policy-section ul li {
+            font-size: 14.5px; color: #555; line-height: 1.9;
+            padding-left: 20px; position: relative; margin-bottom: 6px;
+        }
+        .policy-section ul li::before {
+            content: '—';
+            position: absolute; left: 0; color: #c9a96e; font-weight: 600;
+        }
+        .policy-section a { color: #c9a96e; text-decoration: underline; }
+        .policy-section a:hover { color: #b8945a; }
+
+        /* Contact block */
+        .contact-block {
+            background: #1a1c22;
+            border-radius: 4px;
+            padding: 36px 40px;
+            margin-top: 60px;
+        }
+        .contact-block p { color: rgba(255,255,255,0.65); font-size: 14px; line-height: 1.9; margin-bottom: 6px; }
+        .contact-block a { color: #c9a96e; }
+        .contact-block strong { color: rgba(255,255,255,0.9); }
+        .contact-block h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px; font-weight: 400; color: #fff;
+            margin-bottom: 20px;
+        }
+
+        /* Back to top */
+        .back-to-home {
+            display: inline-flex; align-items: center; gap: 10px;
+            font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
+            text-transform: uppercase; color: #333;
+            border: 1px solid #ddd; padding: 13px 28px;
+            transition: all 0.3s; margin-top: 50px;
+        }
+        .back-to-home:hover { border-color: #c9a96e; color: #c9a96e; }
+
+        /* --- FOOTER --- */
+        .site-footer { background: #1a1c22; color: rgba(255,255,255,0.7); font-size: 13px; line-height: 1.8; }
+        .footer-main {
+            max-width: 1200px; margin: 0 auto;
+            padding: 70px 40px 50px;
+            display: grid; grid-template-columns: 1.2fr 1.2fr 1fr 1.4fr; gap: 50px;
+        }
+        .footer-brand .footer-logo img { height: 70px; margin-bottom: 20px; filter: brightness(1.1); }
+        .footer-socials { display: flex; gap: 10px; margin-top: 20px; }
+        .footer-socials a {
+            width: 36px; height: 36px; border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 15px; color: #fff; text-decoration: none; transition: opacity 0.3s;
+        }
+        .footer-socials a:hover { opacity: 0.8; }
+        .footer-socials .s-fb  { background: #1877f2; }
+        .footer-socials .s-wa  { background: #25d366; }
+        .footer-socials .s-ig  { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+        .footer-col h4 {
+            font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+            color: #fff; font-weight: 700; margin-bottom: 22px;
+            padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .footer-col p, .footer-col address { font-style: normal; font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.9; }
+        .footer-col a { color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.3s; }
+        .footer-col a:hover { color: #c9a96e; }
+        .hours-table { width: 100%; border-collapse: collapse; }
+        .hours-table tr td { padding: 3px 0; font-size: 13px; color: rgba(255,255,255,0.65); }
+        .hours-table tr td:first-child { font-weight: 600; color: rgba(255,255,255,0.85); padding-right: 16px; white-space: nowrap; }
+        .hours-open { color: #c9a96e !important; }
+        .footer-form { display: flex; flex-direction: column; gap: 10px; }
+        .footer-form input, .footer-form textarea {
+            background: transparent; border: none;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding: 10px 0; color: #fff; font-size: 13px;
+            font-family: 'Open Sans', sans-serif; outline: none; width: 100%;
+            transition: border-color 0.3s;
+        }
+        .footer-form input::placeholder, .footer-form textarea::placeholder { color: rgba(255,255,255,0.35); }
+        .footer-form input:focus, .footer-form textarea:focus { border-bottom-color: #c9a96e; }
+        .footer-form textarea { resize: vertical; min-height: 70px; }
+        .footer-form .submit-btn {
+            margin-top: 8px; padding: 12px 30px; background: #c9a96e; color: #fff;
+            border: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+            font-weight: 700; cursor: pointer; align-self: flex-start; transition: background 0.3s;
+        }
+        .footer-form .submit-btn:hover { background: #b8945a; }
+        .footer-bottom { background: #13151a; text-align: center; padding: 16px 20px; font-size: 12px; color: rgba(255,255,255,0.4); letter-spacing: 0.5px; }
+        .footer-bottom a { color: #c9a96e; text-decoration: none; }
+        .footer-bottom span { margin: 0 8px; opacity: 0.3; }
+
+        /* --- LENIS --- */
+        html.lenis, html.lenis body { height: auto; }
+        .lenis.lenis-smooth { scroll-behavior: auto !important; }
+        .lenis.lenis-stopped { overflow: hidden; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .hamburger-btn { display: flex; }
+            .desktop-nav { display: none; }
+            header.site-header { justify-content: flex-start; gap: 20px; padding: 15px 20px; }
+            .nav-right { margin-left: auto; }
+            .policy-wrapper { padding: 60px 20px 80px; }
+            .contact-block { padding: 28px 24px; }
+            .footer-main { grid-template-columns: 1fr 1fr; gap: 40px; padding: 50px 20px 30px; }
+        }
+        @media (max-width: 580px) { .footer-main { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <!-- CUSTOM CURSOR -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- PAGE LOADER -->
+    <div id="page-loader">
+        <div class="loader-text">Privacy Policy</div>
+        <div class="loader-line" id="loaderLine"></div>
+        <div class="loader-sub" id="loaderSub">Tulip Beauty</div>
+    </div>
+
+    <!-- =================== HEADER =================== -->
+    <header class="site-header" id="mainHeader">
+        <div class="hamburger-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="logo">
+            <a href="/">
+                <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/Original-Logo-without-slogan-White.png" alt="Tulip Logo">
+            </a>
+        </div>
+
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about-us/">About</a></li>
+                <li><a href="/services/">Services</a></li>
+                <li><a href="/after-care/">After Care</a></li>
+                <li><a href="/contact/">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-right">
+            <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu" target="_blank">BOOKINGS</a>
+        </div>
+    </header>
+
+    <!-- MOBILE FULLSCREEN MENU -->
+    <div class="pro-menu-overlay">
+        <div class="pro-menu-content">
+            <div class="pro-close-btn">Close <span style="font-size:20px">&times;</span></div>
+            <nav class="pro-nav-links">
+                <div class="menu-item-wrap"><a href="/" class="pro-link">Home</a></div>
+                <div class="menu-item-wrap"><a href="/about-us/" class="pro-link">About</a></div>
+                <div class="menu-item-wrap"><a href="/services/" class="pro-link">Services</a></div>
+                <div class="menu-item-wrap"><a href="/after-care/" class="pro-link">After Care</a></div>
+                <div class="menu-item-wrap"><a href="/contact/" class="pro-link">Contact</a></div>
+            </nav>
+            <div class="pro-menu-footer">
+                <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu" class="pro-booking-btn" target="_blank">Book Appointment</a>
+                <p class="pro-address">Tulip Beauty | 516 Macaulay Rd, Kensington VIC 3031</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- =================== PAGE HERO =================== -->
+    <section class="page-hero">
+        <div class="page-hero-inner">
+            <span class="eyebrow">Legal & Transparency</span>
+            <h1>Privacy Policy</h1>
+            <p>How we collect, use, and protect your personal information.</p>
+            <div class="page-hero-divider"></div>
+        </div>
+    </section>
+
+    <!-- =================== POLICY CONTENT =================== -->
+    <main>
+        <div class="policy-wrapper">
+
+            <p class="policy-intro">
+                <strong>Tulip Beauty</strong> is committed to providing quality services to you. This policy outlines our ongoing obligations to you in respect of how we manage your personal information. We have adopted the Australian Privacy Principles (APPs) contained in the Privacy Act 1988.
+            </p>
+
+            <div class="policy-section">
+                <h2><span class="section-num">01</span> What is Personal Information?</h2>
+                <p>Personal information is information or an opinion that identifies an individual. Examples of personal information we collect include: names, addresses, email addresses and phone numbers.</p>
+                <p>This personal information may be obtained in many ways including from this website or correspondence by telephone or email.</p>
+                <p>We collect your personal information for the primary purpose of providing our services to you. We may also use your personal information for secondary purposes closely related to the primary purpose, in circumstances where you would reasonably expect such use or disclosure — for example, to send you updates about our services. You may unsubscribe from our mailing lists at any time by contacting us in writing or clicking the unsubscribe link.</p>
+                <p>A copy of the Australian Privacy Principles may be obtained from the website of The Office of the Australian Information Commissioner at <a href="http://www.aoic.gov.au" target="_blank" rel="noopener">www.aoic.gov.au</a>.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2><span class="section-num">02</span> Sensitive Information</h2>
+                <p>Sensitive information is defined in the Privacy Act to include information or opinion about such things as an individual's racial or ethnic origin, political opinions, membership of a political association, religious or philosophical beliefs, membership of a trade union or other professional body, criminal record or health information.</p>
+                <p>Sensitive information will be used by us only:</p>
+                <ul>
+                    <li>For the primary purpose for which it was obtained</li>
+                    <li>For a secondary purpose that is directly related to the primary purpose</li>
+                    <li>With your consent; or where required or authorised by law</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h2><span class="section-num">03</span> Disclosure of Personal Information</h2>
+                <p>Your personal information may be disclosed in a number of circumstances including the following:</p>
+                <ul>
+                    <li>Third parties where you consent to the use or disclosure</li>
+                    <li>Where required or authorised by law</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h2><span class="section-num">04</span> Security of Personal Information</h2>
+                <p>Your personal information is stored in a manner that reasonably protects it from misuse and loss and from unauthorised access, modification or disclosure.</p>
+                <p>When your personal information is no longer needed for the purpose for which it was obtained, we will take reasonable steps to destroy or permanently de-identify it. However, most of the personal information is or will be stored in secure client files which will be kept by us for a minimum of 7 years.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2><span class="section-num">05</span> Access to Your Personal Information</h2>
+                <p>You may access the personal information we hold about you and to update and/or correct it, subject to certain exceptions. If you wish to access your personal information, please contact us in writing by sending an email to <a href="mailto:customer-service@tulipbeauty.com.au">customer-service@tulipbeauty.com.au</a>.</p>
+                <p>Tulip Beauty will not charge any fee for your access request but may charge an administrative fee for providing a copy of your personal information.</p>
+                <p>To protect your personal information, we will require identification from you before releasing the requested information.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2><span class="section-num">06</span> Maintaining the Quality of Your Information</h2>
+                <p>It is important to us that your personal information is up to date. We will take reasonable steps to make sure that your personal information is accurate, complete and up-to-date. If you find that the information we have is not up to date or is inaccurate, please advise us as soon as practicable so we can update our records and ensure we can continue to provide quality services to you.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2><span class="section-num">07</span> Policy Updates</h2>
+                <p>This policy may change from time to time and is available on our website. We encourage you to review this page periodically to stay informed about how we are protecting your information.</p>
+            </div>
+
+            <div class="contact-block policy-section">
+                <h3>Privacy Policy Complaints &amp; Enquiries</h3>
+                <p>If you have any queries or complaints about our privacy policy, please contact us:</p>
+                <p><strong>Email:</strong> <a href="mailto:customer-service@tulipbeauty.com.au">customer-service@tulipbeauty.com.au</a></p>
+                <p><strong>Address:</strong> 516 Macaulay Rd, Kensington VIC 3031, Australia</p>
+                <p><strong>Phone:</strong> <a href="tel:0404529787">0404 529 787</a></p>
+            </div>
+
+            <a href="../" class="back-to-home">← Back to Home</a>
+
+        </div>
+    </main>
+
+    <!-- =================== FOOTER =================== -->
+    <footer class="site-footer">
+        <div class="footer-main">
+            <div class="footer-brand footer-col">
+                <div class="footer-logo">
+                    <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/Original-Logo-without-slogan-White.png" alt="Tulip Beauty Logo">
+                </div>
+                <div class="footer-socials">
+                    <a href="https://www.facebook.com/tulipbeauty.au" class="s-fb" aria-label="Facebook" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://wa.me/+61404529787" class="s-wa" aria-label="WhatsApp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/tulipbeauty.au/" class="s-ig" aria-label="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Information</h4>
+                <address>
+                    516 Macaulay Rd, Kensington VIC 3031<br><br>
+                    <strong style="color:rgba(255,255,255,0.85)">Email:</strong> <a href="mailto:customer-service@tulipbeauty.com.au">customer-service@tulipbeauty.com.au</a><br><br>
+                    <strong style="color:rgba(255,255,255,0.85)">Call us now:</strong> <a href="tel:0404529787">0404 529 787</a>
+                </address>
+            </div>
+            <div class="footer-col">
+                <h4>Opening Hours</h4>
+                <table class="hours-table">
+                    <tr><td>Monday:</td><td>10am – 4 pm</td></tr>
+                    <tr><td>Tuesday:</td><td class="hours-open">10am – 6 pm</td></tr>
+                    <tr><td>Wednesday:</td><td class="hours-open">10am – 6 pm</td></tr>
+                    <tr><td>Thursday:</td><td class="hours-open">10am – 6 pm</td></tr>
+                    <tr><td>Friday:</td><td class="hours-open">10am – 6 pm</td></tr>
+                    <tr><td>Saturday:</td><td>9am – 5 pm</td></tr>
+                    <tr><td>Sunday:</td><td style="color:#e05555">Closed</td></tr>
+                </table>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <p style="margin-bottom:18px;">Let us know how we can help with your beauty needs.</p>
+                <form class="footer-form" onsubmit="return false;">
+                    <input type="text" placeholder="Name">
+                    <input type="email" placeholder="Email Address">
+                    <input type="tel" placeholder="Contact Number">
+                    <textarea placeholder="Enquiry"></textarea>
+                    <button class="submit-btn" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; Tulip Beauty 2026. <a href="#">All Rights Reserved</a><span>|</span>Created by <a href="https://creosolutions.com.au" target="_blank">Creo Solutions</a>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+
+    <script>
+        gsap.registerPlugin(Draggable);
+
+        /* ---- CUSTOM CURSOR ---- */
+        const _dot  = document.getElementById('cursorDot');
+        const _ring = document.getElementById('cursorRing');
+        let _mx = 0, _my = 0, _rx = 0, _ry = 0;
+        window.addEventListener('mousemove', e => {
+            _mx = e.clientX; _my = e.clientY;
+            gsap.to(_dot, { x: _mx, y: _my, duration: 0.1 });
+        });
+        (function _animRing() {
+            _rx += (_mx - _rx) * 0.08; _ry += (_my - _ry) * 0.08;
+            gsap.set(_ring, { x: _rx, y: _ry });
+            requestAnimationFrame(_animRing);
+        })();
+        document.querySelectorAll('a, button, .back-to-home').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                gsap.to(_ring, { width: 60, height: 60, borderColor: '#c9a96e', duration: 0.3 });
+                gsap.to(_dot, { scale: 0, duration: 0.3 });
+            });
+            el.addEventListener('mouseleave', () => {
+                gsap.to(_ring, { width: 36, height: 36, borderColor: 'rgba(201,169,110,0.6)', duration: 0.3 });
+                gsap.to(_dot, { scale: 1, duration: 0.3 });
+            });
+        });
+
+        /* ---- PAGE LOADER ---- */
+        const _loaderTl = gsap.timeline({
+            onComplete: () => {
+                gsap.to('#page-loader', {
+                    yPercent: -100, duration: 0.8, ease: 'power3.inOut',
+                    onComplete: () => document.getElementById('page-loader').style.display = 'none'
+                });
+            }
+        });
+        _loaderTl
+            .to('#loaderLine', { width: '180px', duration: 1.1, ease: 'power2.inOut' })
+            .to('#loaderSub',  { autoAlpha: 1, duration: 0.5 }, '-=0.3')
+            .to({}, { duration: 0.4 });
+
+        /* ---- MOBILE MENU ---- */
+        const hamburgerBtn   = document.querySelector('.hamburger-btn');
+        const proMenuOverlay = document.querySelector('.pro-menu-overlay');
+        const proCloseBtn    = document.querySelector('.pro-close-btn');
+        const proLinks       = document.querySelectorAll('.pro-link');
+        const proFooter      = document.querySelector('.pro-menu-footer');
+
+        const menuTl = gsap.timeline({ paused: true, reversed: true });
+        menuTl
+            .to(proMenuOverlay, { autoAlpha: 1, duration: 0.5, ease: 'power2.inOut' })
+            .to(proLinks, { y: 0, stagger: 0.1, duration: 0.6, ease: 'power3.out' }, '-=0.2')
+            .to(proFooter, { y: 0, autoAlpha: 1, duration: 0.5 }, '-=0.4');
+
+        function toggleProMenu() {
+            menuTl.reversed() ? menuTl.play() : menuTl.reverse();
+        }
+        hamburgerBtn.addEventListener('click', toggleProMenu);
+        proCloseBtn.addEventListener('click', toggleProMenu);
+        proLinks.forEach(l => l.addEventListener('click', toggleProMenu));
+
+        /* ---- LENIS ---- */
+        const lenis = new Lenis({ duration: 1.5, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true });
+        (function raf(time) { lenis.raf(time); requestAnimationFrame(raf); })(0);
+
+        /* ---- SCROLL REVEAL ---- */
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.policy-section').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

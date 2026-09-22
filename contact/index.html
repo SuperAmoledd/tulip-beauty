@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tulip Beauty Spa & Nail Salon - Relax & Rejuvenate</title>
+    <title>Contact - Tulip Beauty Spa & Nail Salon</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -13,8 +13,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
 
     <style>
         /* --- RESET & COLOR TOKENS --- */
@@ -372,370 +372,266 @@
             transform: translateX(5px);
         }
 
-        /* --- HERO SECTION --- */
-        .hero {
-            height: 100vh;
+        /* --- PAGE HERO --- */
+        .page-hero {
+            height: 60vh;
+            min-height: 400px;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
             text-align: center;
             color: #fff;
-        }
-
-        .hero-bg-wrap {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 120%;
-            /* Extra height for parallax */
-            z-index: 0;
             overflow: hidden;
         }
 
-        .hero-bg-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transform: scale(1.05);
-            /* Slight initial zoom */
-            filter: brightness(0.65);
-            /* Overlay dark to pop text */
-        }
-
-        .hero-overlay {
+        .page-hero-bg {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.6) 100%);
-            z-index: 1;
+            z-index: 0;
         }
 
-        .hero-content {
+        .page-hero-bg img {
+            width: 100%;
+            height: 120%;
+            object-fit: cover;
+            filter: brightness(0.5);
+        }
+
+        .page-hero-content {
             position: relative;
             z-index: 2;
-            padding: 0 40px;
-            width: 100%;
-            max-width: 1000px;
+            padding: 0 20px;
         }
 
-        .hero-title-wrap {
-            overflow: hidden;
+        .page-hero-content h1 {
+            font-size: clamp(40px, 6vw, 80px);
+            color: #fff;
             margin-bottom: 20px;
-        }
-
-        .hero-content h1 {
-            font-size: clamp(50px, 8vw, 110px);
-            line-height: 1.1;
-            color: #fff;
-            letter-spacing: 0.02em;
-            transform: translateY(120%);
-        }
-
-        .hero-content p {
-            font-size: clamp(14px, 2vw, 18px);
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 300;
-            max-width: 600px;
-            margin: 0 auto 40px;
-            letter-spacing: 1px;
-            line-height: 1.8;
+            transform: translateY(50px);
             opacity: 0;
-            transform: translateY(30px);
         }
 
-        .hero .cta-btn {
-            border-color: rgba(255, 255, 255, 0.6);
-            color: #fff;
+        .page-hero-content .sub-title {
+            transform: translateY(30px);
             opacity: 0;
-            transform: translateY(30px);
         }
 
-        .hero .cta-btn::before {
-            background: #fff;
-        }
-
-        .hero .cta-btn:hover {
-            color: #111;
-        }
-
-        /* --- PHILOSOPHY (ABOUT) SECTION --- */
-        .philosophy-sec {
-            padding: 150px 5vw;
-            background: var(--c-bg);
+        /* --- CONTACT SECTION --- */
+        .contact-sec {
+            padding: 120px 5vw;
+            max-width: 1400px;
+            margin: 0 auto;
             position: relative;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: stretch;
+        }
+
+        .contact-info h2 {
+            font-size: clamp(32px, 4vw, 50px);
+            margin-bottom: 40px;
+            line-height: 1.2;
+        }
+
+        .location-card {
+            background: #fff;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
+            margin-bottom: 30px;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            transition: transform 0.4s;
+        }
+
+        .location-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+        }
+
+        .location-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: var(--c-gold);
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 80px;
-            max-width: 1600px;
-            margin: 0 auto;
+            gap: 15px;
         }
 
-        .philo-text {
-            flex: 0 0 40%;
+        .location-title i {
+            font-size: 18px;
         }
 
-        .philo-text h2 {
-            font-size: clamp(40px, 4vw, 70px);
-            line-height: 1.2;
-            margin-bottom: 30px;
-            letter-spacing: -0.01em;
-        }
-
-        .philo-text p {
-            font-size: 16px;
-            color: #555;
+        .location-desc {
+            font-size: 15px;
+            color: #666;
             margin-bottom: 20px;
-            line-height: 2;
+            line-height: 1.8;
             font-weight: 300;
         }
 
-        .philo-images {
-            flex: 1;
-            position: relative;
-            height: 800px;
-            width: 100%;
+        .location-details {
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            margin-top: 20px;
         }
 
-        .img-parallax-1,
-        .img-parallax-2 {
-            position: absolute;
-            overflow: hidden;
-        }
-
-        .img-parallax-1 {
-            width: 60%;
-            height: 80%;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            border-radius: 200px 200px 0 0;
-        }
-
-        .img-parallax-2 {
-            width: 45%;
-            height: 60%;
-            bottom: 0;
-            right: 0;
-            z-index: 2;
-            box-shadow: -20px 20px 50px rgba(0, 0, 0, 0.1);
-        }
-
-        .img-parallax-1 img,
-        .img-parallax-2 img {
-            width: 100%;
-            height: 120%;
-            /* extra height for true parallax scrolling within container */
-            object-fit: cover;
-        }
-
-        /* --- HORIZONTAL PORTFOLIO/SERVICES --- */
-        .h-scroll-wrap {
-            overflow: hidden;
-            background: var(--c-dark);
-            color: #fff;
-            padding-top: 100px;
-            position: relative;
-        }
-
-        .h-scroll-header {
-            padding: 0 5vw;
-            margin-bottom: 50px;
-        }
-
-        .h-scroll-header h2 {
-            color: #fff;
-            font-size: clamp(50px, 5vw, 80px);
-        }
-
-        .h-scroll-container {
+        .detail-item {
             display: flex;
-            flex-wrap: nowrap;
-            padding-bottom: 150px;
-            padding-left: 5vw;
-            padding-right: 5vw;
-            gap: 60px;
+            gap: 15px;
+            margin-bottom: 15px;
+            align-items: flex-start;
         }
 
-        .h-item {
-            flex: 0 0 450px;
-            height: 600px;
-            position: relative;
+        .detail-item i {
+            color: var(--c-gold);
+            margin-top: 5px;
+            width: 15px;
+        }
+
+        .detail-item p {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .detail-item a {
+            color: var(--c-text);
+            transition: color 0.3s;
+            font-weight: 600;
+            border-bottom: 1px solid transparent;
+        }
+
+        .detail-item a:hover {
+            color: var(--c-gold);
+            border-color: var(--c-gold);
+        }
+
+        .detail-item em {
+            color: #888;
+            font-size: 13px;
+            display: block;
+            margin-top: 3px;
+        }
+
+        /* --- CONTACT FORM --- */
+        .contact-form-wrap {
+            background: var(--c-dark);
+            padding: 70px 60px;
+            border-radius: 12px;
+            color: #fff;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
-            padding: 40px;
-            overflow: hidden;
+            justify-content: center;
         }
 
-        .h-item-img {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-        }
-
-        .h-item-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(0.7);
-            transition: transform 0.8s ease;
-        }
-
-        .h-item:hover .h-item-img img {
-            transform: scale(1.05);
-            filter: brightness(0.85);
-        }
-
-        .h-item-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .h-item h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            font-weight: 400;
+        .contact-form-wrap .sub-title {
+            color: var(--c-gold);
             margin-bottom: 10px;
         }
 
-        .h-item p {
-            font-size: 14px;
-            opacity: 0.8;
-            margin-bottom: 25px;
-            line-height: 1.6;
-            font-weight: 300;
+        .contact-form-wrap h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 400;
+            margin-bottom: 40px;
+            color: #fff;
         }
 
-        .h-item .cta-btn {
+        .c-form .form-group {
+            position: relative;
+            margin-bottom: 35px;
+        }
+
+        .c-form input,
+        .c-form textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px 0;
+            color: #fff;
+            font-size: 15px;
+            font-family: 'Open Sans', sans-serif;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .c-form textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        .c-form label {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 15px;
+            transition: 0.3s;
+            pointer-events: none;
+        }
+
+        .c-form input:focus~label,
+        .c-form input:valid~label,
+        .c-form textarea:focus~label,
+        .c-form textarea:valid~label {
+            top: -20px;
+            font-size: 11px;
+            color: var(--c-gold);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .c-form input:focus,
+        .c-form textarea:focus {
+            border-bottom-color: var(--c-gold);
+        }
+
+        .c-form .cta-btn {
             border-color: rgba(255, 255, 255, 0.4);
             color: #fff;
-            padding: 12px 25px;
-            font-size: 10px;
-        }
-
-        .h-item .cta-btn::before {
-            background: #fff;
-        }
-
-        .h-item .cta-btn:hover {
-            color: #111;
-        }
-
-        /* --- INFINITE MARQUEE GALLERY --- */
-        .marquee-section {
-            padding: 120px 0;
-            background: var(--c-bg);
-            overflow: hidden;
-        }
-
-        .marquee-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .marquee-wrapper {
+            margin-top: 10px;
+            width: 100%;
             display: flex;
-            width: max-content;
-            animation: marquee 30s linear infinite;
+            justify-content: space-between;
         }
 
-        .marquee-wrapper:hover {
-            animation-play-state: paused;
+        .c-form .cta-btn::before {
+            background: var(--c-gold);
         }
 
-        .marquee-item {
-            width: 350px;
-            height: 450px;
-            margin: 0 15px;
-            overflow: hidden;
-            border-radius: 8px;
+        .c-form .cta-btn:hover {
+            border-color: var(--c-gold);
+            color: #fff;
+        }
+
+        /* --- MAP SECTION --- */
+        .map-section {
+            width: 100%;
+            height: 500px;
+            background: #eee;
             position: relative;
         }
 
-        .marquee-item img {
+        #map {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s;
         }
 
-        .marquee-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .marquee-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.3);
-            opacity: 0;
-            transition: opacity 0.4s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 24px;
-        }
-
-        .marquee-item:hover .marquee-overlay {
-            opacity: 1;
-        }
-
-        @keyframes marquee {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        /* --- BANNER CTA --- */
-        .banner {
-            padding: 150px 20px;
-            text-align: center;
-            background-image: linear-gradient(rgba(252, 251, 248, 0.9), rgba(252, 251, 248, 0.9)), url('https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=2670&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            border-top: 1px solid #eaeaea;
-        }
-
-        .banner h2 {
-            font-size: clamp(40px, 5vw, 60px);
-            margin-bottom: 30px;
-        }
-
-        .banner p {
-            max-width: 600px;
-            margin: 0 auto 40px;
-            color: #555;
-        }
-
-
-        /* --- RESPONSIVE --- */
         @media (max-width: 1024px) {
-            .philosophy-sec {
-                flex-direction: column;
-                gap: 60px;
-                padding: 100px 5vw;
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
             }
 
-            .philo-text,
-            .philo-images {
-                width: 100%;
-            }
-
-            .philo-images {
-                height: 600px;
-            }
-
-            .h-item {
-                flex: 0 0 350px;
-                height: 500px;
+            .contact-form-wrap {
+                padding: 50px 30px;
             }
 
             .hamburger-btn {
@@ -752,52 +648,13 @@
                 padding: 15px 20px;
             }
 
-            .header.scrolled {
+            header.scrolled {
                 padding: 15px 20px;
             }
 
             .nav-right {
                 margin-left: auto;
             }
-        }
-
-        @media (max-width: 768px) {
-            .marquee-item {
-                width: 250px;
-                height: 350px;
-            }
-
-            .h-item {
-                flex: 0 0 300px;
-                height: 450px;
-                padding: 25px;
-            }
-
-            .philo-images {
-                height: 400px;
-            }
-        }
-
-        /* --- LENIS SMOOTH SCROLL --- */
-        html.lenis,
-        html.lenis body {
-            height: auto;
-        }
-
-        .lenis.lenis-smooth {
-            scroll-behavior: auto !important;
-        }
-
-        .lenis.lenis-smooth [data-lenis-prevent] {
-            overscroll-behavior: contain;
-        }
-
-        .lenis.lenis-stopped {
-            overflow: hidden;
-        }
-
-        .lenis.lenis-scrolling iframe {
-            pointer-events: none;
         }
 
         /* ============================================================
@@ -999,9 +856,9 @@
 
     <!-- PAGE LOADER -->
     <div id="page-loader">
-        <div class="loader-text">Tulip Beauty Spa</div>
+        <div class="loader-text">Contact Us</div>
         <div class="loader-line" id="loaderLine"></div>
-        <div class="loader-sub" id="loaderSub">Melbourne</div>
+        <div class="loader-sub" id="loaderSub">Let's Connect</div>
     </div>
 
     <!-- HEADER -->
@@ -1056,196 +913,105 @@
 
     <!-- MAIN CONTENT START -->
     <main>
-        <!-- HERO -->
-        <section class="hero">
-            <div class="hero-bg-wrap">
-                <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=2670&auto=format&fit=crop"
-                    class="hero-bg-img" alt="Luxury Spa">
+
+        <!-- PAGE HERO -->
+        <section class="page-hero">
+            <div class="page-hero-bg">
+                <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2670&auto=format&fit=crop"
+                    class="hero-parallax-img" alt="Contact Us">
             </div>
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <div class="sub-title" style="color: #fff; margin-bottom: 20px;">Welcome to Tulip Beauty Spa</div>
-                <div class="hero-title-wrap">
-                    <h1 id="heroTitle">Relax, Refresh<br><i>& Rejuvenate</i></h1>
-                </div>
-                <p id="heroDesc">A sanctuary that celebrates your natural beauty. Experience five-star beauty and
-                    wellness treatments with our expert nail artists and therapists.</p>
-                <a href="https://www.fresha.com/vi/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
-                    class="cta-btn" id="heroBtn">
-                    Discover More <span class="cta-arrow">→</span>
-                </a>
+            <div class="page-hero-content">
+                <div class="sub-title">We'd Love to Hear From You</div>
+                <h1 id="heroTitle">Get in Touch</h1>
             </div>
         </section>
 
-        <!-- PHILOSOPHY / ABOUT -->
-        <section class="philosophy-sec">
-            <div class="philo-text">
-                <div class="sub-title">Our Philosophy</div>
-                <h2>The Art of<br>Minimalist Beauty.</h2>
-                <p>We focus on the core wellbeing of your body and nails. Using premium products and personalised
-                    techniques, every treatment goes beyond aesthetics — creating a space for true restoration and
-                    healing.</p>
-                <p>From intricate, artisan nail designs to soothing spa therapies, Tulip Beauty Spa invites you to step
-                    into a world that is truly set apart.</p>
-                <br>
-                <a href="/about-us/" class="cta-btn">
-                    Read Our Story <span class="cta-arrow">→</span>
-                </a>
-            </div>
-            <div class="philo-images">
-                <div class="img-parallax-1">
-                    <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?q=80&w=2000&auto=format&fit=crop"
-                        alt="Spa Procedure">
-                </div>
-                <div class="img-parallax-2">
-                    <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/beautiful-woman-face-close-up-portrait-happy-studio-on-white-1024x789.jpg"
-                        alt="Nail Art Display">
-                </div>
-            </div>
-        </section>
+        <!-- CONTACT SECTION -->
+        <section class="contact-sec">
+            <div class="contact-grid">
 
-        <!-- HORIZONTAL SCROLL SERVICES -->
-        <section class="h-scroll-wrap" id="servicesSection">
-            <div class="h-scroll-header">
-                <div class="sub-title">Premium Treatments</div>
-                <h2>Our Services</h2>
-            </div>
+                <div class="contact-info">
+                    <div class="sub-title">Locate Us</div>
+                    <h2>Our Sanctuaries</h2>
 
-            <div class="h-scroll-container">
+                    <div class="location-card">
+                        <div class="location-title">
+                            <i class="fa-solid fa-location-dot"></i> Tulip Beauty
+                        </div>
+                        <p class="location-desc">516 Macaulay Rd, Kensington VIC 3031</p>
 
-                <div class="h-item">
-                    <div class="h-item-img">
-                        <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=2669&auto=format&fit=crop"
-                            alt="Nail Art">
+                        <div class="location-details">
+                            <div class="detail-item">
+                                <i class="fa-solid fa-clock"></i>
+                                <div>
+                                    <p>Mon: 10:00 am - 4:00 pm</p>
+                                    <p>Tue - Fri: 10:00 am - 6:00 pm</p>
+                                    <p>Sat: 9:00 am - 5:00 pm</p>
+                                    <p>Sun: Closed</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fa-solid fa-phone"></i>
+                                <div>
+                                    <p><a href="tel:0404529787">0404 529 787</a></p>
+                                    <em>Please leave a text during busy hours.</em>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fa-solid fa-envelope"></i>
+                                <div>
+                                    <p><a
+                                            href="mailto:customer-service@tulipbeauty.com.au">customer-service@tulipbeauty.com.au</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="h-item-content">
-                        <h3>Nail Art & Care</h3>
-                        <p>From relaxing classic manicures and pedicures to intricate powder, gel, and artistic floral
-                            nail designs crafted by professionals.</p>
-                        <a href="#" class="cta-btn">Explore <span class="cta-arrow">→</span></a>
-                    </div>
+
                 </div>
 
-                <div class="h-item">
-                    <div class="h-item-img">
-                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2670&auto=format&fit=crop"
-                            alt="Spa & Massage">
-                    </div>
-                    <div class="h-item-content">
-                        <h3>Spa Massage</h3>
-                        <p>Therapeutic acupressure and relaxation massage targeting neck, shoulders and muscle tension —
-                            restoring circulation and melting away fatigue.</p>
-                        <a href="#" class="cta-btn">Explore <span class="cta-arrow">→</span></a>
-                    </div>
-                </div>
+                <div class="contact-form-wrap">
+                    <div class="sub-title">Send a Message</div>
+                    <h3>How Can We Help You?</h3>
 
-                <div class="h-item">
-                    <div class="h-item-img">
-                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=2670&auto=format&fit=crop"
-                            alt="Facial">
-                    </div>
-                    <div class="h-item-content">
-                        <h3>Facial Care</h3>
-                        <p>Revitalise your skin with premium natural products, deep pore cleansing, and intensive
-                            hydration that leaves your complexion radiant and supple.</p>
-                        <a href="#" class="cta-btn">Explore <span class="cta-arrow">→</span></a>
-                    </div>
-                </div>
-
-                <div class="h-item">
-                    <div class="h-item-img">
-                        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=2670&auto=format&fit=crop"
-                            alt="Lashes">
-                    </div>
-                    <div class="h-item-content">
-                        <h3>Eyelashes & Brows</h3>
-                        <p>Precision brow sculpting and ultra-lightweight lash extensions — delivering a naturally
-                            captivating look that's effortlessly elegant.</p>
-                        <a href="#" class="cta-btn">Explore <span class="cta-arrow">→</span></a>
-                    </div>
+                    <form class="c-form" onsubmit="return false;">
+                        <div class="form-group">
+                            <input type="text" id="fname" required>
+                            <label for="fname">Full Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="femail" required>
+                            <label for="femail">Email Address</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="fphone" required>
+                            <label for="fphone">Phone Number</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="fmessage" required></textarea>
+                            <label for="fmessage">Your Message</label>
+                        </div>
+                        <button class="cta-btn" type="submit">
+                            Send Message <span class="cta-arrow">→</span>
+                        </button>
+                    </form>
                 </div>
 
             </div>
         </section>
 
-        <!-- INFINITE MARQUEE GALLERY -->
-        <section class="marquee-section">
-            <div class="marquee-header">
-                <div class="sub-title">Glimpse of Perfection</div>
-                <h2>The Tulip Beauty Spa Gallery</h2>
-            </div>
-            <div class="marquee-wrapper">
-                <!-- Set 1 -->
-                <div class="marquee-item"><img
-                        src="https://images.unsplash.com/photo-1632516428751-bb386348ef53?q=80&w=800&auto=format&fit=crop"
-                        alt="Nail">
-                    <div class="marquee-overlay"><i class="fa-brands fa-instagram"></i></div>
-                </div>
-                <div class="marquee-item"><img
-                        src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?q=80&w=800&auto=format&fit=crop"
-                        alt="Spa">
-                    <div class="marquee-overlay"><i class="fa-brands fa-instagram"></i></div>
-                </div>
-                <div class="marquee-item"><img
-                        src="https://images.unsplash.com/photo-1522771730846-57324c4dc8c9?q=80&w=800&auto=format&fit=crop"
-                        alt="Nail Polish">
-                    <div class="marquee-overlay"><i class="fa-brands fa-instagram"></i></div>
-                </div>
-                <div class="marquee-item"><img
-                        src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=800&auto=format&fit=crop"
-                        alt="Nail Art">
-                    <div class="marquee-overlay"><i class="fa-brands fa-instagram"></i></div>
-                </div>
-                <div class="marquee-item"><img
-                        src="https://images.unsplash.com/photo-1552693673-1bf958298935?q=80&w=800&auto=format&fit=crop"
-                        alt="Massage">
-                    <div class="marquee-overlay"><i class="fa-brands fa-instagram"></i></div>
-                </div>
-
-                <!-- Duplicate for infinite seamless scroll -->
-                <div class="marquee-item"><img
-                        src="https://images.unsplash.com/photo-1632516428751-bb386348ef53?q=80&w=800&auto=format&fit=crop"
-                        alt="Nail">
-                    <div class="marquee-overlay"><i class="fa-brands fa-instagram"></i></div>
-                </div>
-                <div class="marquee-item"><img
-                        src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?q=80&w=800&auto=format&fit=crop"
-                        alt="Spa">
-                    <div class="marquee-overlay"><i class="fa-brands fa-instagram"></i></div>
-                </div>
-                <div class="marquee-item"><img
-                        src="https://images.unsplash.com/photo-1522771730846-57324c4dc8c9?q=80&w=800&auto=format&fit=crop"
-                        alt="Nail Polish">
-                    <div class="marquee-overlay"><i class="fa-brands fa-instagram"></i></div>
-                </div>
-                <div class="marquee-item"><img
-                        src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=800&auto=format&fit=crop"
-                        alt="Nail Art">
-                    <div class="marquee-overlay"><i class="fa-brands fa-instagram"></i></div>
-                </div>
-                <div class="marquee-item"><img
-                        src="https://images.unsplash.com/photo-1552693673-1bf958298935?q=80&w=800&auto=format&fit=crop"
-                        alt="Massage">
-                    <div class="marquee-overlay"><i class="fa-brands fa-instagram"></i></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- BOTTOM BANNER -->
-        <section class="banner">
-            <div class="sub-title">Your Moment</div>
-            <h2>Ready to Glow?</h2>
-            <p>Let us take care of every detail, from head to toe. Book today and treat yourself to the ultimate
-                relaxation experience.</p>
-            <a href="https://www.fresha.com/vi/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
-                class="cta-btn" style="border-color:#111;">
-                Book an Appointment <span class="cta-arrow">→</span>
-            </a>
+        <!-- MAP SECTION -->
+        <section class="map-section">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.8!2d144.9270!3d-37.7944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d15f0bba6e1%3A0x4d5dbb5e7bff9f1c!2s516%20Macaulay%20Rd%2C%20Kensington%20VIC%203031%2C%20Australia!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade" title="Tulip Beauty Location">
+            </iframe>
         </section>
 
     </main>
-    <!-- MAIN CONTENT END -->
 
+    <!-- FOOTER -->
     <footer class="site-footer">
         <div class="footer-main">
             <div class="footer-brand footer-col">
@@ -1308,7 +1074,7 @@
     <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
 
     <script>
-        gsap.registerPlugin(Draggable, ScrollTrigger);
+        gsap.registerPlugin(ScrollTrigger);
 
         /* ---- CUSTOM CURSOR ---- */
         const _dot = document.getElementById('cursorDot');
@@ -1323,7 +1089,7 @@
             gsap.set(_ring, { x: _rx, y: _ry });
             requestAnimationFrame(_animRing);
         })();
-        document.querySelectorAll('a, button, .cta-btn, .h-item, .marquee-item').forEach(el => {
+        document.querySelectorAll('a, button, .cta-btn, .location-card').forEach(el => {
             el.addEventListener('mouseenter', () => {
                 gsap.to(_ring, { width: 60, height: 60, borderColor: '#c9a96e', duration: 0.3 });
                 gsap.to(_dot, { scale: 0, duration: 0.3 });
@@ -1341,7 +1107,7 @@
                     yPercent: -100, duration: 1, ease: 'power4.inOut',
                     onComplete: () => {
                         document.getElementById('page-loader').style.display = 'none';
-                        initHeroAnimations();
+                        initHero();
                     }
                 });
             }
@@ -1350,6 +1116,11 @@
             .to('#loaderLine', { width: '180px', duration: 1.1, ease: 'power2.inOut' })
             .to('#loaderSub', { autoAlpha: 1, duration: 0.5 }, '-=0.3')
             .to({}, { duration: 0.2 });
+
+        function initHero() {
+            gsap.to('.page-hero-content .sub-title', { y: 0, opacity: 1, duration: 1, ease: 'power3.out' });
+            gsap.to('#heroTitle', { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: 0.2 });
+        }
 
         /* ---- HEADER SCROLL ---- */
         const header = document.getElementById('mainHeader');
@@ -1389,76 +1160,37 @@
         });
 
         lenis.on('scroll', ScrollTrigger.update);
-
-        gsap.ticker.add((time) => {
-            lenis.raf(time * 1000);
-        });
+        gsap.ticker.add((time) => { lenis.raf(time * 1000); });
         gsap.ticker.lagSmoothing(0);
 
         /* ---- GSAP ANIMATIONS ---- */
-
-        function initHeroAnimations() {
-            const tl = gsap.timeline();
-            tl.to('.hero-bg-img', { scale: 1, duration: 2, ease: 'power3.out' })
-                .to('#heroTitle', { y: '0%', duration: 1.2, ease: 'power4.out' }, '-=1.5')
-                .to('#heroDesc', { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }, '-=0.8')
-                .to('#heroBtn', { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }, '-=0.7');
-        }
-
-        // Hero Parallax on Scroll
-        gsap.to('.hero-bg-img', {
+        gsap.to('.hero-parallax-img', {
             yPercent: 30,
             ease: "none",
             scrollTrigger: {
-                trigger: '.hero',
+                trigger: '.page-hero',
                 start: 'top top',
                 end: 'bottom top',
                 scrub: true
             }
         });
 
-        // Philosophy Images Parallax
-        gsap.to('.img-parallax-1 img', {
-            yPercent: -20,
-            ease: "none",
+        gsap.from('.location-card', {
+            y: 50, opacity: 0, duration: 1, stagger: 0.2,
             scrollTrigger: {
-                trigger: '.philosophy-sec',
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: true
-            }
-        });
-        gsap.to('.img-parallax-2 img', {
-            yPercent: 20,
-            ease: "none",
-            scrollTrigger: {
-                trigger: '.philosophy-sec',
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: true
+                trigger: '.contact-grid',
+                start: 'top 80%'
             }
         });
 
-        // Horizontal Scroll Services
-        const hContainer = document.querySelector('.h-scroll-container');
-        if (hContainer && window.innerWidth > 1024) {
-            let containerWidth = hContainer.scrollWidth;
-            let viewportWidth = window.innerWidth;
-            let scrollDistance = containerWidth - viewportWidth + 100; // 100px buffer
+        gsap.from('.contact-form-wrap', {
+            x: 50, opacity: 0, duration: 1,
+            scrollTrigger: {
+                trigger: '.contact-grid',
+                start: 'top 80%'
+            }
+        });
 
-            gsap.to(hContainer, {
-                x: -scrollDistance,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: '.h-scroll-wrap',
-                    start: "top top",
-                    end: "+=" + scrollDistance, // Scroll length correlates to visual length
-                    pin: true,
-                    scrub: 1,
-                    anticipatePin: 1
-                }
-            });
-        }
 
     </script>
 </body>

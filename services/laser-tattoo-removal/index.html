@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laser Tattoo Removal | Tulip Beauty Spa</title>
+    <meta name="description" content="Safe and effective laser tattoo removal services in Melbourne. Fade or completely remove unwanted tattoos using advanced laser technology.">
+    <meta name="keywords" content="laser tattoo removal melbourne, tattoo fading, safe tattoo removal, advanced laser treatment, tulip beauty spa">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <style>
+        /* --- RESET & BASE STYLES --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #fff;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* --- CUSTOM CURSOR --- */
+        .cursor-dot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #c9a96e;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s, background 0.3s;
+        }
+
+        .cursor-ring {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9998;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 169, 110, 0.6);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+        }
+
+        /* --- PAGE LOADER --- */
+        #page-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 8000;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .loader-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 5vw, 60px);
+            font-weight: 400;
+            color: #fff;
+            letter-spacing: 0.05em;
+        }
+
+        .loader-line {
+            width: 0;
+            height: 1px;
+            background: #c9a96e;
+        }
+
+        .loader-sub {
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #e8d5b0;
+            opacity: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* --- HEADER --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .logo img {
+            height: 35px;
+            filter: brightness(0);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-right {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+
+        /* --- TREATMENTS LAYOUT (Z-PATTERN) --- */
+        .treatments-header {
+            padding: 150px 20px 80px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .treatments-header .sub-title {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #999;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .treatments-header h1 {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            color: #000;
+        }
+
+        .treatments-header p.desc {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 35px;
+            line-height: 1.8;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 14px 35px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #000;
+            background: transparent;
+        }
+
+        .cta-btn:hover {
+            border-color: #000;
+            border-radius: 100px;
+        }
+
+        .cta-arrow {
+            margin-left: 15px;
+            font-size: 16px;
+            transition: margin 0.3s;
+        }
+
+        .cta-btn:hover .cta-arrow {
+            margin-left: 20px;
+        }
+
+        .treatments-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        .treatment-row {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 120px;
+        }
+
+        .treatment-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .treatment-img {
+            flex: 1;
+            overflow: hidden;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .treatment-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .treatment-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .treatment-info {
+            flex: 1;
+            padding: 20px 0;
+        }
+
+        .treatment-info .service-title {
+            font-size: 32px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            color: #000;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .treatment-info .price {
+            font-size: 14px;
+            font-weight: 600;
+            color: #c9a96e;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .treatment-info p.desc {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        /* --- FOOTER — Dark 4-column --- */
+        .site-footer {
+            background: #1a1c22;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .footer-main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 70px 40px 50px;
+            display: grid;
+            grid-template-columns: 1.2fr 1.2fr 1fr 1.4fr;
+            gap: 50px;
+        }
+
+        .footer-brand .footer-logo img {
+            height: 70px;
+            margin-bottom: 20px;
+            filter: brightness(1.1);
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .footer-socials a {
+            width: 36px;
+            height: 36px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            color: #fff;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .footer-socials a:hover {
+            opacity: 0.8;
+        }
+
+        .footer-socials .s-fb {
+            background: #1877f2;
+        }
+
+        .footer-socials .s-wa {
+            background: #25d366;
+        }
+
+        .footer-socials .s-ig {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        }
+
+        .footer-col h4 {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 22px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-col p,
+        .footer-col address {
+            font-style: normal;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.9;
+        }
+
+        .footer-col a {
+            color: rgba(255, 255, 255, 0.65);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: #c9a96e;
+        }
+
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .hours-table tr td {
+            padding: 3px 0;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        .hours-table tr td:first-child {
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.85);
+            padding-right: 16px;
+            white-space: nowrap;
+        }
+
+        .hours-open {
+            color: #c9a96e !important;
+        }
+
+        .footer-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-form input,
+        .footer-form textarea {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px 0;
+            color: #fff;
+            font-size: 13px;
+            font-family: 'Open Sans', sans-serif;
+            outline: none;
+            width: 100%;
+            transition: border-color 0.3s;
+        }
+
+        .footer-form input::placeholder,
+        .footer-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.35);
+        }
+
+        .footer-form input:focus,
+        .footer-form textarea:focus {
+            border-bottom-color: #c9a96e;
+        }
+
+        .footer-form textarea {
+            resize: vertical;
+            min-height: 70px;
+        }
+
+        .footer-form .submit-btn {
+            margin-top: 8px;
+            padding: 12px 30px;
+            background: #c9a96e;
+            color: #fff;
+            border: none;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            cursor: pointer;
+            align-self: flex-start;
+            transition: background 0.3s;
+        }
+
+        .footer-form .submit-btn:hover {
+            background: #b8945a;
+        }
+
+        .footer-bottom {
+            background: #13151a;
+            text-align: center;
+            padding: 16px 20px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 0.5px;
+        }
+
+        .footer-bottom a {
+            color: #c9a96e;
+            text-decoration: none;
+        }
+
+        .footer-bottom span {
+            margin: 0 8px;
+            opacity: 0.3;
+        }
+
+        @media (max-width: 900px) {
+            .footer-main {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                padding: 50px 20px 30px;
+            }
+        }
+
+        @media (max-width: 580px) {
+            .footer-main {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* --- PROFESSIONAL FULLSCREEN MENU STYLES --- */
+
+        /* Nút Hamburger (Giữ nguyên hoặc chỉnh lại chút cho đẹp) */
+        .hamburger-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            z-index: 2001;
+            /* Luôn nằm trên cùng */
+        }
+
+        .hamburger-btn span {
+            display: block;
+            width: 100%;
+            height: 1px;
+            /* Mỏng hơn cho sang */
+            background-color: #000;
+            transition: 0.3s;
+        }
+
+        /* Lớp phủ toàn màn hình */
+        .pro-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #fcfbf8;
+            /* Màu kem rất nhạt, sang trọng */
+            z-index: 2000;
+
+            /* Ẩn mặc định để GSAP xử lý */
+            visibility: hidden;
+            opacity: 0;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pro-menu-content {
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+        }
+
+        /* Nút đóng (Close) */
+        .pro-close-btn {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            color: #888;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Links */
+        .pro-nav-links {
+            margin-bottom: 50px;
+        }
+
+        .menu-item-wrap {
+            overflow: hidden;
+            /* Để che phần chữ khi chưa trồi lên */
+            margin-bottom: 15px;
+        }
+
+        .pro-link {
+            display: block;
+            font-size: 32px;
+            /* Chữ to, mỏng */
+            font-weight: 300;
+            color: #1a1a1a;
+            text-transform: capitalize;
+            /* Chữ thường đầu hoa cho mềm mại */
+            font-family: 'Open Sans', sans-serif;
+            transition: color 0.3s;
+
+            /* Vị trí ban đầu để GSAP animate */
+            transform: translateY(100%);
+        }
+
+        .pro-link:hover {
+            color: #d4af37;
+            /* Màu vàng kim loại nhẹ khi hover */
+            font-style: italic;
+        }
+
+        /* Footer trong menu */
+        .pro-menu-footer {
+            opacity: 0;
+            /* Ẩn để animate sau */
+            transform: translateY(20px);
+        }
+
+        .pro-booking-btn {
+            display: inline-block;
+            border: 1px solid #000;
+            padding: 15px 40px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .pro-booking-btn:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        .pro-address {
+            font-size: 12px;
+            color: #999;
+            margin-top: 10px;
+        }
+
+        /* Responsive Logic */
+        @media (max-width: 900px) {
+            .hamburger-btn {
+                display: flex;
+            }
+
+            .desktop-nav {
+                display: none;
+            }
+
+            header {
+                justify-content: flex-start;
+                gap: 20px;
+            }
+
+            .nav-right {
+                margin-left: auto;
+            }
+        }
+
+
+        /* Responsive Logic */
+        @media (max-width: 900px) {
+            .hamburger-btn {
+                display: flex;
+            }
+
+            .desktop-nav {
+                display: none;
+            }
+
+            header {
+                justify-content: flex-start;
+                gap: 20px;
+            }
+
+            .nav-right {
+                margin-left: auto;
+            }
+
+            .treatment-row {
+                flex-direction: column !important;
+                gap: 30px;
+                margin-bottom: 80px;
+            }
+
+            .treatment-info {
+                text-align: center;
+                padding: 0;
+            }
+        }
+
+        /* --- LENIS SMOOTH SCROLL --- */
+        html.lenis,
+        html.lenis body {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+
+        .lenis.lenis-scrolling iframe {
+            pointer-events: none;
+        }
+
+        /* --- REVEAL ANIMATION --- */
+        .reveal-item {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .reveal-item.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CUSTOM CURSOR -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- PAGE LOADER -->
+    <div id="page-loader">
+        <div class="loader-text">Laser Tattoo Removal</div>
+        <div class="loader-line" id="loaderLine"></div>
+        <div class="loader-sub" id="loaderSub">Tulip Beauty</div>
+    </div>
+
+    <header id="mainHeader">
+        <div class="hamburger-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="logo">
+            <a href="/">
+                <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/Original-Logo-without-slogan-White.png"
+                    alt="Tulip Logo">
+            </a>
+        </div>
+
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about-us/">About</a></li>
+                <li><a href="/services/">Services</a></li>
+                <li><a href="#">After Care</a></li>
+                <li><a href="/contact/">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-right">
+            <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                target="_blank">BOOKINGS</a>
+        </div>
+    </header>
+
+    <div class="pro-menu-overlay">
+        <div class="pro-menu-content">
+            <div class="pro-close-btn">Close <span style="font-size:20px">&times;</span></div>
+            <nav class="pro-nav-links">
+                <div class="menu-item-wrap"><a href="/" class="pro-link">Home</a></div>
+                <div class="menu-item-wrap"><a href="/about-us/" class="pro-link">About</a></div>
+                <div class="menu-item-wrap"><a href="/services/" class="pro-link">Services</a></div>
+                <div class="menu-item-wrap"><a href="#" class="pro-link">After Care</a></div>
+                <div class="menu-item-wrap"><a href="/contact/" class="pro-link">Contact</a></div>
+            </nav>
+            <div class="pro-menu-footer">
+                <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                    class="pro-booking-btn" target="_blank">Book Appointment</a>
+                <p class="pro-address">Tulip Beauty | 516 Macaulay Rd, Kensington VIC 3031</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="treatments-header reveal-item">
+        <div class="sub-title">Premium Care</div>
+        <h1>Laser Tattoo Removal</h1>
+        <p class="desc">
+            Safely and effectively fade or remove unwanted tattoos. Using state-of-the-art laser technology, we target ink particles deep within the skin, allowing your body to naturally clear them away with minimal discomfort.
+        </p>
+        <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+            class="cta-btn">
+            Book Appointment <span class="cta-arrow">→</span>
+        </a>
+    </div>
+
+    
+    
+    <div class="treatments-container">
+        <!-- Treatment 1 -->
+        <div class="treatment-row reveal-item">
+            <div class="treatment-img">
+                <img src="/img/services/laser-tattoo-removal/laser-tattoo-removal.jpg" alt="Laser Tattoo Removal Session">
+            </div>
+            <div class="treatment-info">
+                <h2 class="service-title">Laser Tattoo Removal Session</h2>
+                <h3 class="price">From $200</h3>
+                <p class="desc">Our advanced laser tattoo removal system safely breaks down tattoo ink without damaging the surrounding skin. Whether you want to completely erase a past mistake or fade it for a cover-up, our tailored sessions offer effective results. Multiple sessions are typically required depending on the size, color, and age of the tattoo. Includes a comprehensive pre-treatment consultation and aftercare plan.</p>
+                <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu" class="cta-btn">Book Consultation <span class="cta-arrow">→</span></a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-main">
+            <div class="footer-brand footer-col">
+                <div class="footer-logo">
+                    <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/Original-Logo-without-slogan-White.png"
+                        alt="Tulip Beauty Logo">
+                </div>
+                <div class="footer-socials">
+                    <a href="https://www.facebook.com/tulipbeauty.au" class="s-fb" aria-label="Facebook"
+                        target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://wa.me/+61404529787" class="s-wa" aria-label="WhatsApp" target="_blank"><i
+                            class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/tulipbeauty.au/" class="s-ig" aria-label="Instagram"
+                        target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Information</h4>
+                <address>
+                    516 Macaulay Rd, Kensington VIC 3031<br><br>
+                    <strong style="color:rgba(255,255,255,0.85)">Email:</strong> <a
+                        href="mailto:customer-service@tulipbeauty.com.au">customer-service@tulipbeauty.com.au</a><br><br>
+                    <strong style="color:rgba(255,255,255,0.85)">Call us now:</strong> <a href="tel:0404529787">0404 529
+                        787</a>
+                </address>
+            </div>
+            <div class="footer-col">
+                <h4>Opening Hours</h4>
+                <table class="hours-table">
+                    <tr>
+                        <td>Monday:</td>
+                        <td>10am – 4 pm</td>
+                    </tr>
+                    <tr>
+                        <td>Tuesday:</td>
+                        <td class="hours-open">10am – 6 pm</td>
+                    </tr>
+                    <tr>
+                        <td>Wednesday:</td>
+                        <td class="hours-open">10am – 6 pm</td>
+                    </tr>
+                    <tr>
+                        <td>Thursday:</td>
+                        <td class="hours-open">10am – 6 pm</td>
+                    </tr>
+                    <tr>
+                        <td>Friday:</td>
+                        <td class="hours-open">10am – 6 pm</td>
+                    </tr>
+                    <tr>
+                        <td>Saturday:</td>
+                        <td>9am – 5 pm</td>
+                    </tr>
+                    <tr>
+                        <td>Sunday:</td>
+                        <td style="color:#e05555">Closed</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <p style="margin-bottom:18px;">Let us know how we can help with your beauty needs.</p>
+                <form class="footer-form" onsubmit="return false;">
+                    <input type="text" placeholder="Name">
+                    <input type="email" placeholder="Email Address">
+                    <input type="tel" placeholder="Contact Number">
+                    <textarea placeholder="Enquiry"></textarea>
+                    <button class="submit-btn" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; Tulip Beauty 2026. <a href="/privacy-policy/">Privacy Policy</a> <span>|</span> <a href="#">Terms of
+                Service</a>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+
+    <script>
+
+
+        /* ---- CUSTOM CURSOR ---- */
+        const _dot = document.getElementById('cursorDot');
+        const _ring = document.getElementById('cursorRing');
+        let _mx = 0, _my = 0, _rx = 0, _ry = 0;
+        window.addEventListener('mousemove', e => {
+            _mx = e.clientX; _my = e.clientY;
+            gsap.to(_dot, { x: _mx, y: _my, duration: 0.1 });
+        });
+        (function _animRing() {
+            _rx += (_mx - _rx) * 0.08; _ry += (_my - _ry) * 0.08;
+            gsap.set(_ring, { x: _rx, y: _ry });
+            requestAnimationFrame(_animRing);
+        })();
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                gsap.to(_ring, { width: 60, height: 60, borderColor: '#c9a96e', duration: 0.3 });
+                gsap.to(_dot, { scale: 0, duration: 0.3 });
+            });
+            el.addEventListener('mouseleave', () => {
+                gsap.to(_ring, { width: 36, height: 36, borderColor: 'rgba(201,169,110,0.6)', duration: 0.3 });
+                gsap.to(_dot, { scale: 1, duration: 0.3 });
+            });
+        });
+
+        /* ---- PAGE LOADER ---- */
+        const _loaderTl = gsap.timeline({
+            onComplete: () => {
+                gsap.to('#page-loader', {
+                    yPercent: -100, duration: 0.8, ease: 'power3.inOut',
+                    onComplete: () => document.getElementById('page-loader').style.display = 'none'
+                });
+            }
+        });
+        _loaderTl
+            .to('#loaderLine', { width: '220px', duration: 1.1, ease: 'power2.inOut' })
+            .to('#loaderSub', { autoAlpha: 1, duration: 0.5 }, '-=0.3')
+            .to({}, { duration: 0.4 });
+
+
+        // --- PROFESSIONAL MENU LOGIC (GSAP TIMELINE) ---
+
+        // 1. Declare variables
+        const hamburgerBtn = document.querySelector('.hamburger-btn');
+        const proMenuOverlay = document.querySelector('.pro-menu-overlay');
+        const proCloseBtn = document.querySelector('.pro-close-btn');
+        const proLinks = document.querySelectorAll('.pro-link'); // Menu items
+        const proFooter = document.querySelector('.pro-menu-footer'); // Booking section below
+
+        let isMenuOpen = false;
+
+        // 2. Create GSAP Timeline (initially paused)
+        // Timeline chains the movements: background appears -> links fly up -> footer appears
+        const menuTl = gsap.timeline({ paused: true, reversed: true });
+
+        menuTl
+            .to(proMenuOverlay, {
+                autoAlpha: 1,
+                duration: 0.5,
+                ease: "power2.inOut"
+            })
+            .to(proLinks, {
+                y: 0,
+                stagger: 0.1,
+                duration: 0.6,
+                ease: "power3.out"
+            }, "-=0.2")
+            .to(proFooter, {
+                y: 0,
+                autoAlpha: 1,
+                duration: 0.5
+            }, "-=0.4");
+
+        // 3. Toggle function
+        function toggleProMenu() {
+            // Check timeline state to reverse or play
+            if (menuTl.reversed()) {
+                menuTl.play(); // Open menu
+                isMenuOpen = true;
+            } else {
+                menuTl.reverse(); // Close menu
+                isMenuOpen = false;
+            }
+        }
+
+        // 4. Bind click events
+        hamburgerBtn.addEventListener('click', toggleProMenu);
+        proCloseBtn.addEventListener('click', toggleProMenu);
+
+        // Close when link is clicked (to navigate)
+        proLinks.forEach(link => {
+            link.addEventListener('click', toggleProMenu);
+        });
+
+        // --- 1. SETUP LENIS SMOOTH SCROLL ---
+        const lenis = new Lenis({
+            duration: 1.5,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smoothWheel: true,
+            wheelMultiplier: 1,
+        });
+
+        // Connect Lenis to the browser's animation loop
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // --- 2. REVEAL ON SCROLL (Effect elements reveal on scroll) ---
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Only run once
+                }
+            });
+        }, observerOptions);
+
+        // Select elements to apply the reveal effect to
+        // Here: headings, paragraphs and sliders
+        const revealElements = document.querySelectorAll('.reveal-item');
+
+        revealElements.forEach(el => {
+            el.classList.add('reveal-item'); // Add base class
+            observer.observe(el); // Start observing
+        });
+    </script>
+</body>
+
+</html>
