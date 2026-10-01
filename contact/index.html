@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,23 +7,29 @@
     <title>Contact - Tulip Beauty Spa & Nail Salon</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
 
 
     <style>
         /* --- RESET & COLOR TOKENS --- */
         :root {
-            --c-bg: #fcfbf8;
+            --c-bg: #FAF9F6;
             --c-text: #111;
-            --c-gold: #c9a96e;
-            --c-gold-dark: #b8945a;
-            --c-dark: #1a1a1a;
+            --c-gold: #642D38;
+            --c-gold-dark: #7a3644;
+            --c-dark: #28231F
+            --c-burgundy: #642D38;
+            --c-stone: #B9AA9C;
+            --c-warm: #F3EFE8;
+            --c-accent: #642D38;
+            --c-accent-hover: #7a3644;
+            --c-text-muted: #6B5E56;;
         }
 
         * {
@@ -33,7 +39,7 @@
         }
 
         body {
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'DM Sans', sans-serif;
             color: var(--c-text);
             line-height: 1.6;
             background-color: var(--c-bg);
@@ -64,7 +70,7 @@
             width: 36px;
             height: 36px;
             border-radius: 50%;
-            border: 1px solid rgba(201, 169, 110, 0.6);
+            border: 1px solid rgba(100, 45, 56, 0.6);
             pointer-events: none;
             transform: translate(-50%, -50%);
         }
@@ -83,7 +89,7 @@
         }
 
         .loader-text {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
             font-size: clamp(28px, 5vw, 60px);
             font-weight: 400;
             color: #fff;
@@ -100,7 +106,7 @@
             font-size: 11px;
             letter-spacing: 4px;
             text-transform: uppercase;
-            color: #e8d5b0;
+            color: #B9AA9C;
             opacity: 0;
         }
 
@@ -209,7 +215,7 @@
             display: block;
             width: 100%;
             height: 1px;
-            background-color: #fff;
+            background-color: #FAF9F6;
             transition: 0.3s;
         }
 
@@ -265,7 +271,7 @@
             font-size: 36px;
             font-weight: 300;
             color: #1a1a1a;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
             transition: color 0.3s;
             transform: translateY(100%);
         }
@@ -318,7 +324,7 @@
         h2 {
             font-weight: 400;
             color: var(--c-text);
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
         }
 
         .cta-btn {
@@ -454,7 +460,7 @@
         }
 
         .location-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
             font-size: 24px;
             color: var(--c-gold);
             margin-bottom: 15px;
@@ -536,7 +542,7 @@
         }
 
         .contact-form-wrap h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
             font-size: 32px;
             font-weight: 400;
             margin-bottom: 40px;
@@ -557,7 +563,7 @@
             padding: 10px 0;
             color: #fff;
             font-size: 15px;
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'DM Sans', sans-serif;
             outline: none;
             transition: border-color 0.3s;
         }
@@ -658,7 +664,7 @@
         }
 
         /* ============================================================
-           FOOTER — Dark 4-column
+           FOOTER &mdash; Dark 4-column
         ============================================================ */
         .site-footer {
             background: #13151a;
@@ -773,7 +779,7 @@
             padding: 12px 0;
             color: #fff;
             font-size: 14px;
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'DM Sans', sans-serif;
             outline: none;
             width: 100%;
             transition: border-color 0.3s;
@@ -992,7 +998,7 @@
                             <label for="fmessage">Your Message</label>
                         </div>
                         <button class="cta-btn" type="submit">
-                            Send Message <span class="cta-arrow">→</span>
+                            Send Message <span class="cta-arrow">&rarr;</span>
                         </button>
                     </form>
                 </div>
@@ -1040,15 +1046,15 @@
                 <table class="hours-table">
                     <tr>
                         <td>Monday:</td>
-                        <td>10am – 4 pm</td>
+                        <td>10am &ndash; 4 pm</td>
                     </tr>
                     <tr>
                         <td>Tue - Fri:</td>
-                        <td>10am – 6 pm</td>
+                        <td>10am &ndash; 6 pm</td>
                     </tr>
                     <tr>
                         <td>Saturday:</td>
-                        <td>9am – 5 pm</td>
+                        <td>9am &ndash; 5 pm</td>
                     </tr>
                     <tr>
                         <td>Sunday:</td>
@@ -1066,7 +1072,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            © Tulip Beauty 2026. <a href="/privacy-policy/">Privacy Policy</a> <span>|</span> <a href="#">Terms of
+            &copy; Tulip Beauty 2026. <a href="/privacy-policy/">Privacy Policy</a> <span>|</span> <a href="#">Terms of
                 Service</a>
         </div>
     </footer>
@@ -1091,11 +1097,11 @@
         })();
         document.querySelectorAll('a, button, .cta-btn, .location-card').forEach(el => {
             el.addEventListener('mouseenter', () => {
-                gsap.to(_ring, { width: 60, height: 60, borderColor: '#c9a96e', duration: 0.3 });
+                gsap.to(_ring, { width: 60, height: 60, borderColor: '#642D38', duration: 0.3 });
                 gsap.to(_dot, { scale: 0, duration: 0.3 });
             });
             el.addEventListener('mouseleave', () => {
-                gsap.to(_ring, { width: 36, height: 36, borderColor: 'rgba(201,169,110,0.6)', duration: 0.3 });
+                gsap.to(_ring, { width: 36, height: 36, borderColor: 'rgba(100, 45, 56, 0.6)', duration: 0.3 });
                 gsap.to(_dot, { scale: 1, duration: 0.3 });
             });
         });

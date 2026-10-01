@@ -1,25 +1,26 @@
-<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy – Tulip Beauty | Your Data Protection</title>
+    <title>Privacy Policy &ndash; Tulip Beauty | Your Data Protection</title>
     <meta name="description" content="Discover how Tulip Beauty prioritizes your privacy and safeguards your personal information. Learn more about our commitment to data security.">
     <link rel="canonical" href="https://tulipbeauty.com.au/privacy-policy/">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/`gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
 
     <style>
         /* --- RESET & BASE --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'DM Sans', sans-serif;
             color: #333; line-height: 1.6;
             background-color: #fdfaf6;
             overflow-x: hidden;
@@ -30,33 +31,33 @@
         .cursor-dot {
             position: fixed; top: 0; left: 0; z-index: 9999;
             width: 8px; height: 8px; border-radius: 50%;
-            background: #c9a96e; pointer-events: none;
+            background: #642D38; pointer-events: none;
             transform: translate(-50%,-50%);
             transition: width 0.3s, height 0.3s, background 0.3s;
         }
         .cursor-ring {
             position: fixed; top: 0; left: 0; z-index: 9998;
             width: 36px; height: 36px; border-radius: 50%;
-            border: 1px solid rgba(201,169,110,0.6);
+            border: 1px solid rgba(100, 45, 56, 0.6);
             pointer-events: none; transform: translate(-50%,-50%);
         }
 
         /* --- PAGE LOADER --- */
         #page-loader {
             position: fixed; inset: 0; z-index: 8000;
-            background: #1a1a1a;
+            background: #28231F;
             display: flex; align-items: center; justify-content: center;
             flex-direction: column; gap: 20px;
         }
         .loader-text {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
             font-size: clamp(28px, 5vw, 60px);
             font-weight: 400; color: #fff; letter-spacing: 0.05em;
         }
-        .loader-line { width: 0; height: 1px; background: #c9a96e; }
+        .loader-line { width: 0; height: 1px; background: #642D38; }
         .loader-sub {
             font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
-            color: #e8d5b0; opacity: 0;
+            color: #B9AA9C; opacity: 0;
         }
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
@@ -71,9 +72,9 @@
         .logo img { height: 35px; filter: brightness(0); }
         nav ul { display: flex; gap: 25px; }
         nav a { font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #333; }
-        nav a:hover { color: #c9a96e; }
+        nav a:hover { color: #642D38; }
         .nav-right { font-size: 12px; font-weight: 600; letter-spacing: 1px; }
-        .nav-right a:hover { color: #c9a96e; }
+        .nav-right a:hover { color: #642D38; }
 
         /* --- HAMBURGER --- */
         .hamburger-btn {
@@ -101,7 +102,7 @@
         .menu-item-wrap { overflow: hidden; margin-bottom: 15px; }
         .pro-link {
             display: block; font-size: 32px; font-weight: 300; color: #1a1a1a;
-            text-transform: capitalize; font-family: 'Open Sans', sans-serif;
+            text-transform: capitalize; font-family: 'DM Sans', sans-serif;
             transition: color 0.3s; transform: translateY(100%);
         }
         .pro-link:hover { color: #b78f6d; font-style: italic; }
@@ -132,10 +133,10 @@
         .page-hero-inner { position: relative; z-index: 1; padding: 60px 20px 40px; }
         .page-hero .eyebrow {
             font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
-            color: #c9a96e; font-weight: 600; margin-bottom: 18px; display: block;
+            color: #642D38; font-weight: 600; margin-bottom: 18px; display: block;
         }
         .page-hero h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
             font-size: clamp(36px, 6vw, 72px);
             font-weight: 400; color: #fff; letter-spacing: 0.02em;
             line-height: 1.1; margin-bottom: 20px;
@@ -145,7 +146,7 @@
             letter-spacing: 0.5px; max-width: 500px; margin: 0 auto;
         }
         .page-hero-divider {
-            width: 60px; height: 1px; background: #c9a96e;
+            width: 60px; height: 1px; background: #642D38;
             margin: 28px auto 0;
         }
 
@@ -158,7 +159,7 @@
         .policy-intro {
             font-size: 16px; color: #555; line-height: 1.9;
             margin-bottom: 60px;
-            border-left: 3px solid #c9a96e;
+            border-left: 3px solid #642D38;
             padding-left: 24px;
         }
         .policy-section {
@@ -169,15 +170,15 @@
         }
         .policy-section.active { opacity: 1; transform: translateY(0); }
         .policy-section h2 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
             font-size: 22px; font-weight: 400; color: #1a1a1a;
             margin-bottom: 16px; padding-bottom: 12px;
             border-bottom: 1px solid #e8e0d5;
             display: flex; align-items: center; gap: 12px;
         }
         .policy-section h2 .section-num {
-            font-family: 'Open Sans', sans-serif;
-            font-size: 11px; letter-spacing: 2px; color: #c9a96e;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px; letter-spacing: 2px; color: #642D38;
             font-weight: 600; min-width: 30px;
         }
         .policy-section p {
@@ -192,11 +193,11 @@
             padding-left: 20px; position: relative; margin-bottom: 6px;
         }
         .policy-section ul li::before {
-            content: '—';
-            position: absolute; left: 0; color: #c9a96e; font-weight: 600;
+            content: '&mdash;';
+            position: absolute; left: 0; color: #642D38; font-weight: 600;
         }
-        .policy-section a { color: #c9a96e; text-decoration: underline; }
-        .policy-section a:hover { color: #b8945a; }
+        .policy-section a { color: #642D38; text-decoration: underline; }
+        .policy-section a:hover { color: #7a3644; }
 
         /* Contact block */
         .contact-block {
@@ -206,10 +207,10 @@
             margin-top: 60px;
         }
         .contact-block p { color: rgba(255,255,255,0.65); font-size: 14px; line-height: 1.9; margin-bottom: 6px; }
-        .contact-block a { color: #c9a96e; }
+        .contact-block a { color: #642D38; }
         .contact-block strong { color: rgba(255,255,255,0.9); }
         .contact-block h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
             font-size: 20px; font-weight: 400; color: #fff;
             margin-bottom: 20px;
         }
@@ -222,7 +223,7 @@
             border: 1px solid #ddd; padding: 13px 28px;
             transition: all 0.3s; margin-top: 50px;
         }
-        .back-to-home:hover { border-color: #c9a96e; color: #c9a96e; }
+        .back-to-home:hover { border-color: #642D38; color: #642D38; }
 
         /* --- FOOTER --- */
         .site-footer { background: #1a1c22; color: rgba(255,255,255,0.7); font-size: 13px; line-height: 1.8; }
@@ -249,30 +250,30 @@
         }
         .footer-col p, .footer-col address { font-style: normal; font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.9; }
         .footer-col a { color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.3s; }
-        .footer-col a:hover { color: #c9a96e; }
+        .footer-col a:hover { color: #642D38; }
         .hours-table { width: 100%; border-collapse: collapse; }
         .hours-table tr td { padding: 3px 0; font-size: 13px; color: rgba(255,255,255,0.65); }
         .hours-table tr td:first-child { font-weight: 600; color: rgba(255,255,255,0.85); padding-right: 16px; white-space: nowrap; }
-        .hours-open { color: #c9a96e !important; }
+        .hours-open { color: #642D38 !important; }
         .footer-form { display: flex; flex-direction: column; gap: 10px; }
         .footer-form input, .footer-form textarea {
             background: transparent; border: none;
             border-bottom: 1px solid rgba(255,255,255,0.2);
             padding: 10px 0; color: #fff; font-size: 13px;
-            font-family: 'Open Sans', sans-serif; outline: none; width: 100%;
+            font-family: 'DM Sans', sans-serif; outline: none; width: 100%;
             transition: border-color 0.3s;
         }
         .footer-form input::placeholder, .footer-form textarea::placeholder { color: rgba(255,255,255,0.35); }
-        .footer-form input:focus, .footer-form textarea:focus { border-bottom-color: #c9a96e; }
+        .footer-form input:focus, .footer-form textarea:focus { border-bottom-color: #642D38; }
         .footer-form textarea { resize: vertical; min-height: 70px; }
         .footer-form .submit-btn {
-            margin-top: 8px; padding: 12px 30px; background: #c9a96e; color: #fff;
+            margin-top: 8px; padding: 12px 30px; background: #642D38; color: #fff;
             border: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
             font-weight: 700; cursor: pointer; align-self: flex-start; transition: background 0.3s;
         }
-        .footer-form .submit-btn:hover { background: #b8945a; }
+        .footer-form .submit-btn:hover { background: #7a3644; }
         .footer-bottom { background: #13151a; text-align: center; padding: 16px 20px; font-size: 12px; color: rgba(255,255,255,0.4); letter-spacing: 0.5px; }
-        .footer-bottom a { color: #c9a96e; text-decoration: none; }
+        .footer-bottom a { color: #642D38; text-decoration: none; }
         .footer-bottom span { margin: 0 8px; opacity: 0.3; }
 
         /* --- LENIS --- */
@@ -375,7 +376,7 @@
                 <h2><span class="section-num">01</span> What is Personal Information?</h2>
                 <p>Personal information is information or an opinion that identifies an individual. Examples of personal information we collect include: names, addresses, email addresses and phone numbers.</p>
                 <p>This personal information may be obtained in many ways including from this website or correspondence by telephone or email.</p>
-                <p>We collect your personal information for the primary purpose of providing our services to you. We may also use your personal information for secondary purposes closely related to the primary purpose, in circumstances where you would reasonably expect such use or disclosure — for example, to send you updates about our services. You may unsubscribe from our mailing lists at any time by contacting us in writing or clicking the unsubscribe link.</p>
+                <p>We collect your personal information for the primary purpose of providing our services to you. We may also use your personal information for secondary purposes closely related to the primary purpose, in circumstances where you would reasonably expect such use or disclosure &mdash; for example, to send you updates about our services. You may unsubscribe from our mailing lists at any time by contacting us in writing or clicking the unsubscribe link.</p>
                 <p>A copy of the Australian Privacy Principles may be obtained from the website of The Office of the Australian Information Commissioner at <a href="http://www.aoic.gov.au" target="_blank" rel="noopener">www.aoic.gov.au</a>.</p>
             </div>
 
@@ -459,12 +460,12 @@
             <div class="footer-col">
                 <h4>Opening Hours</h4>
                 <table class="hours-table">
-                    <tr><td>Monday:</td><td>10am – 4 pm</td></tr>
-                    <tr><td>Tuesday:</td><td class="hours-open">10am – 6 pm</td></tr>
-                    <tr><td>Wednesday:</td><td class="hours-open">10am – 6 pm</td></tr>
-                    <tr><td>Thursday:</td><td class="hours-open">10am – 6 pm</td></tr>
-                    <tr><td>Friday:</td><td class="hours-open">10am – 6 pm</td></tr>
-                    <tr><td>Saturday:</td><td>9am – 5 pm</td></tr>
+                    <tr><td>Monday:</td><td>10am &ndash; 4 pm</td></tr>
+                    <tr><td>Tuesday:</td><td class="hours-open">10am &ndash; 6 pm</td></tr>
+                    <tr><td>Wednesday:</td><td class="hours-open">10am &ndash; 6 pm</td></tr>
+                    <tr><td>Thursday:</td><td class="hours-open">10am &ndash; 6 pm</td></tr>
+                    <tr><td>Friday:</td><td class="hours-open">10am &ndash; 6 pm</td></tr>
+                    <tr><td>Saturday:</td><td>9am &ndash; 5 pm</td></tr>
                     <tr><td>Sunday:</td><td style="color:#e05555">Closed</td></tr>
                 </table>
             </div>
@@ -505,11 +506,11 @@
         })();
         document.querySelectorAll('a, button, .back-to-home').forEach(el => {
             el.addEventListener('mouseenter', () => {
-                gsap.to(_ring, { width: 60, height: 60, borderColor: '#c9a96e', duration: 0.3 });
+                gsap.to(_ring, { width: 60, height: 60, borderColor: '#642D38', duration: 0.3 });
                 gsap.to(_dot, { scale: 0, duration: 0.3 });
             });
             el.addEventListener('mouseleave', () => {
-                gsap.to(_ring, { width: 36, height: 36, borderColor: 'rgba(201,169,110,0.6)', duration: 0.3 });
+                gsap.to(_ring, { width: 36, height: 36, borderColor: 'rgba(100, 45, 56, 0.6)', duration: 0.3 });
                 gsap.to(_dot, { scale: 1, duration: 0.3 });
             });
         });

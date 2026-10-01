@@ -1,19 +1,20 @@
-<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Tulip Beauty Spa</title>
-    <meta name="description" content="Discover our story — where beauty meets luxury at Tulip Beauty Spa Melbourne.">
+    <meta name="description" content="Discover our story &mdash; where beauty meets luxury at Tulip Beauty Spa Melbourne.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
 
     <style>
         /* ============================================================
@@ -30,7 +31,7 @@
         :root {
             --cream: #faf9f6;
             --warm: #f5f0e8;
-            --gold: #c9a96e;
+            --gold: #642D38;
             --gold-lt: #e8d5b0;
             --dark: #1a1a1a;
             --mid: #555;
@@ -43,7 +44,7 @@
         }
 
         body {
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'DM Sans', sans-serif;
             color: var(--dark);
             background: var(--cream);
             overflow-x: hidden;
@@ -91,7 +92,7 @@
             width: 36px;
             height: 36px;
             border-radius: 50%;
-            border: 1px solid rgba(201, 169, 110, 0.6);
+            border: 1px solid rgba(100, 45, 56, 0.6);
             pointer-events: none;
             transform: translate(-50%, -50%);
             transition: transform 0.15s ease, width 0.3s, height 0.3s;
@@ -195,7 +196,7 @@
             display: block;
             width: 100%;
             height: 1px;
-            background-color: #fff;
+            background-color: #FAF9F6;
             transition: 0.3s;
         }
 
@@ -251,7 +252,7 @@
             font-size: 36px;
             font-weight: 300;
             color: #1a1a1a;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
             transition: color 0.3s;
             transform: translateY(100%);
         }
@@ -306,7 +307,7 @@
         }
 
         .loader-text {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
             font-size: clamp(32px, 6vw, 72px);
             font-weight: 400;
             color: #fff;
@@ -333,7 +334,7 @@
         }
 
         /* ============================================================
-           HERO SECTION — Fullscreen cinematic
+           HERO SECTION &mdash; Fullscreen cinematic
         ============================================================ */
         .hero {
             position: relative;
@@ -394,7 +395,7 @@
         }
 
         .hero-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
             font-size: clamp(52px, 8vw, 110px);
             font-weight: 400;
             line-height: 0.95;
@@ -475,7 +476,7 @@
         }
 
         /* ============================================================
-           STORY SECTION — Large text + image split
+           STORY SECTION &mdash; Large text + image split
         ============================================================ */
         .story-section {
             padding: 120px 0;
@@ -520,7 +521,7 @@
         }
 
         .story-text h2 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
             font-size: clamp(36px, 4vw, 56px);
             font-weight: 400;
             line-height: 1.15;
@@ -608,7 +609,7 @@
         }
 
         .story-image-accent .num {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
             font-size: 48px;
             font-weight: 400;
             color: var(--gold);
@@ -667,7 +668,7 @@
         }
 
         /* ============================================================
-           VALUES SECTION — Staggered cards
+           VALUES SECTION &mdash; Staggered cards
         ============================================================ */
         .values-section {
             padding: 120px 0;
@@ -689,7 +690,7 @@
         }
 
         .values-header h2 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
             font-size: clamp(36px, 4.5vw, 60px);
             font-weight: 400;
             line-height: 1.1;
@@ -764,7 +765,7 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
             font-size: 60px;
             font-weight: 400;
             color: rgba(0, 0, 0, 0.04);
@@ -773,7 +774,7 @@
         }
 
         /* ============================================================
-           STATS SECTION — Dark cinematic banner
+           STATS SECTION &mdash; Dark cinematic banner
         ============================================================ */
         .stats-section {
             position: relative;
@@ -822,7 +823,7 @@
         }
 
         .stat-num {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
             font-size: clamp(42px, 5vw, 68px);
             font-weight: 400;
             color: #fff;
@@ -865,7 +866,7 @@
         }
 
         /* ============================================================
-           TEAM / PHOTO GALLERY — Full-width horizontal
+           TEAM / PHOTO GALLERY &mdash; Full-width horizontal
         ============================================================ */
         .gallery-section {
             padding: 120px 0;
@@ -884,7 +885,7 @@
         }
 
         .gallery-header h2 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
             font-size: clamp(36px, 4.5vw, 60px);
             font-weight: 400;
             color: var(--dark);
@@ -915,7 +916,7 @@
         }
 
         /* ============================================================
-           QUOTE SECTION — Fullscreen dark
+           QUOTE SECTION &mdash; Fullscreen dark
         ============================================================ */
         .quote-section {
             padding: 180px 40px;
@@ -930,7 +931,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
             font-size: clamp(100px, 18vw, 250px);
             font-weight: 400;
             color: rgba(255, 255, 255, 0.03);
@@ -942,7 +943,7 @@
         .quote-section blockquote {
             position: relative;
             z-index: 1;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
             font-size: clamp(22px, 3.5vw, 44px);
             font-weight: 400;
             font-style: italic;
@@ -969,7 +970,7 @@
         }
 
         /* ============================================================
-           FOOTER — Dark 4-column
+           FOOTER &mdash; Dark 4-column
         ============================================================ */
         .site-footer {
             background: #1a1c22;
@@ -1047,7 +1048,7 @@
         }
 
         .footer-col a:hover {
-            color: #c9a96e;
+            color: #642D38;
         }
 
         /* Hours table */
@@ -1070,7 +1071,7 @@
         }
 
         .hours-open {
-            color: #c9a96e !important;
+            color: #642D38 !important;
         }
 
         /* Contact form */
@@ -1088,7 +1089,7 @@
             padding: 10px 0;
             color: #fff;
             font-size: 13px;
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'DM Sans', sans-serif;
             outline: none;
             width: 100%;
             transition: border-color 0.3s;
@@ -1101,7 +1102,7 @@
 
         .footer-form input:focus,
         .footer-form textarea:focus {
-            border-bottom-color: #c9a96e;
+            border-bottom-color: #642D38;
         }
 
         .footer-form textarea {
@@ -1112,7 +1113,7 @@
         .footer-form .submit-btn {
             margin-top: 8px;
             padding: 12px 30px;
-            background: #c9a96e;
+            background: #642D38;
             color: #fff;
             border: none;
             font-size: 11px;
@@ -1125,7 +1126,7 @@
         }
 
         .footer-form .submit-btn:hover {
-            background: #b8945a;
+            background: #7a3644;
         }
 
         /* Bottom bar */
@@ -1139,7 +1140,7 @@
         }
 
         .footer-bottom a {
-            color: #c9a96e;
+            color: #642D38;
             text-decoration: none;
         }
 
@@ -1378,7 +1379,7 @@
                     <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
                         class="cta-btn">
                         <span>Book Appointment</span>
-                        <span>→</span>
+                        <span>&rarr;</span>
                     </a>
                 </div>
                 <div class="story-image-wrap" id="storyImgWrap">
@@ -1430,7 +1431,7 @@
                     <span class="value-number">01</span>
                     <i class="fa-regular fa-gem icon"></i>
                     <h3>Quality</h3>
-                    <p>We use only premium, ethically sourced and safe products — ensuring the best results every single
+                    <p>We use only premium, ethically sourced and safe products &mdash; ensuring the best results every single
                         time.</p>
                 </div>
                 <div class="value-card" data-reveal-card>
@@ -1451,7 +1452,7 @@
                     <span class="value-number">04</span>
                     <i class="fa-regular fa-star icon"></i>
                     <h3>Ambience</h3>
-                    <p>Luxurious yet warm by design — a space where you can truly unwind and reconnect with yourself.
+                    <p>Luxurious yet warm by design &mdash; a space where you can truly unwind and reconnect with yourself.
                     </p>
                 </div>
             </div>
@@ -1529,15 +1530,15 @@
                 <table class="hours-table">
                     <tr>
                         <td>Monday:</td>
-                        <td>10am – 4 pm</td>
+                        <td>10am &ndash; 4 pm</td>
                     </tr>
                     <tr>
                         <td>Tue - Fri:</td>
-                        <td>10am – 6 pm</td>
+                        <td>10am &ndash; 6 pm</td>
                     </tr>
                     <tr>
                         <td>Saturday:</td>
-                        <td>9am – 5 pm</td>
+                        <td>9am &ndash; 5 pm</td>
                     </tr>
                     <tr>
                         <td>Sunday:</td>
@@ -1558,7 +1559,7 @@
 
         </div>
         <div class="footer-bottom">
-            © Tulip Beauty 2026. <a href="/privacy-policy/">Privacy Policy</a> <span>|</span> <a href="#">Terms of Service</a>
+            &copy; Tulip Beauty 2026. <a href="/privacy-policy/">Privacy Policy</a> <span>|</span> <a href="#">Terms of Service</a>
         </div>
     </footer>
 
@@ -1594,7 +1595,7 @@
                 gsap.to(dot, { scale: 0, duration: 0.3 });
             });
             el.addEventListener('mouseleave', () => {
-                gsap.to(ring, { width: 36, height: 36, borderColor: 'rgba(201,169,110,0.6)', duration: 0.3 });
+                gsap.to(ring, { width: 36, height: 36, borderColor: 'rgba(100, 45, 56, 0.6)', duration: 0.3 });
                 gsap.to(dot, { scale: 1, duration: 0.3 });
             });
         });
@@ -1673,7 +1674,7 @@
         });
 
         /* =============================================
-           GENERIC REVEAL — [data-reveal]
+           GENERIC REVEAL &mdash; [data-reveal]
         ============================================= */
         document.querySelectorAll('[data-reveal]').forEach(el => {
             const children = el.children;
@@ -1690,7 +1691,7 @@
         });
 
         /* =============================================
-           VALUE CARDS — stagger from bottom
+           VALUE CARDS &mdash; stagger from bottom
         ============================================= */
         gsap.fromTo('[data-reveal-card]',
             { y: 80, autoAlpha: 0 },
@@ -1726,7 +1727,7 @@
         });
 
         /* =============================================
-           GALLERY — drag-to-scroll horizontal
+           GALLERY &mdash; drag-to-scroll horizontal
         ============================================= */
         const track = document.getElementById('galleryTrack');
         let isDragging = false, startX = 0, scrollLeft = 0;
@@ -1758,7 +1759,7 @@
         });
 
         /* =============================================
-           QUOTE REVEAL — word by word
+           QUOTE REVEAL &mdash; word by word
         ============================================= */
         const quoteEl = document.querySelector('[data-reveal-quote]');
         if (quoteEl) {
