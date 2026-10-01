@@ -8,7 +8,7 @@
     <meta name="description" content="Tulip Beauty Spa &amp; Nail Salon in Melbourne. Premium nail art, spa massage, facial care and lash treatments in Kensington VIC.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -20,6 +20,29 @@
            TULIP BEAUTY — Design System
            Brand Palette: #FAF9F6 | #F3EFE8 | #B9AA9C | #9A604C | #642D38 | #28231F
         ================================================ */
+
+        /* Brand Fonts */
+        @font-face {
+            font-family: 'Cotoris';
+            src: url('./fonts/Cotoris.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Cotoris';
+            src: url('./fonts/CotorisItalic.ttf') format('truetype');
+            font-weight: 400;
+            font-style: italic;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'The Seasons';
+            src: url('./fonts/the-seasons-italic.ttf') format('truetype');
+            font-weight: 400;
+            font-style: italic;
+            font-display: swap;
+        }
         :root {
             --c-bg:      #FAF9F6;
             --c-warm:    #F3EFE8;
@@ -33,6 +56,7 @@
 
             --serif: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
             --sans:  'DM Sans', system-ui, sans-serif;
+            --italic: 'The Seasons', 'Cotoris', Georgia, serif;
             --ease:  cubic-bezier(0.16, 1, 0.3, 1);
         }
 
