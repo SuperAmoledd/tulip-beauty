@@ -175,7 +175,7 @@
         }
         .btn::before {
             content: ''; position: absolute; inset: 0;
-            background: currentColor;
+            background: var(--c-dark);
             transform: scaleX(0); transform-origin: left;
             transition: transform 0.45s var(--ease); z-index: 0;
         }
@@ -183,9 +183,11 @@
         .btn:hover::before { transform: scaleX(1); }
 
         .btn-dark { color: var(--c-dark); border-color: var(--c-dark); }
+        .btn-dark::before { background: var(--c-dark); }
         .btn-dark:hover { color: #fff; }
 
         .btn-burg { color: var(--c-burg); border-color: var(--c-burg); }
+        .btn-burg::before { background: var(--c-burg); }
         .btn-burg:hover { color: #fff; }
 
         .btn-light { color: rgba(255,255,255,0.85); border-color: rgba(255,255,255,0.4); }
@@ -193,7 +195,7 @@
         .btn-light:hover { color: var(--c-dark); }
 
         .btn-ghost-burg { color: #fff; border-color: rgba(255,255,255,0.4); }
-        .btn-ghost-burg::before { background: rgba(255,255,255,0.1); }
+        .btn-ghost-burg::before { background: rgba(255,255,255,0.15); }
         .btn-ghost-burg:hover { color: #fff; border-color: rgba(255,255,255,0.75); }
 
         .arrow { transition: transform 0.4s var(--ease); font-style: normal; }
