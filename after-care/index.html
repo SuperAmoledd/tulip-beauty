@@ -1,4 +1,4 @@
-﻿﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,18 +17,36 @@
 
     <style>
         /* --- RESET & COLOR TOKENS --- */
+        /* --- BRAND FONTS --- */
+        @font-face {
+            font-family: 'Cotoris';
+            src: url('../fonts/Cotoris.ttf') format('truetype');
+            font-weight: 400; font-style: normal; font-display: swap;
+        }
+        @font-face {
+            font-family: 'Cotoris';
+            src: url('../fonts/CotorisItalic.ttf') format('truetype');
+            font-weight: 400; font-style: italic; font-display: swap;
+        }
+        @font-face {
+            font-family: 'The Seasons';
+            src: url('../fonts/the-seasons-italic.ttf') format('truetype');
+            font-weight: 400; font-style: italic; font-display: swap;
+        }
+
+        /* --- RESET & COLOR TOKENS --- */
         :root {
             --c-bg: #FAF9F6;
-            --c-text: #111;
-            --c-gold: #642D38;
-            --c-gold-dark: #7a3644;
-            --c-dark: #28231F
-            --c-burgundy: #642D38;
-            --c-stone: #B9AA9C;
             --c-warm: #F3EFE8;
+            --c-stone: #B9AA9C;
+            --c-gold: #9A604C;
+            --c-gold-dark: #642D38;
+            --c-burgundy: #642D38;
+            --c-dark: #28231F;
+            --c-text: #28231F;
             --c-accent: #642D38;
-            --c-accent-hover: #7a3644;
-            --c-text-muted: #6B5E56;;
+            --c-accent-hover: #28231F;
+            --c-text-muted: #B9AA9C;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -279,18 +297,18 @@
         </div>
 
         <div class="logo">
-            <a href="/">
+            <a href="../">
                 <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/Original-Logo-without-slogan-White.png" alt="Tulip Logo">
             </a>
         </div>
 
         <nav class="desktop-nav">
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about-us/">About</a></li>
-                <li><a href="/services/">Services</a></li>
-                <li><a href="/after-care/">After Care</a></li>
-                <li><a href="/contact/">Contact</a></li>
+                <li><a href="../">Home</a></li>
+                <li><a href="../about-us/">About</a></li>
+                <li><a href="../services/">Services</a></li>
+                <li><a href="../after-care/">After Care</a></li>
+                <li><a href="../contact/">Contact</a></li>
             </ul>
         </nav>
 
@@ -304,11 +322,11 @@
         <div class="pro-menu-content">
             <div class="pro-close-btn">Close <span style="font-size:20px">&times;</span></div>
             <nav class="pro-nav-links">
-                <div class="menu-item-wrap"><a href="/" class="pro-link">Home</a></div>
-                <div class="menu-item-wrap"><a href="/about-us/" class="pro-link">About</a></div>
-                <div class="menu-item-wrap"><a href="/services/" class="pro-link">Services</a></div>
-                <div class="menu-item-wrap"><a href="/after-care/" class="pro-link">After care</a></div>
-                <div class="menu-item-wrap"><a href="/contact/" class="pro-link">Contact</a></div>
+                <div class="menu-item-wrap"><a href="../" class="pro-link">Home</a></div>
+                <div class="menu-item-wrap"><a href="../about-us/" class="pro-link">About</a></div>
+                <div class="menu-item-wrap"><a href="../services/" class="pro-link">Services</a></div>
+                <div class="menu-item-wrap"><a href="../after-care/" class="pro-link">After care</a></div>
+                <div class="menu-item-wrap"><a href="../contact/" class="pro-link">Contact</a></div>
             </nav>
             <div class="pro-menu-footer">
                 <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu" class="pro-booking-btn" target="_blank">Book Appointment</a>
@@ -414,7 +432,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; Tulip Beauty 2026. <a href="/privacy-policy/">Privacy Policy</a> <span>|</span> <a href="#">Terms of Service</a>
+            &copy; Tulip Beauty 2026. <a href="../privacy-policy/">Privacy Policy</a> <span>|</span> <a href="#">Terms of Service</a>
         </div>
     </footer>
 

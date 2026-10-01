@@ -1,14 +1,16 @@
-﻿﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cosmetic Tattoos - Tulip Beauty Spa</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-    
-    
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
+        rel="stylesheet">
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
@@ -16,22 +18,52 @@
     <link rel="stylesheet" href="../../style.css">
 
     <style>
+        /* --- BRAND FONTS --- */
+        @font-face {
+            font-family: 'Cotoris';
+            src: url('../../fonts/Cotoris.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Cotoris';
+            src: url('../../fonts/CotorisItalic.ttf') format('truetype');
+            font-weight: 400;
+            font-style: italic;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'The Seasons';
+            src: url('../../fonts/the-seasons-italic.ttf') format('truetype');
+            font-weight: 400;
+            font-style: italic;
+            font-display: swap;
+        }
+
         /* --- RESET & COLOR TOKENS --- */
         :root {
             --c-bg: #FAF9F6;
-            --c-text: #111;
-            --c-gold: #642D38;
-            --c-gold-dark: #7a3644;
-            --c-dark: #28231F
-            --c-burgundy: #642D38;
-            --c-stone: #B9AA9C;
             --c-warm: #F3EFE8;
+            --c-stone: #B9AA9C;
+            --c-gold: #9A604C;
+            --c-gold-dark: #642D38;
+            --c-burgundy: #642D38;
+            --c-dark: #28231F;
+            --c-text: #28231F;
             --c-accent: #642D38;
-            --c-accent-hover: #7a3644;
-            --c-text-muted: #6B5E56;;
+            --c-accent-hover: #28231F;
+            --c-text-muted: #B9AA9C;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: 'DM Sans', sans-serif;
             color: var(--c-text);
@@ -43,148 +75,407 @@
 
         /* --- CUSTOM CURSOR --- */
         .cursor-dot {
-            position: fixed; top: 0; left: 0; z-index: 9999;
-            width: 8px; height: 8px; border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
             background: var(--c-gold);
             pointer-events: none;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
             transition: width 0.3s, height 0.3s, background 0.3s;
         }
+
         .cursor-ring {
-            position: fixed; top: 0; left: 0; z-index: 9998;
-            width: 36px; height: 36px; border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9998;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
             border: 1px solid rgba(100, 45, 56, 0.6);
             pointer-events: none;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
         }
 
         /* --- PAGE LOADER --- */
         #page-loader {
-            position: fixed; inset: 0; z-index: 8000;
+            position: fixed;
+            inset: 0;
+            z-index: 8000;
             background: var(--c-dark);
-            display: flex; align-items: center; justify-content: center;
-            flex-direction: column; gap: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
         }
+
         .loader-text {
             font-family: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
             font-size: clamp(28px, 5vw, 60px);
-            font-weight: 400; color: #fff; letter-spacing: 0.05em;
+            font-weight: 400;
+            color: #fff;
+            letter-spacing: 0.05em;
         }
-        .loader-line { width: 0; height: 1px; background: var(--c-gold); }
+
+        .loader-line {
+            width: 0;
+            height: 1px;
+            background: var(--c-gold);
+        }
+
         .loader-sub {
-            font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
-            color: #B9AA9C; opacity: 0;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #B9AA9C;
+            opacity: 0;
         }
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
-        img { max-width: 100%; height: auto; display: block; object-fit: cover; }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
 
         /* --- HEADER --- */
         header {
-            position: fixed; top: 0; width: 100%; background: transparent;
-            padding: 20px 40px; display: flex; justify-content: space-between;
-            align-items: center; z-index: 1000; transition: background 0.4s, padding 0.4s;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: transparent;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: background 0.4s, padding 0.4s;
         }
+
         header.scrolled {
             background: rgba(255, 255, 255, 0.98);
             padding: 15px 40px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
-        header.scrolled nav a, header.scrolled .nav-right a { color: #111; }
-        header.scrolled .hamburger-btn span { background-color: #111; }
-        .logo img { height: 35px; transition: 0.4s; }
-        header.scrolled .logo img { filter: brightness(0); }
 
-        nav ul { display: flex; gap: 30px; }
-        nav a { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; transition: color 0.3s; }
-        nav a:hover, nav a.active { color: var(--c-gold); }
-        .nav-right { font-size: 11px; font-weight: 600; letter-spacing: 1px; }
-        .nav-right a { color: #fff; text-transform: uppercase; letter-spacing: 1.5px; transition: color 0.3s; }
-        .nav-right a:hover { color: var(--c-gold); }
+        header.scrolled nav a,
+        header.scrolled .nav-right a {
+            color: #111;
+        }
+
+        header.scrolled .hamburger-btn span {
+            background-color: #111;
+        }
+
+        .logo img {
+            height: 35px;
+            transition: 0.4s;
+        }
+
+        header.scrolled .logo img {
+            filter: brightness(0);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #fff;
+            transition: color 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--c-gold);
+        }
+
+        .nav-right {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .nav-right a {
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: color 0.3s;
+        }
+
+        .nav-right a:hover {
+            color: var(--c-gold);
+        }
 
         /* --- PROFESSIONAL FULLSCREEN MENU STYLES --- */
         .hamburger-btn {
-            display: none; flex-direction: column; justify-content: center; gap: 6px;
-            width: 30px; height: 30px; cursor: pointer; z-index: 2001;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            z-index: 2001;
         }
-        .hamburger-btn span { display: block; width: 100%; height: 1px; background-color: #FAF9F6; transition: 0.3s; }
-        
+
+        .hamburger-btn span {
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: #FAF9F6;
+            transition: 0.3s;
+        }
+
         .pro-menu-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-            background-color: var(--c-bg); z-index: 2000; visibility: hidden; opacity: 0;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--c-bg);
+            z-index: 2000;
+            visibility: hidden;
+            opacity: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
-        .pro-menu-content { text-align: center; width: 100%; max-width: 500px; padding: 20px; }
+
+        .pro-menu-content {
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+        }
+
         .pro-close-btn {
-            position: absolute; top: 30px; right: 30px; font-size: 12px;
-            text-transform: uppercase; letter-spacing: 2px; cursor: pointer;
-            color: #888; font-weight: 600; display: flex; align-items: center; gap: 10px;
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            color: #888;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        .pro-nav-links { margin-bottom: 50px; }
-        .menu-item-wrap { overflow: hidden; margin-bottom: 15px; }
+
+        .pro-nav-links {
+            margin-bottom: 50px;
+        }
+
+        .menu-item-wrap {
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
         .pro-link {
-            display: block; font-size: 36px; font-weight: 300; color: #1a1a1a;
+            display: block;
+            font-size: 36px;
+            font-weight: 300;
+            color: #1a1a1a;
             font-family: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
-            transition: color 0.3s; transform: translateY(100%); 
+            transition: color 0.3s;
+            transform: translateY(100%);
         }
-        .pro-link:hover, .pro-link.active { color: var(--c-gold); font-style: italic; }
-        .pro-menu-footer { opacity: 0; transform: translateY(20px); }
+
+        .pro-link:hover,
+        .pro-link.active {
+            color: var(--c-gold);
+            font-style: italic;
+        }
+
+        .pro-menu-footer {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
         .pro-booking-btn {
-            display: inline-block; border: 1px solid #000; padding: 15px 40px;
-            font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
-            margin-bottom: 20px; transition: 0.3s; color: #000; font-weight: 600;
+            display: inline-block;
+            border: 1px solid #000;
+            padding: 15px 40px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            transition: 0.3s;
+            color: #000;
+            font-weight: 600;
         }
-        .pro-booking-btn:hover { background: #000; color: #fff; }
-        .pro-address { font-size: 12px; color: #999; margin-top: 10px; }
+
+        .pro-booking-btn:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        .pro-address {
+            font-size: 12px;
+            color: #999;
+            margin-top: 10px;
+        }
 
         /* --- TYPOGRAPHY & COMPONENTS --- */
-        .sub-title { font-size: 11px; text-transform: uppercase; letter-spacing: 3px; color: var(--c-gold); margin-bottom: 15px; font-weight: 600;}
-        h1, h2, h3 { font-weight: 400; color: var(--c-text); font-family: 'Cotoris', 'Cormorant Garamond', Georgia, serif; }
-        
+        .sub-title {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--c-gold);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-weight: 400;
+            color: var(--c-text);
+            font-family: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
+        }
+
         .cta-btn {
-            display: inline-flex; align-items: center; padding: 16px 40px;
-            border: 1px solid var(--c-text); transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            font-weight: 600; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-            color: var(--c-text); background: transparent; cursor: pointer; border-radius: 0;
-            position: relative; overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            padding: 16px 40px;
+            border: 1px solid var(--c-text);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            font-weight: 600;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--c-text);
+            background: transparent;
+            cursor: pointer;
+            border-radius: 0;
+            position: relative;
+            overflow: hidden;
         }
+
         .cta-btn::before {
-            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--c-text); transform: scaleX(0); transform-origin: left;
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); z-index: -1;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--c-text);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: -1;
         }
-        .cta-btn:hover { color: #fff; border-color: var(--c-text); }
-        .cta-btn:hover::before { transform: scaleX(1); }
-        .cta-arrow { margin-left: 15px; font-size: 16px; transition: transform 0.4s;}
-        .cta-btn:hover .cta-arrow { transform: translateX(5px); }
+
+        .cta-btn:hover {
+            color: #fff;
+            border-color: var(--c-text);
+        }
+
+        .cta-btn:hover::before {
+            transform: scaleX(1);
+        }
+
+        .cta-arrow {
+            margin-left: 15px;
+            font-size: 16px;
+            transition: transform 0.4s;
+        }
+
+        .cta-btn:hover .cta-arrow {
+            transform: translateX(5px);
+        }
 
         /* --- HERO SECTION --- */
         .service-hero {
-            height: 60vh; min-height: 500px; position: relative; display: flex; align-items: center; justify-content: center;
-            overflow: hidden; text-align: center; color: #fff;
+            height: 60vh;
+            min-height: 500px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-align: center;
+            color: #fff;
         }
+
         .hero-bg-wrap {
-            position: absolute; top: 0; left: 0; width: 100%; height: 120%;
-            z-index: 0; overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            z-index: 0;
+            overflow: hidden;
         }
+
         .hero-bg-wrap img {
-            width: 100%; height: 100%; object-fit: cover;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transform: scale(1.05);
             filter: brightness(0.4);
         }
+
         .hero-overlay {
-            position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.5) 100%); z-index: 1;
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.5) 100%);
+            z-index: 1;
         }
-        .hero-content { position: relative; z-index: 2; padding: 0 40px; width: 100%; max-width: 1000px;}
-        .hero-title-wrap { overflow: hidden; margin-bottom: 20px;}
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 40px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .hero-title-wrap {
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
         .hero-content h1 {
-            font-size: clamp(50px, 8vw, 90px); line-height: 1.1; color: #fff; letter-spacing: 0.02em;
+            font-size: clamp(50px, 8vw, 90px);
+            line-height: 1.1;
+            color: #fff;
+            letter-spacing: 0.02em;
             transform: translateY(120%);
         }
+
         .hero-content p {
-            font-size: clamp(14px, 2vw, 18px); color: rgba(255,255,255,0.9); font-weight: 300;
-            max-width: 600px; margin: 0 auto; letter-spacing: 1px; line-height: 1.8;
-            opacity: 0; transform: translateY(30px);
+            font-size: clamp(14px, 2vw, 18px);
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+            letter-spacing: 1px;
+            line-height: 1.8;
+            opacity: 0;
+            transform: translateY(30px);
         }
 
         /* --- SERVICE CONTENT --- */
@@ -193,32 +484,37 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+
         .menu-section {
             margin-bottom: 100px;
             display: flex;
             gap: 60px;
             align-items: flex-start;
         }
+
         .menu-section.reverse {
             flex-direction: row-reverse;
         }
+
         .menu-image {
             flex: 0 0 45%;
             position: relative;
             border-radius: 4px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
         }
+
         .menu-image img {
             width: 100%;
             height: auto;
             display: block;
             transition: transform 1.5s ease;
         }
+
         .menu-image:hover img {
             transform: scale(1.05);
         }
-        
+
         .menu-details {
             flex: 1;
         }
@@ -226,10 +522,12 @@
         .menu-section-title {
             margin-bottom: 40px;
         }
+
         .menu-section-title h2 {
             font-size: clamp(30px, 4vw, 45px);
             margin-bottom: 10px;
         }
+
         .menu-section-title .sub-title {
             margin-bottom: 10px;
             display: block;
@@ -240,28 +538,33 @@
             flex-direction: column;
             gap: 20px;
         }
+
         .price-item {
-            border-bottom: 1px dotted rgba(0,0,0,0.15);
+            border-bottom: 1px dotted rgba(0, 0, 0, 0.15);
             padding-bottom: 15px;
             display: flex;
             flex-direction: column;
         }
+
         .price-item-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
             margin-bottom: 5px;
         }
+
         .price-item-title {
             font-family: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
             font-size: 18px;
             font-weight: 600;
         }
+
         .price-item-price {
             font-family: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
             font-size: 18px;
             color: var(--c-gold-dark);
         }
+
         .price-item-desc {
             font-size: 13px;
             color: #777;
@@ -277,8 +580,9 @@
             font-size: 13px;
             line-height: 1.8;
             color: #555;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
         }
+
         .service-notes h4 {
             font-size: 14px;
             margin-bottom: 10px;
@@ -286,6 +590,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
+
         .service-notes ul {
             list-style: disc;
             padding-left: 20px;
@@ -299,16 +604,34 @@
 
         /* --- RESPONSIVE --- */
         @media (max-width: 1024px) {
-            .hamburger-btn { display: flex; }
-            .desktop-nav { display: none; }
-            header { justify-content: flex-start; gap: 20px; padding: 15px 20px; }
-            header.scrolled { padding: 15px 20px; }
-            .nav-right { margin-left: auto; }
-            
-            .menu-section, .menu-section.reverse {
+            .hamburger-btn {
+                display: flex;
+            }
+
+            .desktop-nav {
+                display: none;
+            }
+
+            header {
+                justify-content: flex-start;
+                gap: 20px;
+                padding: 15px 20px;
+            }
+
+            header.scrolled {
+                padding: 15px 20px;
+            }
+
+            .nav-right {
+                margin-left: auto;
+            }
+
+            .menu-section,
+            .menu-section.reverse {
                 flex-direction: column;
                 gap: 40px;
             }
+
             .menu-image {
                 width: 100%;
                 max-width: 600px;
@@ -317,62 +640,218 @@
         }
 
         /* --- LENIS SMOOTH SCROLL --- */
-        html.lenis, html.lenis body { height: auto; }
-        .lenis.lenis-smooth { scroll-behavior: auto !important; }
-        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
-        .lenis.lenis-stopped { overflow: hidden; }
-        .lenis.lenis-scrolling iframe { pointer-events: none; }
+        html.lenis,
+        html.lenis body {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+
+        .lenis.lenis-scrolling iframe {
+            pointer-events: none;
+        }
 
         /* ============================================================
            FOOTER &mdash; Dark 4-column
         ============================================================ */
-        .site-footer { background: #13151a; color: rgba(255,255,255,0.7); font-size: 13px; line-height: 1.8; }
+        .site-footer {
+            background: #13151a;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
         .footer-main {
-            max-width: 1200px; margin: 0 auto; padding: 80px 40px 60px;
-            display: grid; grid-template-columns: 1.2fr 1.2fr 1fr 1.4fr; gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px 60px;
+            display: grid;
+            grid-template-columns: 1.2fr 1.2fr 1fr 1.4fr;
+            gap: 50px;
         }
-        .footer-brand .footer-logo img { height: 75px; margin-bottom: 25px; filter: brightness(1.2); }
-        .footer-socials { display: flex; gap: 12px; margin-top: 25px; }
+
+        .footer-brand .footer-logo img {
+            height: 75px;
+            margin-bottom: 25px;
+            filter: brightness(1.2);
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
         .footer-socials a {
-            width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 14px; color: #fff; text-decoration: none; transition: all 0.3s;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s;
         }
-        .footer-socials a:hover { background: var(--c-gold); border-color: var(--c-gold); color: #fff; }
+
+        .footer-socials a:hover {
+            background: var(--c-gold);
+            border-color: var(--c-gold);
+            color: #fff;
+        }
+
         .footer-col h4 {
-            font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
-            color: #fff; font-weight: 700; margin-bottom: 25px;
-            padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .footer-col p, .footer-col address { font-style: normal; font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.9; }
-        .footer-col a { color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.3s; }
-        .footer-col a:hover { color: var(--c-gold); }
-        .hours-table { width: 100%; border-collapse: collapse; }
-        .hours-table tr td { padding: 4px 0; font-size: 14px; color: rgba(255,255,255,0.65); }
-        .hours-table tr td:first-child { font-weight: 600; color: rgba(255,255,255,0.9); padding-right: 16px; white-space: nowrap; }
-        .hours-open { color: var(--c-gold) !important; }
-        .footer-form { display: flex; flex-direction: column; gap: 15px; }
-        .footer-form input, .footer-form textarea {
-            background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.2);
-            padding: 12px 0; color: #fff; font-size: 14px;
-            font-family: 'DM Sans', sans-serif; outline: none; width: 100%; transition: border-color 0.3s;
+
+        .footer-col p,
+        .footer-col address {
+            font-style: normal;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.9;
         }
-        .footer-form input::placeholder, .footer-form textarea::placeholder { color: rgba(255,255,255,0.4); }
-        .footer-form input:focus, .footer-form textarea:focus { border-bottom-color: var(--c-gold); }
-        .footer-form textarea { resize: vertical; min-height: 80px; }
+
+        .footer-col a {
+            color: rgba(255, 255, 255, 0.65);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--c-gold);
+        }
+
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .hours-table tr td {
+            padding: 4px 0;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        .hours-table tr td:first-child {
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            padding-right: 16px;
+            white-space: nowrap;
+        }
+
+        .hours-open {
+            color: var(--c-gold) !important;
+        }
+
+        .footer-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-form input,
+        .footer-form textarea {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px 0;
+            color: #fff;
+            font-size: 14px;
+            font-family: 'DM Sans', sans-serif;
+            outline: none;
+            width: 100%;
+            transition: border-color 0.3s;
+        }
+
+        .footer-form input::placeholder,
+        .footer-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .footer-form input:focus,
+        .footer-form textarea:focus {
+            border-bottom-color: var(--c-gold);
+        }
+
+        .footer-form textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
         .footer-form .submit-btn {
-            margin-top: 10px; padding: 14px 35px; background: var(--c-gold); color: #fff;
-            border: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-            font-weight: 700; cursor: pointer; align-self: flex-start; transition: background 0.3s;
+            margin-top: 10px;
+            padding: 14px 35px;
+            background: var(--c-gold);
+            color: #fff;
+            border: none;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            cursor: pointer;
+            align-self: flex-start;
+            transition: background 0.3s;
         }
-        .footer-form .submit-btn:hover { background: var(--c-gold-dark); }
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); text-align: center; padding: 25px 20px; font-size: 12px; color: rgba(255,255,255,0.4); letter-spacing: 0.5px; }
-        .footer-bottom a { color: var(--c-gold); text-decoration: none; }
-        .footer-bottom span { margin: 0 10px; opacity: 0.3; }
-        @media (max-width: 900px) { .footer-main { grid-template-columns: 1fr 1fr; gap: 40px; padding: 60px 20px 40px; } }
-        @media (max-width: 580px) { .footer-main { grid-template-columns: 1fr; } }
+
+        .footer-form .submit-btn:hover {
+            background: var(--c-gold-dark);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            padding: 25px 20px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 0.5px;
+        }
+
+        .footer-bottom a {
+            color: var(--c-gold);
+            text-decoration: none;
+        }
+
+        .footer-bottom span {
+            margin: 0 10px;
+            opacity: 0.3;
+        }
+
+        @media (max-width: 900px) {
+            .footer-main {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                padding: 60px 20px 40px;
+            }
+        }
+
+        @media (max-width: 580px) {
+            .footer-main {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <!-- CUSTOM CURSOR -->
@@ -395,23 +874,25 @@
         </div>
 
         <div class="logo">
-            <a href="/">
-                <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/Original-Logo-without-slogan-White.png" alt="Tulip Logo">
+            <a href="../../">
+                <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/Original-Logo-without-slogan-White.png"
+                    alt="Tulip Logo">
             </a>
         </div>
 
         <nav class="desktop-nav">
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about-us/">About</a></li>
-                <li><a href="/services/" class="active">Services</a></li>
-                <li><a href="/after-care/">After Care</a></li>
-                <li><a href="/contact/">Contact</a></li>
+                <li><a href="../../">Home</a></li>
+                <li><a href="../../about-us/">About</a></li>
+                <li><a href="../../services/" class="active">Services</a></li>
+                <li><a href="../../after-care/">After Care</a></li>
+                <li><a href="../../contact/">Contact</a></li>
             </ul>
         </nav>
 
         <div class="nav-right">
-            <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu" target="_blank">BOOKINGS</a>
+            <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                target="_blank">BOOKINGS</a>
         </div>
     </header>
 
@@ -420,14 +901,15 @@
         <div class="pro-menu-content">
             <div class="pro-close-btn">Close <span style="font-size:20px">&times;</span></div>
             <nav class="pro-nav-links">
-                <div class="menu-item-wrap"><a href="/" class="pro-link">Home</a></div>
-                <div class="menu-item-wrap"><a href="/about-us/" class="pro-link">About</a></div>
-                <div class="menu-item-wrap"><a href="/services/" class="pro-link active">Services</a></div>
-                <div class="menu-item-wrap"><a href="/after-care/" class="pro-link">After care</a></div>
-                <div class="menu-item-wrap"><a href="/contact/" class="pro-link">Contact</a></div>
+                <div class="menu-item-wrap"><a href="../../" class="pro-link">Home</a></div>
+                <div class="menu-item-wrap"><a href="../../about-us/" class="pro-link">About</a></div>
+                <div class="menu-item-wrap"><a href="../../services/" class="pro-link active">Services</a></div>
+                <div class="menu-item-wrap"><a href="../../after-care/" class="pro-link">After care</a></div>
+                <div class="menu-item-wrap"><a href="../../contact/" class="pro-link">Contact</a></div>
             </nav>
             <div class="pro-menu-footer">
-                <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu" class="pro-booking-btn" target="_blank">Book Appointment</a>
+                <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                    class="pro-booking-btn" target="_blank">Book Appointment</a>
                 <p class="pro-address">Tulip Beauty | 516 Macaulay Rd, Kensington VIC 3031</p>
             </div>
         </div>
@@ -438,7 +920,8 @@
         <!-- HERO -->
         <section class="service-hero">
             <div class="hero-bg-wrap">
-                <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/permanent-makeup-on-female-eyebrows_21134609.jpg" class="hero-bg-img" alt="Cosmetic Tattoos">
+                <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/permanent-makeup-on-female-eyebrows_21134609.jpg"
+                    class="hero-bg-img" alt="Cosmetic Tattoos">
             </div>
             <div class="hero-overlay"></div>
             <div class="hero-content">
@@ -456,7 +939,8 @@
             <!-- EYEBROWS -->
             <div class="menu-section">
                 <div class="menu-image">
-                    <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/permanent-makeup-on-female-eyebrows_21134609.jpg" alt="Eyebrow Tattoo">
+                    <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/permanent-makeup-on-female-eyebrows_21134609.jpg"
+                        alt="Eyebrow Tattoo">
                 </div>
                 <div class="menu-details">
                     <div class="menu-section-title">
@@ -500,9 +984,10 @@
                             <div class="price-item-desc">2h 45m treatment.</div>
                         </div>
                     </div>
-                    
+
                     <div class="booking-cta-wrap">
-                        <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu" class="cta-btn" target="_blank">
+                        <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                            class="cta-btn" target="_blank">
                             Book Now <span class="cta-arrow">&rarr;</span>
                         </a>
                     </div>
@@ -512,7 +997,8 @@
             <!-- EYELINER -->
             <div class="menu-section reverse">
                 <div class="menu-image">
-                    <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/a-black-and-white-image-of-a-model-s-face-with-683x1024.jpg" alt="Eyeliner Tattoo">
+                    <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/a-black-and-white-image-of-a-model-s-face-with-683x1024.jpg"
+                        alt="Eyeliner Tattoo">
                 </div>
                 <div class="menu-details">
                     <div class="menu-section-title">
@@ -551,7 +1037,8 @@
                     </div>
 
                     <div class="booking-cta-wrap">
-                        <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu" class="cta-btn" target="_blank">
+                        <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                            class="cta-btn" target="_blank">
                             Book Now <span class="cta-arrow">&rarr;</span>
                         </a>
                     </div>
@@ -561,7 +1048,8 @@
             <!-- LIPS -->
             <div class="menu-section">
                 <div class="menu-image">
-                    <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/vecteezy_beautiful-girl-with-clean-fresh-skin-white-background_33837057.jpg" alt="Lip Tattoo">
+                    <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/vecteezy_beautiful-girl-with-clean-fresh-skin-white-background_33837057.jpg"
+                        alt="Lip Tattoo">
                 </div>
                 <div class="menu-details">
                     <div class="menu-section-title">
@@ -628,7 +1116,8 @@
                     </div>
 
                     <div class="booking-cta-wrap">
-                        <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu" class="cta-btn" target="_blank">
+                        <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                            class="cta-btn" target="_blank">
                             Book Now <span class="cta-arrow">&rarr;</span>
                         </a>
                     </div>
@@ -639,7 +1128,8 @@
             <div class="menu-section reverse">
                 <div class="menu-image">
                     <!-- Placeholder using an elegant spa image for removal -->
-                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=2670&auto=format&fit=crop" alt="Cosmetic Tattoo Removal">
+                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=2670&auto=format&fit=crop"
+                        alt="Cosmetic Tattoo Removal">
                 </div>
                 <div class="menu-details">
                     <div class="menu-section-title">
@@ -678,7 +1168,8 @@
                     </div>
 
                     <div class="booking-cta-wrap">
-                        <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu" class="cta-btn" target="_blank">
+                        <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                            class="cta-btn" target="_blank">
                             Book Now <span class="cta-arrow">&rarr;</span>
                         </a>
                     </div>
@@ -689,8 +1180,10 @@
             <div class="service-notes">
                 <h4>Important Information</h4>
                 <p><strong>* PROMOTION PRICE EXCLUDING GST</strong></p>
-                <p>Please note: if you have an existing old tattoo, the cost may increase depending on the condition of the existing tattoo.</p>
-                <p>Our team member will contact you for a free consultation and deposit required before we confirm your appointment.</p>
+                <p>Please note: if you have an existing old tattoo, the cost may increase depending on the condition of
+                    the existing tattoo.</p>
+                <p>Our team member will contact you for a free consultation and deposit required before we confirm your
+                    appointment.</p>
                 <p><strong>Cases SHOULD NOT do COSMETIC TATTOO:</strong></p>
                 <ul>
                     <li>Haemophilia</li>
@@ -699,7 +1192,8 @@
                     <li>Pregnancy and breastfeeding</li>
                     <li>Hypopigmentation on the treated area</li>
                 </ul>
-                <p style="margin-top: 15px;">** For Lips Touch Up: Full price applies after 2 years. Not valid for previous cosmetic tattoo from other places. Deposit required to confirm your appointment.</p>
+                <p style="margin-top: 15px;">** For Lips Touch Up: Full price applies after 2 years. Not valid for
+                    previous cosmetic tattoo from other places. Deposit required to confirm your appointment.</p>
                 <p>*** For Removal: Each session should be 4-6 weeks apart.</p>
             </div>
 
@@ -712,7 +1206,8 @@
         <div class="footer-main">
             <div class="footer-brand footer-col">
                 <div class="footer-logo">
-                    <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/Original-Logo-without-slogan-White.png" alt="Beauty Logo">
+                    <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/Original-Logo-without-slogan-White.png"
+                        alt="Beauty Logo">
                 </div>
                 <div class="footer-socials">
                     <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -724,17 +1219,31 @@
                 <h4>Information</h4>
                 <address>
                     516 Macaulay Rd, Kensington VIC 3031<br><br>
-                    <strong style="color:rgba(255,255,255,0.9)">Email:</strong> <a href="mailto:customer-service@tulipbeauty.com.au">customer-service@tulipbeauty.com.au</a><br><br>
-                    <strong style="color:rgba(255,255,255,0.9)">Phone:</strong> <a href="tel:0404529787">0404 529 787</a>
+                    <strong style="color:rgba(255,255,255,0.9)">Email:</strong> <a
+                        href="mailto:customer-service@tulipbeauty.com.au">customer-service@tulipbeauty.com.au</a><br><br>
+                    <strong style="color:rgba(255,255,255,0.9)">Phone:</strong> <a href="tel:0404529787">0404 529
+                        787</a>
                 </address>
             </div>
             <div class="footer-col">
                 <h4>Opening Hours</h4>
                 <table class="hours-table">
-                    <tr><td>Monday:</td><td>10am &ndash; 4 pm</td></tr>
-                    <tr><td>Tue - Fri:</td><td>10am &ndash; 6 pm</td></tr>
-                    <tr><td>Saturday:</td><td>9am &ndash; 5 pm</td></tr>
-                    <tr><td>Sunday:</td><td style="color:#e05555">Closed</td></tr>
+                    <tr>
+                        <td>Monday:</td>
+                        <td>10am &ndash; 4 pm</td>
+                    </tr>
+                    <tr>
+                        <td>Tue - Fri:</td>
+                        <td>10am &ndash; 6 pm</td>
+                    </tr>
+                    <tr>
+                        <td>Saturday:</td>
+                        <td>9am &ndash; 5 pm</td>
+                    </tr>
+                    <tr>
+                        <td>Sunday:</td>
+                        <td style="color:#e05555">Closed</td>
+                    </tr>
                 </table>
             </div>
             <div class="footer-col">
@@ -747,7 +1256,8 @@
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; Tulip Beauty 2026. <a href="/privacy-policy/">Privacy Policy</a> <span>|</span> <a href="#">Terms of Service</a>
+            &copy; Tulip Beauty 2026. <a href="../../privacy-policy/">Privacy Policy</a> <span>|</span> <a href="#">Terms of
+                Service</a>
         </div>
     </footer>
 
@@ -812,14 +1322,14 @@
         const hamburgerBtn = document.querySelector('.hamburger-btn');
         const proMenuOverlay = document.querySelector('.pro-menu-overlay');
         const proCloseBtn = document.querySelector('.pro-close-btn');
-        const proLinks = document.querySelectorAll('.pro-link'); 
-        const proFooter = document.querySelector('.pro-menu-footer'); 
-        
+        const proLinks = document.querySelectorAll('.pro-link');
+        const proFooter = document.querySelector('.pro-menu-footer');
+
         let isMenuOpen = false;
         const menuTl = gsap.timeline({ paused: true, reversed: true });
         menuTl
             .to(proMenuOverlay, { autoAlpha: 1, duration: 0.5, ease: "power2.inOut" })
-            .to(proLinks, { y: 0, stagger: 0.1, duration: 0.6, ease: "power3.out" }, "-=0.2") 
+            .to(proLinks, { y: 0, stagger: 0.1, duration: 0.6, ease: "power3.out" }, "-=0.2")
             .to(proFooter, { y: 0, autoAlpha: 1, duration: 0.5 }, "-=0.4");
 
         function toggleProMenu() {
@@ -831,8 +1341,8 @@
 
         /* ---- LENIS INTEGRATION ---- */
         const lenis = new Lenis({
-            duration: 1.2, 
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         });
 
         lenis.on('scroll', ScrollTrigger.update);
@@ -847,8 +1357,8 @@
         function initHeroAnimations() {
             const tl = gsap.timeline();
             tl.to('.hero-bg-img', { scale: 1, duration: 2, ease: 'power3.out' })
-              .to('#heroTitle', { y: '0%', duration: 1.2, ease: 'power4.out' }, '-=1.5')
-              .to('#heroDesc', { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }, '-=0.8');
+                .to('#heroTitle', { y: '0%', duration: 1.2, ease: 'power4.out' }, '-=1.5')
+                .to('#heroDesc', { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }, '-=0.8');
         }
 
         // Hero Parallax on Scroll
@@ -882,4 +1392,5 @@
         }
     </script>
 </body>
+
 </html>
