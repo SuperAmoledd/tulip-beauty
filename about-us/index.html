@@ -1,20 +1,21 @@
-﻿﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Tulip Beauty Spa</title>
-    <meta name="description" content="Discover our story &mdash; where beauty meets luxury at Tulip Beauty Spa Melbourne.">
+    <meta name="description"
+        content="Discover our story &mdash; where beauty meets luxury at Tulip Beauty Spa Melbourne.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
+        rel="stylesheet">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <link rel="stylesheet" href="../style.css">
 
     <style>
         /* ============================================================
@@ -29,9 +30,9 @@
         }
 
         :root {
-            --cream: #faf9f6;
+            --cream: #fbf8f6;
             --warm: #f5f0e8;
-            --gold: #642D38;
+            --gold: #713246;
             --gold-lt: #e8d5b0;
             --dark: #1a1a1a;
             --mid: #555;
@@ -196,7 +197,7 @@
             display: block;
             width: 100%;
             height: 1px;
-            background-color: #FAF9F6;
+            background-color: #fbf8f6;
             transition: 0.3s;
         }
 
@@ -291,14 +292,12 @@
             margin-top: 10px;
         }
 
-        /* ============================================================
-           PAGE LOADER
-        ============================================================ */
+        /* --- PAGE LOADER — synchronized with homepage --- */
         #page-loader {
             position: fixed;
             inset: 0;
-            z-index: 8000;
-            background: var(--dark);
+            z-index: 9990;
+            background: #1E1A17;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -306,31 +305,34 @@
             gap: 20px;
         }
 
-        .loader-text {
+        .loader-brand {
             font-family: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
-            font-size: clamp(32px, 6vw, 72px);
+            font-size: clamp(32px, 5vw, 60px);
             font-weight: 400;
             color: #fff;
-            letter-spacing: 0.05em;
-            overflow: hidden;
+            letter-spacing: 0.06em;
+            text-align: center;
         }
 
-        .loader-text span {
-            display: inline-block;
+        .loader-brand em {
+            font-family: 'The Seasons', 'Cormorant Garamond', Georgia, serif;
+            color: #bd8c72;
+            font-style: italic;
         }
 
         .loader-line {
             width: 0;
-            height: 1px;
-            background: var(--gold);
+            height: 2px;
+            background: linear-gradient(135deg, #D4A373 0%, #E8C49E 50%, #C68B59 100%);
         }
 
         .loader-sub {
-            font-size: 11px;
-            letter-spacing: 4px;
+            font-size: 13px;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            color: var(--gold-lt);
+            color: #C7B8AD;
             opacity: 0;
+            font-weight: 500;
         }
 
         /* ============================================================
@@ -1048,7 +1050,7 @@
         }
 
         .footer-col a:hover {
-            color: #642D38;
+            color: #713246;
         }
 
         /* Hours table */
@@ -1071,7 +1073,7 @@
         }
 
         .hours-open {
-            color: #642D38 !important;
+            color: #713246 !important;
         }
 
         /* Contact form */
@@ -1102,7 +1104,7 @@
 
         .footer-form input:focus,
         .footer-form textarea:focus {
-            border-bottom-color: #642D38;
+            border-bottom-color: #713246;
         }
 
         .footer-form textarea {
@@ -1113,7 +1115,7 @@
         .footer-form .submit-btn {
             margin-top: 8px;
             padding: 12px 30px;
-            background: #642D38;
+            background: #713246;
             color: #fff;
             border: none;
             font-size: 11px;
@@ -1140,7 +1142,7 @@
         }
 
         .footer-bottom a {
-            color: #642D38;
+            color: #713246;
             text-decoration: none;
         }
 
@@ -1251,7 +1253,784 @@
         .lenis.lenis-stopped {
             overflow: hidden;
         }
+
+
+        /* ============================================================
+           VISUAL POLISH & RESPONSIVE SAFETY OVERRIDES
+           Additive only: existing page and JavaScript logic preserved.
+        ============================================================ */
+        body {
+            cursor: auto;
+            overflow-x: clip;
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            body {
+                cursor: none;
+            }
+        }
+
+        header {
+            gap: clamp(16px, 2.2vw, 36px);
+            padding-left: clamp(18px, 3.2vw, 48px);
+            padding-right: clamp(18px, 3.2vw, 48px);
+        }
+
+        .logo img {
+            height: clamp(38px, 3.2vw, 48px);
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav ul {
+            gap: clamp(14px, 2vw, 30px);
+        }
+
+        nav a,
+        .nav-right,
+        .nav-right a {
+            font-size: 12px;
+            letter-spacing: 1.2px;
+        }
+
+        .story-inner,
+        .values-inner,
+        .gallery-inner,
+        .hero-content {
+            width: 100%;
+            max-width: 1280px;
+            box-sizing: border-box;
+        }
+
+        .story-section,
+        .values-section,
+        .gallery-section {
+            padding-top: clamp(72px, 9vw, 120px);
+            padding-bottom: clamp(72px, 9vw, 120px);
+        }
+
+        .story-grid {
+            gap: clamp(36px, 7vw, 100px);
+        }
+
+        .story-text p,
+        .values-header p,
+        .value-card p {
+            font-size: 15px;
+            line-height: 1.85;
+        }
+
+        .value-card {
+            padding: clamp(28px, 3.5vw, 50px) clamp(20px, 2.4vw, 30px);
+        }
+
+        .footer-main {
+            width: 100%;
+            max-width: 1280px;
+            box-sizing: border-box;
+            padding-left: clamp(20px, 3.2vw, 40px);
+            padding-right: clamp(20px, 3.2vw, 40px);
+            gap: clamp(24px, 3.5vw, 50px);
+        }
+
+        .footer-about-copy {
+            margin-top: 8px;
+            max-width: 280px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, .68);
+        }
+
+        .footer-map-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            margin-top: 10px;
+            color: #e8d5b0 !important;
+            font-size: 12px;
+        }
+
+        .footer-map-link:hover {
+            color: #fff !important;
+        }
+
+        .footer-col h4 {
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        .hours-table tr td,
+        .footer-col p,
+        .footer-col address {
+            font-size: 14px;
+        }
+
+        .cta-btn,
+        .pro-booking-btn,
+        .nav-right a {
+            transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid #e8d5b0;
+            outline-offset: 4px;
+        }
+
+        @media (max-width: 900px) {
+
+            header,
+            header.scrolled {
+                padding: 14px 22px;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+
+            .hero {
+                min-height: 680px;
+                height: min(100svh, 900px);
+                padding-bottom: 64px;
+            }
+
+            .hero-title {
+                font-size: clamp(44px, 9vw, 78px);
+                overflow-wrap: anywhere;
+            }
+
+            .hero-meta {
+                gap: 24px;
+            }
+
+            .story-section,
+            .values-section,
+            .gallery-section {
+                padding-top: 76px;
+                padding-bottom: 76px;
+            }
+
+            .story-inner,
+            .values-inner,
+            .gallery-inner {
+                padding-left: 24px;
+                padding-right: 24px;
+            }
+
+            .story-grid {
+                gap: 36px;
+            }
+
+            .story-image-wrap img {
+                width: 100%;
+                height: clamp(300px, 55vw, 460px);
+            }
+
+            .values-header {
+                gap: 24px;
+                margin-bottom: 42px;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .gallery-img {
+                width: clamp(220px, 34vw, 300px);
+                height: clamp(280px, 43vw, 360px);
+            }
+
+            .footer-main {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                padding-top: 52px;
+                padding-bottom: 40px;
+            }
+
+            .quote-section {
+                padding: 120px 24px;
+            }
+        }
+
+        @media (max-width: 580px) {
+
+            header,
+            header.scrolled {
+                padding: 12px 18px;
+            }
+
+            .logo img {
+                height: 34px;
+                max-width: 180px;
+            }
+
+            .hamburger-btn {
+                width: 28px;
+                flex: 0 0 28px;
+            }
+
+            .hero {
+                min-height: 620px;
+                height: 88svh;
+                padding-bottom: 48px;
+            }
+
+            .hero-content {
+                padding-left: 22px;
+                padding-right: 22px;
+            }
+
+            .hero-eyebrow span {
+                font-size: 10px;
+                letter-spacing: 2.5px;
+            }
+
+            .hero-title {
+                font-size: clamp(40px, 11vw, 58px);
+                line-height: 1.02;
+                margin-bottom: 22px;
+            }
+
+            .hero-title .line {
+                overflow-wrap: anywhere;
+            }
+
+            .hero-meta {
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .hero-meta p {
+                font-size: 13px;
+                max-width: 290px;
+            }
+
+            .hero-scroll-hint {
+                display: none;
+            }
+
+            .marquee-strip {
+                padding: 17px 0;
+            }
+
+            .marquee-track {
+                gap: 28px;
+            }
+
+            .marquee-item {
+                gap: 12px;
+                font-size: 10px;
+                letter-spacing: 2px;
+            }
+
+            .story-inner,
+            .values-inner,
+            .gallery-inner {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .story-section,
+            .values-section,
+            .gallery-section {
+                padding-top: 64px;
+                padding-bottom: 64px;
+            }
+
+            .section-badge {
+                margin-bottom: 32px;
+            }
+
+            .section-badge span {
+                font-size: 10px;
+                letter-spacing: 2.5px;
+            }
+
+            .story-text h2,
+            .values-header h2,
+            .gallery-header h2 {
+                font-size: clamp(32px, 9vw, 44px);
+                overflow-wrap: anywhere;
+            }
+
+            .story-text p,
+            .values-header p,
+            .value-card p {
+                font-size: 14px;
+                line-height: 1.8;
+            }
+
+            .story-image-wrap img {
+                height: 300px;
+            }
+
+            .story-text .cta-btn {
+                padding: 14px 22px;
+                font-size: 11px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .value-card {
+                padding: 34px 24px;
+            }
+
+            .stats-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-item {
+                padding: 36px 20px;
+            }
+
+            .stat-item:not(:last-child)::after {
+                display: none;
+            }
+
+            .gallery-header {
+                margin-bottom: 32px;
+            }
+
+            .gallery-img {
+                width: min(76vw, 280px);
+                height: 340px;
+            }
+
+            .quote-section {
+                padding: 88px 20px;
+            }
+
+            .quote-bg-text {
+                font-size: 22vw;
+                white-space: normal;
+                width: 100%;
+                text-align: center;
+            }
+
+            .quote-section blockquote {
+                font-size: clamp(24px, 7vw, 34px);
+            }
+
+            .quote-author {
+                font-size: 10px;
+                letter-spacing: 2.5px;
+            }
+
+            .footer-main {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 34px;
+                padding: 44px 22px 32px;
+            }
+
+            .footer-brand .footer-logo img {
+                max-width: 190px;
+                height: auto;
+                max-height: 58px;
+                object-fit: contain;
+            }
+
+            .footer-col h4 {
+                margin-bottom: 16px;
+            }
+
+            .footer-col address,
+            .footer-col p {
+                overflow-wrap: anywhere;
+            }
+
+            .footer-bottom {
+                padding: 16px 18px;
+                font-size: 11px;
+                line-height: 1.8;
+            }
+
+            .pro-link {
+                font-size: clamp(30px, 9vw, 36px);
+            }
+
+            .pro-close-btn {
+                top: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+        }
+
+
+
+        /* ============================================================
+           SHARED HEADER — matched to the improved homepage
+           Keep this block in sync with index_tulip_improved.html.
+        ============================================================ */
+        header {
+            padding: 20px 40px;
+            gap: 24px;
+        }
+
+        header.scrolled {
+            padding: 15px 40px;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo img {
+            height: 48px;
+            width: auto;
+            max-width: 220px;
+            object-fit: contain;
+        }
+
+        nav ul {
+            gap: 32px;
+        }
+
+        nav a,
+        .nav-right a {
+            font-size: 12px;
+            letter-spacing: 1.2px;
+        }
+
+        .nav-right a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 12px 22px;
+            border: 1px solid rgba(243, 227, 211, 0.8);
+            border-radius: 999px;
+            color: #fff;
+            background: rgba(110, 38, 56, 0.72);
+            transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+            white-space: nowrap;
+        }
+
+        .nav-right a:hover {
+            background: #713246;
+            border-color: #bd8c72;
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        header.scrolled nav a {
+            color: #111;
+        }
+
+        header.scrolled .nav-right a {
+            color: #fff;
+            background: #713246;
+            border-color: #713246;
+        }
+
+        header.scrolled .hamburger-btn span {
+            background-color: #111;
+        }
+
+        nav a:hover {
+            color: #bd8c72;
+        }
+
+        .hamburger-btn {
+            flex-shrink: 0;
+        }
+
+        .nav-right {
+            margin-left: 0;
+            flex-shrink: 0;
+        }
+
+        .nav-right a:focus-visible,
+        nav a:focus-visible {
+            outline: 2px solid #bd8c72;
+            outline-offset: 4px;
+        }
+
+        @media (max-width: 1024px) {
+            .hamburger-btn {
+                display: flex;
+            }
+
+            .desktop-nav {
+                display: none;
+            }
+
+            header,
+            header.scrolled {
+                justify-content: flex-start;
+                gap: 20px;
+                padding: 14px 24px;
+            }
+
+            .logo img {
+                height: 44px;
+            }
+
+            .nav-right {
+                margin-left: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            header,
+            header.scrolled {
+                gap: 16px;
+                padding: 13px 20px;
+            }
+
+            .logo img {
+                height: 42px;
+                max-width: 180px;
+            }
+
+            .nav-right a {
+                min-height: 42px;
+                padding: 11px 17px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            header,
+            header.scrolled {
+                gap: 12px;
+                padding: 12px 16px;
+            }
+
+            .logo img {
+                height: 38px;
+                max-width: 155px;
+            }
+
+            .nav-right a {
+                min-height: 40px;
+                padding: 10px 13px;
+                font-size: 10px;
+                letter-spacing: 0.8px;
+            }
+        }
     </style>
+<style id="tulip-beauty-refresh">
+:root{--container-max:1280px;--cream:#fbf8f6;--warm:#f4ebe6;--gold:#bd8c72;--gold-lt:#f3e3d3;--dark:#1e1a17;--mid:#76696a;--lt:#c7b8ad;--c-bg:#fbf8f6;--c-warm:#f4ebe6;--c-rose-soft:#f6e7e5;--c-burg:#713246;--c-burg-dark:#4f2031;--c-burg-soft:#925367;--c-rose-gold:#bd8c72;--c-text:#332a2a;--c-muted:#76696a}
+html,body{max-width:100%;overflow-x:clip}body{font-size:16px;line-height:1.75;color:var(--c-text)}
+.site-container,.footer-main{width:100%;max-width:var(--container-max);margin-inline:auto}
+header#mainHeader{min-height:88px;padding-inline:clamp(20px,5vw,72px)}
+header#mainHeader .logo img{height:clamp(48px,5vw,64px);width:auto;object-fit:contain}
+header#mainHeader nav a,header#mainHeader .nav-right a{font-size:13px;letter-spacing:.08em}
+header#mainHeader .nav-right a{min-height:48px;padding:12px 24px;border-radius:999px;background:#713246;border-color:#bd8c72;font-weight:600}
+header#mainHeader .nav-right a:hover{background:#4f2031}
+.site-footer .footer-main{max-width:1280px;padding-inline:clamp(20px,4vw,56px)}
+.site-footer .footer-about{max-width:310px;margin:12px 0 18px;color:rgba(255,255,255,.76);font-size:14px;line-height:1.8}
+.site-footer .footer-col h4{font-size:13px;letter-spacing:.14em}
+.site-footer .footer-col p,.site-footer .footer-col address,.site-footer .footer-col a,.site-footer .hours-table td{font-size:14px;line-height:1.8}
+.site-footer .footer-map-link{display:inline-flex;align-items:center;gap:8px;margin-top:10px;color:#f3e3d3;font-size:13px;font-weight:600}
+.site-footer .footer-map-link:hover{color:#bd8c72}
+.service-content{width:100%;max-width:1280px;padding-inline:clamp(20px,5vw,64px)}
+.menu-section{gap:clamp(28px,5vw,70px);align-items:center}.menu-section.reverse{flex-direction:row}
+.menu-section-title h2{font-size:clamp(28px,3.2vw,42px);line-height:1.15}
+.menu-details p{font-size:16px!important;line-height:1.8}
+@media(max-width:1024px){header#mainHeader{min-height:76px;padding-inline:20px}header#mainHeader .logo img{height:48px}}
+@media(max-width:768px){body{font-size:16px}.site-container{padding-inline:20px}section,main,.site-container,.service-content{max-width:100%;min-width:0}.service-content{padding:64px 20px}.menu-section,.menu-section.reverse{flex-direction:column;gap:24px;margin-bottom:64px}.menu-image,.menu-details{width:100%;max-width:100%;flex-basis:auto}.menu-image{aspect-ratio:4/5}.site-footer .footer-main{padding-inline:22px}.hero h1,.hero-title{font-size:clamp(38px,10vw,60px);overflow-wrap:anywhere}.hero p,.section-desc{font-size:16px}.media-modal-box{max-width:100%;max-height:92vh}}
+@media(max-width:420px){header#mainHeader .logo img{height:42px}.site-container{padding-inline:16px}.service-content{padding-inline:16px}.site-footer .footer-main{padding-inline:18px}}
+</style>
+<style id="services-shared-brand">
+:root{--cream:#fbf8f6;--warm:#f4ebe6;--gold:#bd8c72;--gold-lt:#f3e3d3;--dark:#1e1a17;--mid:#76696a;--lt:#c7b8ad;--c-bg:#fbf8f6;--c-warm:#f4ebe6;--c-card-bg:#fff;--c-stone:#c7b8ad;--c-rose-gold:#bd8c72;--c-rose-soft:#f6e7e5;--c-champagne:#f3e3d3;--c-burg:#713246;--c-burg-dark:#4f2031;--c-burg-dk:#4f2031;--c-burg-soft:#925367;--c-sienna:#bd8c72;--c-gold:#bd8c72;--c-gold-dark:#4f2031;--c-burgundy:#713246;--c-dark:#1e1a17;--c-text:#332a2a;--c-muted:#76696a;--c-text-muted:#76696a;--c-accent:#713246;--c-accent-hover:#4f2031;--container-max:1280px}
+html,body{max-width:100%;overflow-x:clip}body{background:var(--c-bg);color:var(--c-text);font-size:16px;line-height:1.75}
+.site-container{width:100%;max-width:1280px;margin-inline:auto}
+.site-footer{background:var(--c-dark);color:rgba(255,255,255,.7);font-size:15px;line-height:1.85}
+.site-footer .footer-main{width:100%;max-width:1280px;margin-inline:auto;padding:90px clamp(20px,4vw,56px) 60px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1.3fr;gap:48px}
+.site-footer .footer-logo img{height:60px;margin-bottom:20px;filter:brightness(1.1)}
+.site-footer .footer-about,.site-footer .footer-about-copy{max-width:310px;margin:12px 0 18px;color:rgba(255,255,255,.76);font-size:14px;line-height:1.8}
+.site-footer .footer-socials{display:flex;gap:12px}
+.site-footer .footer-socials a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff;transition:all .3s}
+.site-footer .footer-socials a:hover{background:var(--c-burg);border-color:var(--c-burg);transform:translateY(-2px)}
+.site-footer .footer-col h4{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#fff;font-weight:600;margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.1)}
+.site-footer .footer-col address{font-style:normal;font-size:14px;line-height:1.8}
+.site-footer .footer-col p,.site-footer .footer-col a,.site-footer .hours-table td{font-size:14px;line-height:1.8}
+.site-footer .footer-col a{color:rgba(255,255,255,.7);transition:color .3s}.site-footer .footer-col a:hover{color:var(--c-rose-gold)}
+.site-footer .hours-table{width:100%;border-collapse:collapse}.site-footer .hours-table td{padding:6px 0;color:rgba(255,255,255,.68)}.site-footer .hours-table td:first-child{font-weight:600;color:#fff;padding-right:14px;white-space:nowrap}
+.site-footer .footer-map-link{display:inline-flex;align-items:center;gap:8px;margin-top:10px;color:var(--c-champagne);font-size:13px;font-weight:600}.site-footer .footer-map-link:hover{color:#fff}
+.site-footer .footer-bottom{border-top:1px solid rgba(255,255,255,.08);text-align:center;padding:26px 20px;font-size:13px;color:rgba(255,255,255,.45)}.site-footer .footer-bottom a{color:var(--c-champagne)}
+@media(max-width:1024px){.site-footer .footer-main{grid-template-columns:1fr 1fr;gap:40px}}
+@media(max-width:600px){.site-footer .footer-main{grid-template-columns:1fr}}
+/* === Shared header alignment: logo left, navigation centered, booking right === */
+        @media (min-width: 1025px) {
+            header#mainHeader {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+                align-items: center;
+                column-gap: 24px;
+                padding: 20px 48px;
+            }
+
+            header#mainHeader>.hamburger-btn {
+                display: none;
+            }
+
+            header#mainHeader>.logo {
+                grid-column: 1;
+                justify-self: start;
+                min-width: 0;
+            }
+
+            header#mainHeader>.desktop-nav {
+                grid-column: 2;
+                justify-self: center;
+                display: block;
+            }
+
+            header#mainHeader>.desktop-nav ul {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: clamp(22px, 2.2vw, 38px);
+                white-space: nowrap;
+            }
+
+            header#mainHeader>.nav-right {
+                grid-column: 3;
+                justify-self: end;
+                margin-left: 0;
+            }
+
+            header#mainHeader .logo img {
+                height: 54px;
+            }
+
+            header#mainHeader.scrolled .logo img {
+                height: 48px;
+            }
+
+            header#mainHeader .nav-right a {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 52px;
+                padding: 0 28px;
+                border-radius: 999px;
+                background: var(--c-burg);
+                color: #fff;
+                font-size: 12px;
+                font-weight: 700;
+                letter-spacing: 1.2px;
+                white-space: nowrap;
+                box-shadow: 0 6px 18px rgba(110, 38, 56, 0.2);
+            }
+
+            header#mainHeader .nav-right a:hover,
+            header#mainHeader.scrolled .nav-right a:hover {
+                background: var(--c-burg-dark);
+                color: #fff;
+                transform: translateY(-1px);
+            }
+
+            header#mainHeader.scrolled {
+                padding: 12px 48px;
+            }
+
+            header#mainHeader.scrolled nav a {
+                color: var(--c-dark);
+            }
+
+            header#mainHeader.scrolled nav a:hover {
+                color: var(--c-rose-gold);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            header#mainHeader {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 20px;
+                padding: 15px 20px;
+            }
+
+            header#mainHeader .logo {
+                order: 2;
+            }
+
+            header#mainHeader>.hamburger-btn {
+                order: 1;
+            }
+
+            header#mainHeader>.nav-right {
+                order: 3;
+                margin-left: auto;
+            }
+
+            header#mainHeader .logo img {
+                height: 40px;
+            }
+
+            header#mainHeader .nav-right a {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 42px;
+                padding: 0 18px;
+                border-radius: 999px;
+                background: var(--c-burg);
+                color: #fff;
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 1px;
+                white-space: nowrap;
+            }
+
+            header#mainHeader.scrolled .nav-right a {
+                color: #fff;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header#mainHeader {
+                padding: 12px 16px;
+                gap: 14px;
+            }
+
+            header#mainHeader.scrolled {
+                padding: 12px 16px;
+            }
+
+            header#mainHeader .logo img {
+                height: 36px;
+            }
+
+            header#mainHeader .nav-right a {
+                min-height: 40px;
+                padding: 0 14px;
+                font-size: 10px;
+            }
+        }
+</style>
+<style id="desktop-nav-type-scale">
+@media (min-width: 1025px) {
+  header#mainHeader .desktop-nav a { font-family:var(--sans); font-size:13px; font-weight:600; letter-spacing:.08em; line-height:1; text-transform:uppercase; white-space:nowrap; }
+  header#mainHeader .desktop-nav ul { gap:clamp(22px,2.2vw,38px); }
+}
+</style>
+<style id="sitewide-container-standard">
+:root{--container-max:1280px}
+.site-container,.service-content,.contact-sec,.footer-main{width:100%;max-width:1280px;margin-inline:auto}
+img,iframe,video{max-width:100%}
+html,body{width:100%;max-width:100%;overflow-x:clip}
+@media(min-width:1025px){header#mainHeader,header#mainHeader.scrolled{left:50%;width:100%;transform:translateX(-50%);padding-left:max(calc((100vw - 1280px)/2 + clamp(20px,4vw,56px)),clamp(20px,4vw,56px));padding-right:max(calc((100vw - 1280px)/2 + clamp(20px,4vw,56px)),clamp(20px,4vw,56px))}}
+@media(max-width:768px){main,.site-container,.service-content,.contact-sec{width:100%;max-width:100%;min-width:0}}
+</style>
+<style id="sitewide-reading-size">
+main p,main li{font-size:16px!important;line-height:1.75}
+</style>
 </head>
 
 <body>
@@ -1260,16 +2039,16 @@
     <div class="cursor-dot" id="cursorDot"></div>
     <div class="cursor-ring" id="cursorRing"></div>
 
-    <!-- PAGE LOADER -->
+    <!-- PAGE LOADER — same branding and layout as homepage -->
     <div id="page-loader">
-        <div class="loader-text"><span>About Us</span></div>
+        <div class="loader-brand">Tulip Beauty <em>Spa</em></div>
         <div class="loader-line" id="loaderLine"></div>
-        <div class="loader-sub" id="loaderSub">Tulip Beauty Melbourne</div>
+        <div class="loader-sub" id="loaderSub">Melbourne &bull; Atelier</div>
     </div>
 
     <!-- =================== HEADER =================== -->
     <header id="mainHeader">
-        <div class="hamburger-btn">
+        <div class="hamburger-btn" id="hamburgerBtn">
             <span></span>
             <span></span>
             <span></span>
@@ -1299,13 +2078,13 @@
     </header>
 
     <!-- MOBILE FULLSCREEN MENU -->
-    <div class="pro-menu-overlay">
+    <div class="pro-menu-overlay" id="proMenu">
         <div class="pro-menu-content">
-            <div class="pro-close-btn">Close <span style="font-size:20px">&times;</span></div>
+            <div class="pro-close-btn" id="proCloseBtn">Close <span style="font-size:20px">&times;</span></div>
             <nav class="pro-nav-links">
                 <div class="menu-item-wrap"><a href="../" class="pro-link">Home</a></div>
                 <div class="menu-item-wrap"><a href="../about-us/" class="pro-link">About</a></div>
-                <div class="menu-item-wrap"><a href="../eyelash-extensions/" class="pro-link">Services</a></div>
+                <div class="menu-item-wrap"><a href="../services/" class="pro-link">Services</a></div>
                 <div class="menu-item-wrap"><a href="../after-care/" class="pro-link">After Care</a></div>
                 <div class="menu-item-wrap"><a href="../contact/" class="pro-link">Contact</a></div>
             </nav>
@@ -1383,7 +2162,7 @@
                     </a>
                 </div>
                 <div class="story-image-wrap" id="storyImgWrap">
-                    <img id="storyImg" src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80"
+                    <img id="storyImg" src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1400&q=85"
                         alt="Our salon interior">
                     <div class="story-image-accent" id="storyAccent">
                         <div class="num">12+</div>
@@ -1431,7 +2210,8 @@
                     <span class="value-number">01</span>
                     <i class="fa-regular fa-gem icon"></i>
                     <h3>Quality</h3>
-                    <p>We use only premium, ethically sourced and safe products &mdash; ensuring the best results every single
+                    <p>We use only premium, ethically sourced and safe products &mdash; ensuring the best results every
+                        single
                         time.</p>
                 </div>
                 <div class="value-card" data-reveal-card>
@@ -1452,7 +2232,8 @@
                     <span class="value-number">04</span>
                     <i class="fa-regular fa-star icon"></i>
                     <h3>Ambience</h3>
-                    <p>Luxurious yet warm by design &mdash; a space where you can truly unwind and reconnect with yourself.
+                    <p>Luxurious yet warm by design &mdash; a space where you can truly unwind and reconnect with
+                        yourself.
                     </p>
                 </div>
             </div>
@@ -1469,15 +2250,15 @@
         </div>
         <div class="gallery-track-wrap">
             <div class="gallery-track" id="galleryTrack">
-                <img class="gallery-img" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80"
+                <img class="gallery-img" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&q=85"
                     alt="Salon 1">
-                <img class="gallery-img" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80"
+                <img class="gallery-img" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1200&q=85"
                     alt="Salon 2">
-                <img class="gallery-img" src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=600&q=80"
+                <img class="gallery-img" src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=1200&q=85"
                     alt="Salon 3">
-                <img class="gallery-img" src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&q=80"
+                <img class="gallery-img" src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1200&q=85"
                     alt="Salon 4">
-                <img class="gallery-img" src="https://images.unsplash.com/photo-1621798917430-44e3c2a2b44e?w=600&q=80"
+                <img class="gallery-img" src="https://images.unsplash.com/photo-1621798917430-44e3c2a2b44e?w=1200&q=85"
                     alt="Salon 5">
             </div>
         </div>
@@ -1506,10 +2287,16 @@
                     <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/Original-Logo-without-slogan-White.png"
                         alt="Tulip Beauty Logo">
                 </div>
+
+                <p class="footer-about-copy">Tulip Beauty offers personalised beauty treatments in a calm, welcoming
+                    space in Kensington, Melbourne.</p>
                 <div class="footer-socials">
-                    <a href="https://www.facebook.com/tulipbeauty.au" aria-label="Facebook" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://wa.me/+61404529787" aria-label="WhatsApp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="https://www.instagram.com/tulipbeauty.au/" aria-label="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/tulipbeauty.au" aria-label="Facebook" target="_blank"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://wa.me/+61404529787" aria-label="WhatsApp" target="_blank"><i
+                            class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/tulipbeauty.au/" aria-label="Instagram" target="_blank"><i
+                            class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
 
@@ -1517,10 +2304,15 @@
             <div class="footer-col">
                 <h4>Information</h4>
                 <address>
-                    516 Macaulay Rd, Kensington VIC 3031<br><br>
+                    516 Macaulay Rd, Kensington VIC 3031<br>
+                    <a class="footer-map-link"
+                        href="https://www.google.com/maps/search/?api=1&query=516+Macaulay+Rd+Kensington+VIC+3031"
+                        target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-location-dot"></i> View on
+                        Google Maps</a><br><br>
                     <strong style="color:rgba(255,255,255,0.9)">Email:</strong> <a
                         href="mailto:customer-service@tulipbeauty.com.au">customer-service@tulipbeauty.com.au</a><br><br>
-                    <strong style="color:rgba(255,255,255,0.9)">Phone:</strong> <a href="tel:0404529787">0404 529 787</a>
+                    <strong style="color:rgba(255,255,255,0.9)">Phone:</strong> <a href="tel:0404529787">0404 529
+                        787</a>
                 </address>
             </div>
 
@@ -1541,8 +2333,8 @@
                         <td>9am &ndash; 5 pm</td>
                     </tr>
                     <tr>
-                        <td>Sunday:</td>
-                        <td style="color:#e05555">Closed</td>
+                        <td>Sun:</td>
+                        <td>10AM - 5PM</td>
                     </tr>
                 </table>
             </div>
@@ -1559,7 +2351,8 @@
 
         </div>
         <div class="footer-bottom">
-            &copy; Tulip Beauty 2026. <a href="../privacy-policy/">Privacy Policy</a> <span>|</span> <a href="#">Terms of Service</a>
+            &copy; Tulip Beauty 2026. <a href="../privacy-policy/">Privacy Policy</a> <span>|</span> <a href="#">Terms
+                of Service</a>
         </div>
     </footer>
 
@@ -1600,24 +2393,20 @@
             });
         });
 
-        /* =============================================
-           PAGE LOADER
-        ============================================= */
-        const loaderTl = gsap.timeline({
-            onComplete: () => {
-                gsap.to('#page-loader', {
-                    yPercent: -100, duration: 0.8, ease: 'power3.inOut',
-                    onComplete: () => {
-                        document.getElementById('page-loader').style.display = 'none';
-                        initHeroAnim();
-                    }
-                });
-            }
-        });
-        loaderTl
-            .to('.loader-line', { width: '200px', duration: 1.2, ease: 'power2.inOut' })
-            .to('#loaderSub', { autoAlpha: 1, y: 0, duration: 0.5 }, '-=0.3')
-            .to({}, { duration: 0.4 }); // brief pause
+        /* --- PAGE LOADER — synchronized with homepage --- */
+        gsap.timeline({
+            onComplete: () => gsap.to('#page-loader', {
+                yPercent: -100, duration: 1, ease: 'power4.inOut',
+                onComplete: () => {
+                    const ldr = document.getElementById('page-loader');
+                    if (ldr) ldr.style.display = 'none';
+                    initHeroAnim();
+                }
+            })
+        })
+            .to('#loaderLine', { width: '200px', duration: 1.1, ease: 'power2.inOut' })
+            .to('#loaderSub', { autoAlpha: 1, duration: 0.5 }, '-=0.3')
+            .to({}, { duration: 0.2 });
 
         /* =============================================
            HERO ANIMATION (after loader)

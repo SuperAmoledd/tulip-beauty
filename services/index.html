@@ -3,23 +3,26 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services | Tulip Beauty Spa Melbourne</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Our Services | Tulip Beauty Spa &amp; Lash Atelier Melbourne</title>
     <meta name="description"
-        content="Explore our full range of premium beauty services at Tulip Beauty Spa Melbourne — eyelash extensions, lash lift, cosmetic tattoos, laser hair removal, waxing and more.">
+        content="Explore our full collection of bespoke beauty treatments at Tulip Beauty Spa Melbourne — eyelash extensions, lash lift, cosmetic tattoos, lip blush, HIFU, and hair removal.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-        /* Brand Fonts */
+        /* ================================================
+           TULIP BEAUTY — Services Page Elevated System
+           Aesthetic: Feminine Luxury, Rose Gold, Velvet Wine
+        ================================================ */
+
         @font-face {
             font-family: 'Cotoris';
             src: url('../fonts/Cotoris.ttf') format('truetype');
@@ -44,97 +47,55 @@
             font-display: swap;
         }
 
-        /* --- BRAND TOKENS --- */
         :root {
-            --c-bg: #FAF9F6;
-            --c-warm: #F3EFE8;
-            --c-stone: #B9AA9C;
-            --c-burg: #642D38;
-            --c-burg-dk: #4e2230;
-            --c-dark: #28231F;
-            --c-text: #28231F;
-            --c-muted: #7a6e68;
+            --c-bg: #fbf8f6;
+            --c-warm: #f4ebe6;
+            --c-card-bg: #FFFFFF;
+            --c-stone: #C7B8AD;
+            --c-rose-gold: #bd8c72;
+            --c-rose-soft: #f6e7e5;
+            --c-champagne: #F3E3D3;
+            --c-burg: #713246;
+            --c-burg-dark: #4f2031;
+            --c-burg-soft: #925367;
+            --c-dark: #1E1A17;
+            --c-text: #332a2a;
+            --c-muted: #76696a;
+
+            --grad-gold: linear-gradient(135deg, #D4A373 0%, #E8C49E 50%, #C68B59 100%);
+            --grad-burg: linear-gradient(135deg, #713246 0%, #925367 100%);
+
             --serif: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
-            --sans: 'DM Sans', system-ui, sans-serif;
+            --sans: 'Plus Jakarta Sans', 'DM Sans', system-ui, sans-serif;
+            --italic: 'The Seasons', 'Cormorant Garamond', Georgia, serif;
+
+            --container-max: 1280px;
             --ease: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        * {
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
         body {
             font-family: var(--sans);
             color: var(--c-text);
-            line-height: 1.6;
-            background-color: var(--c-bg);
+            background: var(--c-bg);
+            font-size: 16px;
+            line-height: 1.8;
             overflow-x: hidden;
-            cursor: none;
-        }
-
-        /* --- CUSTOM CURSOR --- */
-        .cursor-dot {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 9999;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--c-gold);
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            transition: width 0.3s, height 0.3s, background 0.3s;
-        }
-
-        .cursor-ring {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 9998;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            border: 1px solid rgba(100, 45, 56, 0.45);
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-        }
-
-        /* --- PAGE LOADER --- */
-        #page-loader {
-            position: fixed;
-            inset: 0;
-            z-index: 8000;
-            background: var(--c-dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .loader-text {
-            font-family: var(--serif);
-            font-size: clamp(28px, 5vw, 60px);
-            font-weight: 400;
-            color: #fff;
-            letter-spacing: 0.05em;
-        }
-
-        .loader-line {
-            width: 0;
-            height: 1px;
-            background: var(--c-burg);
-        }
-
-        .loader-sub {
-            font-size: 10px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--c-stone);
-            opacity: 0;
+            width: 100%;
+            -webkit-font-smoothing: antialiased;
         }
 
         a {
@@ -148,12 +109,125 @@
 
         img {
             max-width: 100%;
-            height: auto;
             display: block;
             object-fit: cover;
         }
 
-        /* --- HEADER --- */
+        button {
+            border: none;
+            background: none;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        .site-container {
+            width: 100%;
+            max-width: var(--container-max);
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 32px;
+            padding-right: 32px;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 768px) {
+            .site-container {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+
+        /* Cursor */
+        @media (hover: hover) and (pointer: fine) {
+            body {
+                cursor: none;
+            }
+
+            .cursor-dot {
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 9999;
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                background: var(--c-rose-gold);
+                pointer-events: none;
+                transform: translate(-50%, -50%);
+            }
+
+            .cursor-ring {
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 9998;
+                width: 38px;
+                height: 38px;
+                border-radius: 50%;
+                border: 1.5px solid rgba(201, 147, 105, 0.5);
+                pointer-events: none;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        @media (hover: none) or (pointer: coarse),
+        (max-width: 1024px) {
+
+            .cursor-dot,
+            .cursor-ring {
+                display: none !important;
+            }
+
+            body {
+                cursor: auto !important;
+            }
+        }
+
+        /* Page Loader */
+        #page-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 9990;
+            background: var(--c-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .loader-brand {
+            font-family: var(--serif);
+            font-size: clamp(30px, 5vw, 56px);
+            color: #fff;
+            letter-spacing: 0.05em;
+            text-align: center;
+        }
+
+        .loader-brand em {
+            font-family: var(--italic);
+            color: var(--c-rose-gold);
+            font-style: italic;
+        }
+
+        .loader-line {
+            width: 0;
+            height: 2px;
+            background: var(--grad-gold);
+        }
+
+        .loader-sub {
+            font-size: 13px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--c-stone);
+            opacity: 0;
+            font-weight: 500;
+        }
+
+        /* ============================================================
+           HEADER
+        ============================================================ */
         header {
             position: fixed;
             top: 0;
@@ -168,9 +242,9 @@
         }
 
         header.scrolled {
-            background: rgba(250, 249, 246, 0.97);
+            background: rgba(255, 255, 255, 0.98);
             padding: 15px 40px;
-            box-shadow: 0 1px 0 rgba(40, 35, 31, 0.08);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             backdrop-filter: blur(10px);
         }
 
@@ -184,7 +258,7 @@
         }
 
         .logo img {
-            height: 35px;
+            height: 36px;
             transition: 0.4s;
         }
 
@@ -194,7 +268,7 @@
 
         nav ul {
             display: flex;
-            gap: 30px;
+            gap: 32px;
         }
 
         nav a {
@@ -207,7 +281,7 @@
         }
 
         nav a:hover {
-            color: var(--c-stone);
+            color: var(--c-rose-gold);
         }
 
         .nav-right {
@@ -224,17 +298,17 @@
         }
 
         .nav-right a:hover {
-            color: var(--c-stone);
+            color: var(--c-rose-gold);
         }
 
-        /* --- PROFESSIONAL FULLSCREEN MENU STYLES --- */
+        /* Mobile menu */
         .hamburger-btn {
             display: none;
             flex-direction: column;
             justify-content: center;
-            gap: 6px;
-            width: 30px;
-            height: 30px;
+            gap: 5px;
+            width: 26px;
+            height: 26px;
             cursor: pointer;
             z-index: 2001;
         }
@@ -247,14 +321,12 @@
             transition: 0.3s;
         }
 
+        /* Mobile Drawer */
         .pro-menu-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background-color: var(--c-bg);
+            inset: 0;
             z-index: 2000;
+            background: var(--c-bg);
             visibility: hidden;
             opacity: 0;
             display: flex;
@@ -298,14 +370,14 @@
             display: block;
             font-size: 36px;
             font-weight: 300;
-            color: var(--c-dark);
+            color: #1a1a1a;
             font-family: var(--serif);
             transition: color 0.3s;
             transform: translateY(100%);
         }
 
         .pro-link:hover {
-            color: var(--c-burg);
+            color: var(--c-rose-gold);
             font-style: italic;
         }
 
@@ -328,8 +400,7 @@
         }
 
         .pro-booking-btn:hover {
-            background: var(--c-burg);
-            border-color: var(--c-burg);
+            background: #000;
             color: #fff;
         }
 
@@ -339,203 +410,7 @@
             margin-top: 10px;
         }
 
-        /* --- TYPOGRAPHY & COMPONENTS --- */
-        .sub-title {
-            font-size: 9.5px;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: var(--c-burg);
-            margin-bottom: 14px;
-            font-weight: 500;
-        }
-
-        h1,
-        h2,
-        h3 {
-            font-weight: 400;
-            color: var(--c-dark);
-            font-family: var(--serif);
-            line-height: 1.1;
-        }
-
-        .cta-btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 16px 40px;
-            border: 1px solid var(--c-text);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            font-weight: 600;
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--c-text);
-            background: transparent;
-            cursor: pointer;
-            border-radius: 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-btn::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--c-text);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            z-index: -1;
-        }
-
-        .cta-btn:hover {
-            color: #fff;
-            border-color: var(--c-text);
-        }
-
-        .cta-btn:hover::before {
-            transform: scaleX(1);
-        }
-
-        .cta-arrow {
-            margin-left: 15px;
-            font-size: 16px;
-            transition: transform 0.4s;
-        }
-
-        .cta-btn:hover .cta-arrow {
-            transform: translateX(5px);
-        }
-
-        /* --- PAGE HEADER --- */
-        .page-hero {
-            position: relative;
-            height: 60vh;
-            min-height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #fff;
-            overflow: hidden;
-            padding-top: 60px;
-            background-color: var(--c-dark);
-        }
-
-        .page-hero-bg {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 120%;
-            object-fit: cover;
-            z-index: 0;
-            filter: brightness(0.6);
-        }
-
-        .page-hero-content {
-            position: relative;
-            z-index: 2;
-            padding: 0 20px;
-        }
-
-        .page-hero h1 {
-            font-size: clamp(40px, 6vw, 70px);
-            color: #fff;
-            margin-bottom: 10px;
-        }
-
-        .page-hero p {
-            font-size: 9.5px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: var(--c-stone);
-        }
-
-        /* --- SERVICES LISTING --- */
-        .services-wrapper {
-            padding: 120px 5vw;
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .srv-row {
-            display: flex;
-            align-items: center;
-            gap: 80px;
-            margin-bottom: 120px;
-            opacity: 0;
-            transform: translateY(50px);
-        }
-
-        .srv-row:last-child {
-            margin-bottom: 0;
-        }
-
-        .srv-row:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .srv-img-wrap {
-            flex: 1;
-            position: relative;
-            overflow: hidden;
-            height: 500px;
-        }
-
-        .srv-img-wrap img {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 100%;
-            height: 130%;
-            object-fit: cover;
-            object-position: center;
-            transform: translateY(-50%);
-            transition: 0.8s ease;
-        }
-
-        .srv-content {
-            flex: 1;
-            padding: 20px 0;
-        }
-
-        .srv-content .sub-title {
-            margin-bottom: 10px;
-        }
-
-        .srv-content h2 {
-            font-size: clamp(32px, 3.5vw, 48px);
-            margin-bottom: 25px;
-            line-height: 1.2;
-            letter-spacing: -0.01em;
-        }
-
-        .srv-content p {
-            font-size: 15px;
-            color: #555;
-            line-height: 1.9;
-            margin-bottom: 35px;
-            font-weight: 300;
-        }
-
-        .srv-row:hover .srv-img-wrap img {
-            transform: scale(1.05);
-        }
-
-        /* --- RESPONSIVE --- */
         @media (max-width: 1024px) {
-            .srv-row {
-                gap: 50px;
-            }
-
-            .srv-img-wrap {
-                height: 400px;
-            }
-
             .hamburger-btn {
                 display: flex;
             }
@@ -550,7 +425,7 @@
                 padding: 15px 20px;
             }
 
-            .header.scrolled {
+            header.scrolled {
                 padding: 15px 20px;
             }
 
@@ -559,81 +434,656 @@
             }
         }
 
-        @media (max-width: 768px) {
-
-            .srv-row,
-            .srv-row:nth-child(even) {
-                flex-direction: column;
-                gap: 40px;
-                margin-bottom: 80px;
-                text-align: center;
-            }
-
-            .srv-img-wrap {
-                width: 100%;
-                height: 350px;
-            }
-
-            .srv-content {
-                padding: 0;
-            }
-
-            .cta-btn {
-                margin: 0 auto;
-            }
-        }
-
-        /* --- LENIS SMOOTH SCROLL --- */
-        html.lenis,
-        html.lenis body {
-            height: auto;
-        }
-
-        .lenis.lenis-smooth {
-            scroll-behavior: auto !important;
-        }
-
-        .lenis.lenis-smooth [data-lenis-prevent] {
-            overscroll-behavior: contain;
-        }
-
-        .lenis.lenis-stopped {
+        /* ================================================
+           PAGE HERO
+        ================================================ */
+        .services-hero {
+            position: relative;
+            min-height: 52vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding: 140px 20px 80px;
+            background: var(--c-dark);
             overflow: hidden;
         }
 
-        .lenis.lenis-scrolling iframe {
-            pointer-events: none;
+        .services-hero-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 115%;
+            object-fit: cover;
+            filter: brightness(0.55) saturate(1.1);
         }
 
-        /* ============================================================
-           FOOTER — Dark 4-column
-        ============================================================ */
-        .site-footer {
-            background: var(--c-dark);
-            color: rgba(255, 255, 255, 0.7);
+        .services-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(30, 26, 23, 0.4) 0%, rgba(30, 26, 23, 0.85) 100%);
+            z-index: 1;
+        }
+
+        .services-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .services-hero-eyebrow {
             font-size: 13px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--c-champagne);
+            margin-bottom: 16px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .services-hero h1 {
+            font-size: clamp(42px, 5.5vw, 76px);
+            color: #fff;
+            margin-bottom: 18px;
+        }
+
+        .services-hero h1 em {
+            font-family: var(--italic);
+            color: var(--c-champagne);
+            font-style: italic;
+        }
+
+        .services-hero p {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.8;
+            font-weight: 300;
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        /* ================================================
+           FILTER & SEARCH BAR
+        ================================================ */
+        .services-filter-bar {
+            background: var(--c-card-bg);
+            border-bottom: 1px solid rgba(201, 147, 105, 0.2);
+            padding: 24px 0;
+            position: sticky;
+            top: 88px;
+            z-index: 900;
+            box-shadow: 0 8px 24px rgba(30, 26, 23, 0.04);
+            backdrop-filter: blur(14px);
+        }
+
+        .filter-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .category-pills {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .cat-pill {
+            padding: 9px 20px;
+            border-radius: 50px;
+            font-size: 13.5px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            background: var(--c-warm);
+            color: var(--c-text);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            transition: all 0.3s;
+        }
+
+        .cat-pill:hover {
+            background: var(--c-rose-soft);
+            color: var(--c-burg);
+        }
+
+        .cat-pill.active {
+            background: var(--grad-burg);
+            color: #fff;
+            border-color: var(--c-burg);
+            box-shadow: 0 4px 14px rgba(110, 38, 56, 0.25);
+        }
+
+        .search-box-wrap {
+            position: relative;
+            min-width: 280px;
+        }
+
+        .search-box-wrap i {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--c-muted);
+            font-size: 14px;
+        }
+
+        .service-search-input {
+            width: 100%;
+            padding: 10px 16px 10px 42px;
+            border-radius: 50px;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            background: #fff;
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .service-search-input:focus {
+            border-color: var(--c-rose-gold);
+        }
+
+        /* ================================================
+           FEATURED SIGNATURE SHOWCASE (Top 2 Flagships)
+        ================================================ */
+        .featured-showcase-sec {
+            padding: 80px 0 40px;
+            background: var(--c-bg);
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .featured-card {
+            background: var(--c-card-bg);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(201, 147, 105, 0.25);
+            box-shadow: 0 14px 40px rgba(30, 26, 23, 0.06);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.4s var(--ease), box-shadow 0.4s;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 48px rgba(110, 38, 56, 0.12);
+        }
+
+        .featured-img-wrap {
+            position: relative;
+            height: 320px;
+            overflow: hidden;
+        }
+
+        .featured-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s var(--ease);
+        }
+
+        .featured-card:hover .featured-img-wrap img {
+            transform: scale(1.06);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--grad-burg);
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 11.5px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .featured-body {
+            padding: 36px 32px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .featured-body h3 {
+            font-size: 32px;
+            color: var(--c-dark);
+            margin-bottom: 10px;
+        }
+
+        .featured-body p {
+            font-size: 15.5px;
+            color: var(--c-muted);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .featured-perks {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 28px;
+        }
+
+        .featured-perk-item {
+            font-size: 14px;
+            color: var(--c-text);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .featured-perk-item i {
+            color: var(--c-rose-gold);
+        }
+
+        .featured-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .featured-price-tag {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--c-burg);
+        }
+
+        @media (max-width: 900px) {
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ================================================
+           FULL SERVICE CARDS GRID (Modern Multi-Column)
+        ================================================ */
+        .services-grid-sec {
+            padding: 60px 0 110px;
+            background: var(--c-bg);
+        }
+
+        .services-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .service-grid-card {
+            background: var(--c-card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(201, 147, 105, 0.18);
+            box-shadow: 0 10px 30px rgba(30, 26, 23, 0.04);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.35s var(--ease), box-shadow 0.35s, border-color 0.35s;
+            cursor: pointer;
+        }
+
+        .service-grid-card:focus-visible,
+        .featured-card:focus-visible {
+            outline: 3px solid var(--c-rose-gold);
+            outline-offset: 4px;
+        }
+
+        .service-grid-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 36px rgba(110, 38, 56, 0.1);
+            border-color: rgba(201, 147, 105, 0.45);
+        }
+
+        .grid-card-img-wrap {
+            position: relative;
+            height: 240px;
+            overflow: hidden;
+        }
+
+        .grid-card-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s var(--ease);
+        }
+
+        .service-grid-card:hover .grid-card-img-wrap img {
+            transform: scale(1.08);
+        }
+
+        .grid-card-category {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: rgba(255, 255, 255, 0.92);
+            color: var(--c-burg);
+            padding: 5px 14px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            backdrop-filter: blur(8px);
+        }
+
+        .grid-card-body {
+            padding: 26px 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .grid-card-body h3 {
+            font-size: 24px;
+            color: var(--c-dark);
+            margin-bottom: 8px;
+        }
+
+        .grid-card-body p {
+            font-size: 14.5px;
+            color: var(--c-muted);
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        .grid-card-perks {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .grid-card-perk {
+            font-size: 13px;
+            color: var(--c-text);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .grid-card-perk i {
+            color: var(--c-rose-gold);
+            font-size: 12px;
+        }
+
+        .grid-card-footer {
+            padding-top: 16px;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .grid-card-price {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--c-burg);
+        }
+
+        .grid-card-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .details-link {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--c-dark);
+            transition: color 0.2s;
+        }
+
+        .details-link:hover {
+            color: var(--c-burg);
+        }
+
+        .quick-book-btn {
+            background: var(--c-rose-soft);
+            color: var(--c-burg);
+            padding: 7px 16px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.25s;
+        }
+
+        .quick-book-btn:hover {
+            background: var(--c-burg);
+            color: #fff;
+        }
+
+        @media (max-width: 1080px) {
+            .services-cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .services-cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ================================================
+           PRICING & DURATION MENU GUIDE (Quick Reference)
+        ================================================ */
+        .pricing-guide-sec {
+            padding: 100px 0;
+            background: var(--c-warm);
+        }
+
+        .pricing-guide-head {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 50px;
+        }
+
+        .pricing-guide-head h2 {
+            font-size: clamp(34px, 4vw, 54px);
+            margin-bottom: 12px;
+        }
+
+        .pricing-guide-head h2 em {
+            font-family: var(--italic);
+            color: var(--c-burg);
+            font-style: italic;
+        }
+
+        .pricing-table-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 36px rgba(30, 26, 23, 0.06);
+            border: 1px solid rgba(201, 147, 105, 0.2);
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .pricing-table th {
+            background: var(--c-dark);
+            color: #fff;
+            padding: 18px 24px;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .pricing-table td {
+            padding: 18px 24px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            font-size: 15px;
+            color: var(--c-text);
+        }
+
+        .pricing-table tr:hover td {
+            background: var(--c-rose-soft);
+        }
+
+        .pricing-table .col-name {
+            font-weight: 600;
+            color: var(--c-dark);
+        }
+
+        .pricing-table .col-price {
+            font-weight: 700;
+            color: var(--c-burg);
+        }
+
+        .pricing-table .col-action a {
+            color: var(--c-rose-gold);
+            font-weight: 600;
+            font-size: 13.5px;
+        }
+
+        .pricing-table .col-action a:hover {
+            color: var(--c-burg);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-table-card {
+                overflow-x: auto;
+            }
+
+            .pricing-table th,
+            .pricing-table td {
+                padding: 14px 16px;
+                font-size: 13.5px;
+            }
+        }
+
+        /* ================================================
+           CONSULTATION CTA BANNER
+        ================================================ */
+        .consult-banner {
+            padding: 110px 0;
+            background: var(--grad-burg);
+            color: #fff;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .consult-banner h2 {
+            font-size: clamp(36px, 4.5vw, 58px);
+            color: #fff;
+            margin-bottom: 18px;
+        }
+
+        .consult-banner h2 em {
+            font-family: var(--italic);
+            color: var(--c-champagne);
+            font-style: italic;
+        }
+
+        .consult-banner p {
+            max-width: 580px;
+            margin: 0 auto 36px;
+            font-size: 16.5px;
+            color: rgba(255, 255, 255, 0.85);
             line-height: 1.8;
         }
 
-        .footer-main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 80px 40px 60px;
-            display: grid;
-            grid-template-columns: 1.2fr 1.2fr 1fr 1.4fr;
-            gap: 50px;
+        .consult-actions {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
         }
 
-        .footer-brand .footer-logo img {
-            height: 75px;
-            margin-bottom: 25px;
-            filter: brightness(1.2);
+        .btn-champagne {
+            background: var(--grad-gold);
+            color: var(--c-dark);
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-size: 13.5px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+        }
+
+        .btn-champagne:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-outline-white {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1.5px solid rgba(255, 255, 255, 0.5);
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-size: 13.5px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .btn-outline-white:hover {
+            background: #fff;
+            color: var(--c-dark);
+        }
+
+        /* ================================================
+           FOOTER
+        ================================================ */
+        .site-footer {
+            background: var(--c-dark);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 15px;
+            line-height: 1.85;
+        }
+
+        .footer-main {
+            padding: 90px 0 60px;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
+            gap: 48px;
+        }
+
+        .footer-logo img {
+            height: 60px;
+            margin-bottom: 20px;
+            filter: brightness(1.1);
+        }
+
+        .footer-about-text {
+            font-size: 14.5px;
+            color: rgba(255, 255, 255, 0.68);
+            line-height: 1.8;
+            margin-bottom: 22px;
         }
 
         .footer-socials {
             display: flex;
             gap: 12px;
-            margin-top: 25px;
         }
 
         .footer-socials a {
@@ -646,43 +1096,38 @@
             justify-content: center;
             font-size: 14px;
             color: #fff;
-            text-decoration: none;
             transition: all 0.3s;
         }
 
         .footer-socials a:hover {
             background: var(--c-burg);
             border-color: var(--c-burg);
-            color: #fff;
+            transform: translateY(-2px);
         }
 
         .footer-col h4 {
-            font-size: 11px;
+            font-size: 12px;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: #fff;
-            font-weight: 700;
-            margin-bottom: 25px;
+            font-weight: 600;
+            margin-bottom: 24px;
             padding-bottom: 12px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .footer-col p,
         .footer-col address {
             font-style: normal;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.65);
-            line-height: 1.9;
+            font-size: 14.5px;
         }
 
         .footer-col a {
-            color: rgba(255, 255, 255, 0.65);
-            text-decoration: none;
+            color: rgba(255, 255, 255, 0.7);
             transition: color 0.3s;
         }
 
         .footer-col a:hover {
-            color: var(--c-stone);
+            color: var(--c-rose-gold);
         }
 
         .hours-table {
@@ -690,89 +1135,105 @@
             border-collapse: collapse;
         }
 
-        .hours-table tr td {
-            padding: 4px 0;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.65);
+        .hours-table td {
+            padding: 6px 0;
+            font-size: 14.5px;
+            color: rgba(255, 255, 255, 0.68);
         }
 
-        .hours-table tr td:first-child {
+        .hours-table td:first-child {
             font-weight: 600;
-            color: rgba(255, 255, 255, 0.9);
-            padding-right: 16px;
+            color: #fff;
+            padding-right: 14px;
             white-space: nowrap;
         }
 
-        .hours-closed {
-            color: #d47070 !important;
+        .hours-sun {
+            color: var(--c-champagne) !important;
+            font-weight: 600;
+        }
+
+        .footer-map-card {
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            margin-top: 16px;
+            position: relative;
+            height: 160px;
+        }
+
+        .footer-map-card iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            filter: grayscale(0.2) contrast(1.1);
+        }
+
+        .map-direction-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12.5px;
+            color: var(--c-champagne);
+            margin-top: 10px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .map-direction-btn:hover {
+            color: #fff;
         }
 
         .footer-form {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 14px;
+            margin-top: 14px;
         }
 
-        .footer-form input,
-        .footer-form textarea {
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 12px 0;
+        .footer-form input {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 8px;
+            padding: 13px 16px;
             color: #fff;
-            font-size: 14px;
+            font-size: 14.5px;
             font-family: var(--sans);
             outline: none;
             width: 100%;
             transition: border-color 0.3s;
         }
 
-        .footer-form input::placeholder,
-        .footer-form textarea::placeholder {
-            color: rgba(255, 255, 255, 0.4);
-        }
-
-        .footer-form input:focus,
-        .footer-form textarea:focus {
-            border-bottom-color: var(--c-stone);
-        }
-
-        .footer-form textarea {
-            resize: vertical;
-            min-height: 80px;
+        .footer-form input:focus {
+            border-color: var(--c-rose-gold);
         }
 
         .footer-form .submit-btn {
-            margin-top: 10px;
-            padding: 14px 35px;
-            background: var(--c-burg);
+            padding: 13px 28px;
+            border-radius: 50px;
+            background: var(--grad-burg);
             color: #fff;
             border: none;
-            font-size: 11px;
+            font-size: 12px;
             letter-spacing: 2px;
             text-transform: uppercase;
-            font-weight: 700;
+            font-weight: 600;
             cursor: pointer;
             align-self: flex-start;
-            transition: background 0.3s;
-        }
-
-        .footer-form .submit-btn:hover {
-            background: var(--c-burg-dk);
+            transition: all 0.3s;
+            font-family: var(--sans);
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
             text-align: center;
-            padding: 25px 20px;
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.4);
-            letter-spacing: 0.5px;
+            padding: 26px 20px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.45);
         }
 
         .footer-bottom a {
-            color: var(--c-stone);
-            text-decoration: none;
+            color: var(--c-champagne);
         }
 
         .footer-bottom span {
@@ -780,38 +1241,252 @@
             opacity: 0.3;
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 1024px) {
+            header {
+                padding: 16px 0;
+            }
+
+            .desktop-nav {
+                display: none;
+            }
+
+            .hamburger-btn {
+                display: flex;
+            }
+
             .footer-main {
                 grid-template-columns: 1fr 1fr;
                 gap: 40px;
-                padding: 60px 20px 40px;
+            }
+
+            .logo-badge {
+                display: none;
             }
         }
 
-        @media (max-width: 580px) {
+        @media (max-width: 600px) {
             .footer-main {
                 grid-template-columns: 1fr;
             }
+
+            .header-actions .nav-book-btn span {
+                display: none;
+            }
+
+            .header-actions .nav-book-btn {
+                padding: 10px 16px;
+            }
+        }
+
+
+        /* === Shared header alignment: logo left, navigation centered, booking right === */
+        @media (min-width: 1025px) {
+            header#mainHeader {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+                align-items: center;
+                column-gap: 24px;
+                padding: 20px 48px;
+            }
+
+            header#mainHeader>.hamburger-btn {
+                display: none;
+            }
+
+            header#mainHeader>.logo {
+                grid-column: 1;
+                justify-self: start;
+                min-width: 0;
+            }
+
+            header#mainHeader>.desktop-nav {
+                grid-column: 2;
+                justify-self: center;
+                display: block;
+            }
+
+            header#mainHeader>.desktop-nav ul {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: clamp(22px, 2.2vw, 38px);
+                white-space: nowrap;
+            }
+
+            header#mainHeader>.nav-right {
+                grid-column: 3;
+                justify-self: end;
+                margin-left: 0;
+            }
+
+            header#mainHeader .logo img {
+                height: 54px;
+            }
+
+            header#mainHeader.scrolled .logo img {
+                height: 48px;
+            }
+
+            header#mainHeader .nav-right a {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 52px;
+                padding: 0 28px;
+                border-radius: 999px;
+                background: var(--c-burg);
+                color: #fff;
+                font-size: 12px;
+                font-weight: 700;
+                letter-spacing: 1.2px;
+                white-space: nowrap;
+                box-shadow: 0 6px 18px rgba(110, 38, 56, 0.2);
+            }
+
+            header#mainHeader .nav-right a:hover,
+            header#mainHeader.scrolled .nav-right a:hover {
+                background: var(--c-burg-dark);
+                color: #fff;
+                transform: translateY(-1px);
+            }
+
+            header#mainHeader.scrolled {
+                padding: 12px 48px;
+            }
+
+            header#mainHeader.scrolled nav a {
+                color: var(--c-dark);
+            }
+
+            header#mainHeader.scrolled nav a:hover {
+                color: var(--c-rose-gold);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            header#mainHeader {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 20px;
+                padding: 15px 20px;
+            }
+
+            header#mainHeader .logo {
+                order: 2;
+            }
+
+            header#mainHeader>.hamburger-btn {
+                order: 1;
+            }
+
+            header#mainHeader>.nav-right {
+                order: 3;
+                margin-left: auto;
+            }
+
+            header#mainHeader .logo img {
+                height: 40px;
+            }
+
+            header#mainHeader .nav-right a {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 42px;
+                padding: 0 18px;
+                border-radius: 999px;
+                background: var(--c-burg);
+                color: #fff;
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 1px;
+                white-space: nowrap;
+            }
+
+            header#mainHeader.scrolled .nav-right a {
+                color: #fff;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header#mainHeader {
+                padding: 12px 16px;
+                gap: 14px;
+            }
+
+            header#mainHeader.scrolled {
+                padding: 12px 16px;
+            }
+
+            header#mainHeader .logo img {
+                height: 36px;
+            }
+
+            header#mainHeader .nav-right a {
+                min-height: 40px;
+                padding: 0 14px;
+                font-size: 10px;
+            }
         }
     </style>
+<style id="tulip-beauty-refresh">
+:root{--container-max:1280px;--c-bg:#fbf8f6;--c-warm:#f4ebe6;--c-rose-soft:#f6e7e5;--c-burg:#713246;--c-burg-dark:#4f2031;--c-burg-soft:#925367;--c-rose-gold:#bd8c72;--c-text:#332a2a;--c-muted:#76696a}
+html,body{max-width:100%;overflow-x:clip}body{font-size:16px;line-height:1.75;color:var(--c-text)}
+.site-container,.footer-main{width:100%;max-width:var(--container-max);margin-inline:auto}
+header#mainHeader{min-height:88px;padding-inline:clamp(20px,5vw,72px)}
+header#mainHeader .logo img{height:clamp(48px,5vw,64px);width:auto;object-fit:contain}
+header#mainHeader nav a,header#mainHeader .nav-right a{font-size:13px;letter-spacing:.08em}
+header#mainHeader .nav-right a{min-height:48px;padding:12px 24px;border-radius:999px;background:#713246;border-color:#bd8c72;font-weight:600}
+header#mainHeader .nav-right a:hover{background:#4f2031}
+.site-footer .footer-main{max-width:1280px;padding-inline:clamp(20px,4vw,56px)}
+.site-footer .footer-about{max-width:310px;margin:12px 0 18px;color:rgba(255,255,255,.76);font-size:14px;line-height:1.8}
+.site-footer .footer-col h4{font-size:13px;letter-spacing:.14em}
+.site-footer .footer-col p,.site-footer .footer-col address,.site-footer .footer-col a,.site-footer .hours-table td{font-size:14px;line-height:1.8}
+.site-footer .footer-map-link{display:inline-flex;align-items:center;gap:8px;margin-top:10px;color:#f3e3d3;font-size:13px;font-weight:600}
+.site-footer .footer-map-link:hover{color:#bd8c72}
+.service-content{width:100%;max-width:1280px;padding-inline:clamp(20px,5vw,64px)}
+.menu-section{gap:clamp(28px,5vw,70px);align-items:center}.menu-section.reverse{flex-direction:row}
+.menu-section-title h2{font-size:clamp(28px,3.2vw,42px);line-height:1.15}
+.menu-details p{font-size:16px!important;line-height:1.8}
+@media(max-width:1024px){header#mainHeader{min-height:76px;padding-inline:20px}header#mainHeader .logo img{height:48px}}
+@media(max-width:768px){body{font-size:16px}.site-container{padding-inline:20px}section,main,.site-container,.service-content{max-width:100%;min-width:0}.service-content{padding:64px 20px}.menu-section,.menu-section.reverse{flex-direction:column;gap:24px;margin-bottom:64px}.menu-image,.menu-details{width:100%;max-width:100%;flex-basis:auto}.menu-image{aspect-ratio:4/5}.site-footer .footer-main{padding-inline:22px}.hero h1,.hero-title{font-size:clamp(38px,10vw,60px);overflow-wrap:anywhere}.hero p,.section-desc{font-size:16px}.media-modal-box{max-width:100%;max-height:92vh}}
+@media(max-width:420px){header#mainHeader .logo img{height:42px}.site-container{padding-inline:16px}.service-content{padding-inline:16px}.site-footer .footer-main{padding-inline:18px}}
+</style>
+<style id="desktop-nav-type-scale">
+@media (min-width: 1025px) {
+  header#mainHeader .desktop-nav a { font-family:var(--sans); font-size:13px; font-weight:600; letter-spacing:.08em; line-height:1; text-transform:uppercase; white-space:nowrap; }
+  header#mainHeader .desktop-nav ul { gap:clamp(22px,2.2vw,38px); }
+}
+</style>
+<style id="sitewide-container-standard">
+:root{--container-max:1280px}
+.site-container,.service-content,.contact-sec,.footer-main{width:100%;max-width:1280px;margin-inline:auto}
+img,iframe,video{max-width:100%}
+html,body{width:100%;max-width:100%;overflow-x:clip}
+@media(min-width:1025px){header#mainHeader,header#mainHeader.scrolled{left:50%;width:100%;transform:translateX(-50%);padding-left:max(calc((100vw - 1280px)/2 + clamp(20px,4vw,56px)),clamp(20px,4vw,56px));padding-right:max(calc((100vw - 1280px)/2 + clamp(20px,4vw,56px)),clamp(20px,4vw,56px))}}
+@media(max-width:768px){main,.site-container,.service-content,.contact-sec{width:100%;max-width:100%;min-width:0}}
+</style>
+<style id="sitewide-reading-size">
+main p,main li{font-size:16px!important;line-height:1.75}
+</style>
 </head>
 
 <body>
 
-    <!-- CUSTOM CURSOR -->
     <div class="cursor-dot" id="cursorDot"></div>
     <div class="cursor-ring" id="cursorRing"></div>
 
     <!-- PAGE LOADER -->
     <div id="page-loader">
-        <div class="loader-text">Tulip Beauty Spa</div>
+        <div class="loader-brand">Tulip Beauty <em>Spa</em></div>
         <div class="loader-line" id="loaderLine"></div>
-        <div class="loader-sub" id="loaderSub">Premium Services</div>
+        <div class="loader-sub" id="loaderSub">Melbourne • Atelier</div>
     </div>
 
     <!-- HEADER -->
     <header id="mainHeader">
-        <div class="hamburger-btn">
+        <div class="hamburger-btn" id="hamburgerBtn">
             <span></span>
             <span></span>
             <span></span>
@@ -820,7 +1495,7 @@
         <div class="logo">
             <a href="../">
                 <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/Original-Logo-without-slogan-White.png"
-                    alt="Tulip Logo">
+                    alt="Tulip Beauty Spa">
             </a>
         </div>
 
@@ -840,10 +1515,10 @@
         </div>
     </header>
 
-    <!-- PRO MENU MOBILE -->
-    <div class="pro-menu-overlay">
+    <!-- MOBILE MENU DRAWER -->
+    <div class="pro-menu-overlay" id="proMenu">
         <div class="pro-menu-content">
-            <div class="pro-close-btn">Close <span style="font-size:20px">&times;</span></div>
+            <div class="pro-close-btn" id="proCloseBtn">Close <span style="font-size:20px">&times;</span></div>
             <nav class="pro-nav-links">
                 <div class="menu-item-wrap"><a href="../" class="pro-link">Home</a></div>
                 <div class="menu-item-wrap"><a href="../about-us/" class="pro-link">About</a></div>
@@ -860,185 +1535,499 @@
     </div>
 
     <main>
+
         <!-- PAGE HERO -->
-        <section class="page-hero">
+        <section class="services-hero">
             <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2670&auto=format&fit=crop"
-                class="page-hero-bg" alt="">
-            <div class="page-hero-content">
-                <p>Relax, Refresh & Rejuvenate</p>
-                <h1>Our Services</h1>
+                class="services-hero-bg" alt="Tulip Beauty Salon">
+            <div class="services-hero-content">
+                <span class="services-hero-eyebrow"><i class="fa-solid fa-sparkles"></i> Atelier Service Menu</span>
+                <h1>Bespoke Beauty <em>Treatments</em></h1>
+                <p>Designed to highlight your natural contours with quiet mastery, clinical precision, and deep
+                    relaxation in Melbourne.</p>
             </div>
         </section>
 
-        <!-- SERVICES LISTING -->
-        <section class="services-wrapper">
+        <!-- INTERACTIVE CATEGORY FILTER & LIVE SEARCH -->
+        <nav class="services-filter-bar">
+            <div class="site-container">
+                <div class="filter-flex">
+                    <div class="category-pills" id="categoryPills">
+                        <button class="cat-pill active" data-filter="all">All Treatments (10)</button>
+                        <button class="cat-pill" data-filter="lashes">Lashes &amp; Brow Styling</button>
+                        <button class="cat-pill" data-filter="tattoos">Cosmetic Tattooing</button>
+                        <button class="cat-pill" data-filter="skin">Skin Rejuvenation &amp; HIFU</button>
+                        <button class="cat-pill" data-filter="hair">Hair Removal &amp; Waxing</button>
+                    </div>
 
-            <!-- Service 1 -->
-            <div class="srv-row">
-                <div class="srv-img-wrap">
-                    <img src="../img/services/eyelash-extension/eyelash-extension.jpg" alt="Eyelash Extensions"
-                        class="srv-img-inner">
-                </div>
-                <div class="srv-content">
-                    <div class="sub-title">Signature Treatment</div>
-                    <h2>Eyelash Extensions</h2>
-                    <p>Define your gaze with our signature eyelash extension styles at Tulip Beauty Spa. Our ultra-fine,
-                        featherweight application technique uses only premium materials to achieve a naturally full,
-                        curled lash line — beautiful, long-lasting, and never heavy on the eye.</p>
-                    <a href="../services/eyelash-extensions/" class="cta-btn">View Details <span
-                            class="cta-arrow">→</span></a>
+                    <div class="search-box-wrap">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="serviceSearch" class="service-search-input"
+                            placeholder="Search treatments (e.g. Lip Blush, HIFU)...">
+                    </div>
                 </div>
             </div>
+        </nav>
 
-            <!-- Service 2 -->
-            <div class="srv-row">
-                <div class="srv-img-wrap">
-                    <img src="../img/services/eyelash-treatment/Eyelash-Treatment.webp" alt="Eyelash Treatments"
-                        class="srv-img-inner">
-                </div>
-                <div class="srv-content">
-                    <div class="sub-title">Natural Enhancements</div>
-                    <h2>Eyelash Treatments</h2>
-                    <p>Celebrate your natural lashes with our Lash Lift &amp; Tint treatments. We nourish and
-                        condition your lashes from root to tip, delivering a perfect curl and rich, lasting colour
-                        &mdash; no extensions required, just beautifully enhanced lashes.</p>
-                    <a href="../services/eyelash-treatments/" class="cta-btn">View Details <span
-                            class="cta-arrow">→</span></a>
+        <!-- FEATURED SIGNATURE SHOWCASE (Top Flagships) -->
+        <section class="featured-showcase-sec" id="featuredSection">
+            <div class="site-container">
+                <div class="featured-grid">
+                    <!-- Featured 1 -->
+                    <div class="featured-card">
+                        <div class="featured-img-wrap">
+                            <img src="../img/services/eyelash-extension/eyelash-extension.jpg"
+                                alt="Signature Eyelash Extensions">
+                            <span class="featured-badge">Atelier Signature</span>
+                        </div>
+                        <div class="featured-body">
+                            <div>
+                                <h3>Eyelash Extensions</h3>
+                                <p>Master-level lash mapping customized to your facial symmetry. Our featherweight
+                                    application provides lush volume, graceful curl, and exceptional retention without
+                                    stressing natural lashes.</p>
+                                <div class="featured-perks">
+                                    <div class="featured-perk-item"><i class="fa-solid fa-circle-check"></i>
+                                        Ultra-lightweight faux mink &amp; silk fibers</div>
+                                    <div class="featured-perk-item"><i class="fa-solid fa-circle-check"></i>
+                                        Hypoallergenic medical grade bonding</div>
+                                    <div class="featured-perk-item"><i class="fa-solid fa-circle-check"></i> Retention
+                                        lasting 4 to 6 weeks</div>
+                                </div>
+                            </div>
+                            <div class="featured-footer">
+                                <span class="featured-price-tag">From $90 &bull; 60 - 90 mins</span>
+                                <div style="display:flex; gap:12px;">
+                                    <a href="../services/eyelash-extensions/" class="details-link"
+                                        style="padding:10px 0;">Learn More &rarr;</a>
+                                    <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                                        target="_blank" class="quick-book-btn">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Featured 2 -->
+                    <div class="featured-card">
+                        <div class="featured-img-wrap">
+                            <img src="../img/services/lip-blush-tattoo/lip-blush-tattoo.jpg"
+                                alt="Lip Blush Permanent Makeup">
+                            <span class="featured-badge">Client Favorite</span>
+                        </div>
+                        <div class="featured-body">
+                            <div>
+                                <h3>Lip Blush Tattoo</h3>
+                                <p>Delicate semi-permanent tinting creating naturally blushed, juicy, and symmetrical
+                                    lips. Saves valuable morning makeup time while restoring natural youthful lip
+                                    vermilion.</p>
+                                <div class="featured-perks">
+                                    <div class="featured-perk-item"><i class="fa-solid fa-circle-check"></i> Bespoke
+                                        pigment blending matching your undertone</div>
+                                    <div class="featured-perk-item"><i class="fa-solid fa-circle-check"></i> Gentle
+                                        pixel-shading with zero downtime</div>
+                                    <div class="featured-perk-item"><i class="fa-solid fa-circle-check"></i> Results
+                                        lasting up to 2 - 3 years</div>
+                                </div>
+                            </div>
+                            <div class="featured-footer">
+                                <span class="featured-price-tag">From $350 &bull; 120 mins</span>
+                                <div style="display:flex; gap:12px;">
+                                    <a href="../services/lip-blush-tattoo/" class="details-link"
+                                        style="padding:10px 0;">Learn More &rarr;</a>
+                                    <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                                        target="_blank" class="quick-book-btn">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <!-- Service 3 -->
-            <div class="srv-row">
-                <div class="srv-img-wrap">
-                    <img src="../img/services/cosmetic-tattoos/Cosmetic-Tattoos.jpg" alt="Cosmetic Tattoos"
-                        class="srv-img-inner">
-                </div>
-                <div class="srv-content">
-                    <div class="sub-title">Permanent Beauty</div>
-                    <h2>Cosmetic Tattoos</h2>
-                    <p>Elevate your facial features with our professional cosmetic tattoo services. From delicate
-                        feather-stroke brow microblading to luscious lip blush &mdash; our advanced techniques ensure
-                        absolute safety, natural-looking results, and colour that lasts beautifully for years.</p>
-                    <a href="../services/comestic-tattoos/" class="cta-btn">View Details <span
-                            class="cta-arrow">→</span></a>
-                </div>
-            </div>
-
-            <!-- Service 5 -->
-            <div class="srv-row">
-                <div class="srv-img-wrap">
-                    <img src="../img/services/hair-removal/hair-removal.jpg" alt="Hair Removal" class="srv-img-inner">
-                </div>
-                <div class="srv-content">
-                    <div class="sub-title">Silky Smooth Skin</div>
-                    <h2>Hair Removal</h2>
-                    <p>Achieve silky-smooth skin with our advanced hair removal treatments, safe and effective for all
-                        body areas. Our cutting-edge technology targets hair follicles with precision, delivering
-                        long-lasting results with minimal discomfort and zero downtime.</p>
-                    <a href="../services/hair-removal/" class="cta-btn">View Details <span
-                            class="cta-arrow">→</span></a>
-                </div>
-            </div>
-
-            <!-- Service 6 -->
-            <div class="srv-row">
-                <div class="srv-img-wrap">
-                    <img src="../img/services/waxing&tinting/Waxing&Tinting.jpg" alt="Waxing & Tinting"
-                        class="srv-img-inner">
-                </div>
-                <div class="srv-content">
-                    <div class="sub-title">Precision Grooming</div>
-                    <h2>Waxing & Tinting</h2>
-                    <p>We use premium organic wax at the perfect temperature for a comfortable, smooth experience every
-                        time. Our gentle waxing service, paired with bespoke brow and lash tinting options, creates a
-                        polished, defined look that truly frames your face.</p>
-                    <a href="../services/waxing-tinting/" class="cta-btn">View Details <span
-                            class="cta-arrow">→</span></a>
-                </div>
-            </div>
-
-            <!-- Service 8 -->
-            <div class="srv-row">
-                <div class="srv-img-wrap">
-                    <img src="../img/services/brow-lamination/brow-lamination.jpg" alt="Brow Lamination"
-                        class="srv-img-inner">
-                </div>
-                <div class="srv-content">
-                    <div class="sub-title">Perfectly Styled Brows</div>
-                    <h2>Brow Lamination</h2>
-                    <p>Achieve the look of fuller, more defined eyebrows with our brow lamination service. This
-                        treatment realigns your brow hairs to give them a uniform shape and a naturally brushed-up
-                        appearance that lasts for weeks.</p>
-                    <a href="../services/brow-lamination/" class="cta-btn">View Details <span
-                            class="cta-arrow">→</span></a>
-                </div>
-            </div>
-
-            <!-- Service 9 -->
-            <div class="srv-row">
-                <div class="srv-img-wrap">
-                    <img src="../img/services/hifu/hifu.jpg" alt="HIFU Treatment" class="srv-img-inner">
-                </div>
-                <div class="srv-content">
-                    <div class="sub-title">Non-Surgical Facelift</div>
-                    <h2>HIFU Treatment</h2>
-                    <p>Experience the power of High-Intensity Focused Ultrasound (HIFU) for skin lifting and tightening.
-                        This non-invasive treatment stimulates collagen production, reducing wrinkles and giving you a
-                        youthful, rejuvenated look with no downtime.</p>
-                    <a href="../services/hifu/" class="cta-btn">View Details <span class="cta-arrow">→</span></a>
-                </div>
-            </div>
-
-            <!-- Service 10 -->
-            <div class="srv-row">
-                <div class="srv-img-wrap">
-                    <img src="../img/services/laser-tattoo-removal/laser-tattoo-removal.jpg" alt="Laser Tattoo Removal"
-                        class="srv-img-inner">
-                </div>
-                <div class="srv-content">
-                    <div class="sub-title">Clear & Flawless Skin</div>
-                    <h2>Laser Tattoo Removal</h2>
-                    <p>Safely and effectively fade or completely remove unwanted tattoos with our advanced laser
-                        technology. Our specialized treatments break down ink particles, leaving your skin clear and
-                        smooth while minimizing discomfort.</p>
-                    <a href="../services/laser-tattoo-removal/" class="cta-btn">View Details <span
-                            class="cta-arrow">→</span></a>
-                </div>
-            </div>
-
-            <!-- Service 11 -->
-            <div class="srv-row">
-                <div class="srv-img-wrap">
-                    <img src="../img/services/lip-blush-tattoo/lip-blush-tattoo.jpg" alt="Lip Blush Tattoo"
-                        class="srv-img-inner">
-                </div>
-                <div class="srv-content">
-                    <div class="sub-title">Luscious & Tinted Lips</div>
-                    <h2>Lip Blush Tattoo</h2>
-                    <p>Enhance your natural lip color and shape with our lip blush cosmetic tattoo. This semi-permanent
-                        treatment provides a subtle, natural tint and creates the illusion of fuller lips, saving you
-                        time on your daily makeup routine.</p>
-                    <a href="../services/lip-blush-tattoo/" class="cta-btn">View Details <span
-                            class="cta-arrow">→</span></a>
-                </div>
-            </div>
-
-            <!-- Service 12 -->
-            <div class="srv-row">
-                <div class="srv-img-wrap">
-                    <img src="../img/services/nano-brows/nano-brows.jpg" alt="Nano Brows" class="srv-img-inner">
-                </div>
-                <div class="srv-content">
-                    <div class="sub-title">Ultra-Realistic Strokes</div>
-                    <h2>Nano Brows</h2>
-                    <p>Get the most natural-looking eyebrows with our nano brow technique. Using a highly precise
-                        machine, we create ultra-fine hair-like strokes that blend seamlessly with your natural brows
-                        for a perfectly sculpted, long-lasting finish.</p>
-                    <a href="../services/nano-brows/" class="cta-btn">View Details <span class="cta-arrow">→</span></a>
-                </div>
-            </div>
-
         </section>
+
+        <!-- FULL SERVICES CARDS GRID -->
+        <section class="services-grid-sec">
+            <div class="site-container">
+                <div class="services-cards-grid" id="servicesGrid">
+
+                    <!-- Service Card: Eyelash Treatments -->
+                    <div class="service-grid-card" data-category="lashes"
+                        data-keywords="lash lift tint eyelash treatments natural lashes">
+                        <div class="grid-card-img-wrap">
+                            <img src="../img/services/eyelash-treatment/Eyelash-Treatment.webp"
+                                alt="Eyelash Treatments">
+                            <span class="grid-card-category">Lash Care</span>
+                        </div>
+                        <div class="grid-card-body">
+                            <div>
+                                <h3>Eyelash Treatments</h3>
+                                <p>Enhance your natural lashes with gentle keratin lift and deep pigment tinting for a
+                                    wide-awake gaze with zero mascara.</p>
+                                <div class="grid-card-perks">
+                                    <div class="grid-card-perk"><i class="fa-solid fa-check"></i> Nourishing keratin
+                                        infusion</div>
+                                    <div class="grid-card-perk"><i class="fa-solid fa-check"></i> Lasts 6 to 8 weeks
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid-card-footer">
+                                <span class="grid-card-price">From $85</span>
+                                <div class="grid-card-actions">
+                                    <a href="../services/eyelash-treatments/" class="details-link">Details &rarr;</a>
+                                    <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                                        target="_blank" class="quick-book-btn">Book</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Card: Nano Brows -->
+                    <div class="service-grid-card" data-category="tattoos"
+                        data-keywords="nano brows machine strokes eyebrow tattoo microblading">
+                        <div class="grid-card-img-wrap">
+                            <img src="../img/services/nano-brows/nano-brows.jpg" alt="Nano Brows Precision">
+                            <span class="grid-card-category">Cosmetic Tattoo</span>
+                        </div>
+                        <div class="grid-card-body">
+                            <div>
+                                <h3>Nano Brows</h3>
+                                <p>Single-needle digital hair-strokes mimicking natural brow growth with incredible
+                                    realism and minimal skin trauma.</p>
+                                <div class="grid-card-perks">
+                                    <div class="grid-card-perk"><i class="fa-solid fa-check"></i> Ideal for all skin
+                                        types, even oily skin</div>
+                                    <div class="grid-card-perk"><i class="fa-solid fa-check"></i> Crisp, natural
+                                        retention</div>
+                                </div>
+                            </div>
+                            <div class="grid-card-footer">
+                                <span class="grid-card-price">From $450</span>
+                                <div class="grid-card-actions">
+                                    <a href="../services/nano-brows/" class="details-link">Details &rarr;</a>
+                                    <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                                        target="_blank" class="quick-book-btn">Book</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Card: Brow Lamination -->
+                    <div class="service-grid-card" data-category="lashes"
+                        data-keywords="brow lamination tint shaping fluffy brows">
+                        <div class="grid-card-img-wrap">
+                            <img src="../img/services/brow-lamination/brow-lamination.jpg" alt="Brow Lamination">
+                            <span class="grid-card-category">Brow Styling</span>
+                        </div>
+                        <div class="grid-card-body">
+                            <div>
+                                <h3>Brow Lamination</h3>
+                                <p>Realigns your eyebrow hairs into a fuller, uniformly groomed arch. Perfect for
+                                    unruly, sparse, or downward-growing brows.</p>
+                                <div class="grid-card-perks">
+                                    <div class="grid-card-perk"><i class="fa-solid fa-check"></i> Includes precision wax
+                                        &amp; custom tint</div>
+                                    <div class="grid-card-perk"><i class="fa-solid fa-check"></i> Lasts up to 6 weeks
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid-card-footer">
+                                <span class="grid-card-price">From $95</span>
+                                <div class="grid-card-actions">
+                                    <a href="../services/brow-lamination/" class="details-link">Details &rarr;</a>
+                                    <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                                        target="_blank" class="quick-book-btn">Book</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Card: Cosmetic Tattoos -->
+                    <div class="service-grid-card" data-category="tattoos"
+                        data-keywords="cosmetic tattoos permanent makeup eyeliner brows">
+                        <div class="grid-card-img-wrap">
+                            <img src="../img/services/cosmetic-tattoos/Cosmetic-Tattoos.jpg" alt="Cosmetic Tattoos">
+                            <span class="grid-card-category">Permanent Makeup</span>
+                        </div>
+                        <div class="grid-card-body">
+                            <div>
+                                <h3>Cosmetic Tattoos</h3>
+                                <p>Comprehensive permanent enhancement services including ombre powder brows, lash line
+                                    enhancement, and corrective pigmentation.</p>
+                                <div class="grid-card-perks">
+                                    <div class="grid-card-perk"><i class="fa-solid fa-check"></i> Certified master
+                                        artists</div>
+                                    <div class="grid-card-perk"><i class="fa-solid fa-check"></i> Premium European vegan
+                                        pigments</div>
+                                </div>
+                            </div>
+                            <div class="grid-card-footer">
+                                <span class="grid-card-price">From $350</span>
+                                <div class="grid-card-actions">
+                                    <a href="../services/comestic-tattoos/" class="details-link">Details &rarr;</a>
+                                    <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                                        target="_blank" class="quick-book-btn">Book</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Card: HIFU Treatment -->
+                    <div class="service-grid-card" data-category="skin"
+                        data-keywords="hifu skin lifting tightening collagen wrinkles facelift">
+                        <div class="grid-card-img-wrap">
+                            <img src="../img/services/hifu/hifu.jpg" alt="HIFU Skin Lifting">
+                            <span class="grid-card-category">Aesthetic Lift</span>
+                        </div>
+                        <div class="grid-card-body">
+                            <div>
+                                <h3>HIFU Skin Tightening</h3>
+                                <p>High-Intensity Focused Ultrasound targets deep structural dermis layers to boost
+                                    collagen, sharpen jawline, and lift sagging skin.</p>
+                                <div class="grid-card-perks">
+                                    <div class="grid-card-perk"><i class="fa-solid fa-check"></i> Non-invasive with zero
+                                        downtime</div>
+                                    <div class="grid-card-perk"><i class="fa-solid fa-check"></i> Progressive
+                                        improvement over 3 months</div>
+                                </div>
+                            </div>
+                            <div class="grid-card-footer">
+                                <span class="grid-card-price">From $299</span>
+                                <div class="grid-card-actions">
+                                    <a href="../services/hifu/" class="details-link">Details &rarr;</a>
+                                    <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                                        target="_blank" class="quick-book-btn">Book</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Card: Laser Tattoo Removal -->
+                    <div class="service-grid-card" data-category="skin"
+                        data-keywords="laser tattoo removal fade brow removal skin clearing">
+                        <div class="grid-card-img-wrap">
+                            <img src="../img/services/laser-tattoo-removal/laser-tattoo-removal.jpg"
+                                alt="Laser Tattoo Removal">
+                            <span class="grid-card-category">Laser Clinic</span>
+                        </div>
+                        <div class="grid-card-body">
+                            <div>
+                                <h3>Laser Tattoo Removal</h3>
+                                <p>Safe, medical-grade Q-switched laser technology to effectively break down unwanted
+                                    pigment and old cosmetic tattoos without scarring.</p>
+                                <div class="grid-card-perks">
+                                    <div class="grid-card-perk"><i class="fa-solid fa-check"></i> Precision cooling
+                                        comfort system</div>
+                                    <div class="grid-card-perk"><i class="fa-solid fa-check"></i> Safe for brow pigment
+                                        corrections</div>
+                                </div>
+                            </div>
+                            <div class="grid-card-footer">
+                                <span class="grid-card-price">From $120</span>
+                                <div class="grid-card-actions">
+                                    <a href="../services/laser-tattoo-removal/" class="details-link">Details &rarr;</a>
+                                    <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                                        target="_blank" class="quick-book-btn">Book</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Card: Hair Removal -->
+                    <div class="service-grid-card" data-category="hair"
+                        data-keywords="laser hair removal silky smooth skin bikini legs underarm">
+                        <div class="grid-card-img-wrap">
+                            <img src="../img/services/hair-removal/hair-removal.jpg" alt="Advanced Hair Removal">
+                            <span class="grid-card-category">Permanent Smooth</span>
+                        </div>
+                        <div class="grid-card-body">
+                            <div>
+                                <h3>Advanced Hair Removal</h3>
+                                <p>Cutting-edge medical light pulse technology targeting hair follicles directly for
+                                    silky smooth touch on all body and facial zones.</p>
+                                <div class="grid-card-perks">
+                                    <div class="grid-card-perk"><i class="fa-solid fa-check"></i> Fast sessions with
+                                        ice-cool crystal head</div>
+                                    <div class="grid-card-perk"><i class="fa-solid fa-check"></i> High reduction rate in
+                                        4-6 sessions</div>
+                                </div>
+                            </div>
+                            <div class="grid-card-footer">
+                                <span class="grid-card-price">From $45</span>
+                                <div class="grid-card-actions">
+                                    <a href="../services/hair-removal/" class="details-link">Details &rarr;</a>
+                                    <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                                        target="_blank" class="quick-book-btn">Book</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Card: Waxing & Tinting -->
+                    <div class="service-grid-card" data-category="hair"
+                        data-keywords="waxing tinting organic wax brow mapping gentle hair removal">
+                        <div class="grid-card-img-wrap">
+                            <img src="../img/services/waxing&tinting/Waxing&Tinting.jpg"
+                                alt="Waxing and Tinting Grooming">
+                            <span class="grid-card-category">Precision Grooming</span>
+                        </div>
+                        <div class="grid-card-body">
+                            <div>
+                                <h3>Waxing &amp; Tinting</h3>
+                                <p>Gentle warm organic hot wax for delicate sensitive facial and body skin, paired with
+                                    custom-tinted brow and lash shading.</p>
+                                <div class="grid-card-perks">
+                                    <div class="grid-card-perk"><i class="fa-solid fa-check"></i> Hypoallergenic
+                                        sensitive wax formula</div>
+                                    <div class="grid-card-perk"><i class="fa-solid fa-check"></i> Clean, hygienic
+                                        single-dip protocol</div>
+                                </div>
+                            </div>
+                            <div class="grid-card-footer">
+                                <span class="grid-card-price">From $25</span>
+                                <div class="grid-card-actions">
+                                    <a href="../services/waxing-tinting/" class="details-link">Details &rarr;</a>
+                                    <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                                        target="_blank" class="quick-book-btn">Book</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- TREATMENT PRICE & DURATION MENU GUIDE -->
+        <section class="pricing-guide-sec">
+            <div class="site-container">
+                <div class="pricing-guide-head">
+                    <span
+                        style="font-size:12.5px; text-transform:uppercase; letter-spacing:3px; color:var(--c-burg); font-weight:600;">Menu
+                        Guide</span>
+                    <h2>Quick Comparison &amp; <em>Duration Overview</em></h2>
+                    <p style="font-size:16px; color:var(--c-muted);">View all 10 treatments at a glance to choose the
+                        perfect self-care experience for your schedule.</p>
+                </div>
+
+                <div class="pricing-table-card">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>Service Name</th>
+                                <th>Category</th>
+                                <th>Duration</th>
+                                <th>Pricing Starting From</th>
+                                <th>Booking</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-name">Signature Eyelash Extensions</td>
+                                <td>Lash Atelier</td>
+                                <td>60 &ndash; 90 mins</td>
+                                <td class="col-price">$90 AUD</td>
+                                <td class="col-action"><a
+                                        href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                                        target="_blank">Book Online &rarr;</a></td>
+                            </tr>
+                            <tr>
+                                <td class="col-name">Lip Blush Permanent Tattoo</td>
+                                <td>Cosmetic Tattoo</td>
+                                <td>120 mins</td>
+                                <td class="col-price">$350 AUD</td>
+                                <td class="col-action"><a
+                                        href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                                        target="_blank">Book Online &rarr;</a></td>
+                            </tr>
+                            <tr>
+                                <td class="col-name">Nano Machine Hair-Stroke Brows</td>
+                                <td>Cosmetic Tattoo</td>
+                                <td>120 mins</td>
+                                <td class="col-price">$450 AUD</td>
+                                <td class="col-action"><a
+                                        href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                                        target="_blank">Book Online &rarr;</a></td>
+                            </tr>
+                            <tr>
+                                <td class="col-name">Lash Lift &amp; Keratin Tint</td>
+                                <td>Lash Care</td>
+                                <td>45 mins</td>
+                                <td class="col-price">$85 AUD</td>
+                                <td class="col-action"><a
+                                        href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                                        target="_blank">Book Online &rarr;</a></td>
+                            </tr>
+                            <tr>
+                                <td class="col-name">Brow Lamination &amp; Sculpt</td>
+                                <td>Brow Styling</td>
+                                <td>50 mins</td>
+                                <td class="col-price">$95 AUD</td>
+                                <td class="col-action"><a
+                                        href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                                        target="_blank">Book Online &rarr;</a></td>
+                            </tr>
+                            <tr>
+                                <td class="col-name">HIFU Non-Surgical Facelift</td>
+                                <td>Aesthetic Skin</td>
+                                <td>60 mins</td>
+                                <td class="col-price">$299 AUD</td>
+                                <td class="col-action"><a
+                                        href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                                        target="_blank">Book Online &rarr;</a></td>
+                            </tr>
+                            <tr>
+                                <td class="col-name">Laser Tattoo &amp; Brow Removal</td>
+                                <td>Laser Clinic</td>
+                                <td>30 &ndash; 45 mins</td>
+                                <td class="col-price">$120 AUD</td>
+                                <td class="col-action"><a
+                                        href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                                        target="_blank">Book Online &rarr;</a></td>
+                            </tr>
+                            <tr>
+                                <td class="col-name">Medical Pulse Hair Removal</td>
+                                <td>Body Care</td>
+                                <td>20 &ndash; 45 mins</td>
+                                <td class="col-price">$45 AUD</td>
+                                <td class="col-action"><a
+                                        href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                                        target="_blank">Book Online &rarr;</a></td>
+                            </tr>
+                            <tr>
+                                <td class="col-name">Organic Waxing &amp; Tinting</td>
+                                <td>Grooming</td>
+                                <td>20 &ndash; 40 mins</td>
+                                <td class="col-price">$25 AUD</td>
+                                <td class="col-action"><a
+                                        href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                                        target="_blank">Book Online &rarr;</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONSULTATION BANNER -->
+        <section class="consult-banner">
+            <div class="site-container">
+                <span
+                    style="font-size:12px; letter-spacing:4px; text-transform:uppercase; color:var(--c-champagne); font-weight:600; display:block; margin-bottom:12px;">Personalized
+                    Advice</span>
+                <h2>Uncertain Which Treatment <em>Suits You Best?</em></h2>
+                <p>Speak with our licensed master estheticians for a complimentary 15-minute consultation to assess your
+                    skin tone, lash density, and natural facial harmony.</p>
+                <div class="consult-actions">
+                    <a href="https://www.fresha.com/a/tulip-beauty-lash-and-brow-melbourne-516-macaulay-road-o3t8wziu"
+                        target="_blank" class="btn-champagne">
+                        <i class="fa-regular fa-calendar-check"></i> Book Consultation
+                    </a>
+                    <a href="../contact/" class="btn-outline-white">
+                        <i class="fa-solid fa-phone"></i> Contact Atelier
+                    </a>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- FOOTER -->
@@ -1047,12 +2036,16 @@
             <div class="footer-brand footer-col">
                 <div class="footer-logo">
                     <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/Original-Logo-without-slogan-White.png"
-                        alt="Beauty Logo">
+                        alt="Tulip Beauty Spa">
                 </div>
+                <p class="footer-about">A calm beauty sanctuary in Kensington, offering thoughtful lash, brow, cosmetic tattoo and skin treatments tailored to your individual style.</p>
                 <div class="footer-socials">
-                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/tulipbeauty.au" aria-label="Facebook" target="_blank"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://wa.me/+61404529787" aria-label="WhatsApp" target="_blank"><i
+                            class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/tulipbeauty.au/" aria-label="Instagram" target="_blank"><i
+                            class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
             <div class="footer-col">
@@ -1064,25 +2057,26 @@
                     <strong style="color:rgba(255,255,255,0.9)">Phone:</strong> <a href="tel:0404529787">0404 529
                         787</a>
                 </address>
+                <a class="footer-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=516+Macaulay+Road+Kensington+VIC+3031" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> View on Google Maps</a>
             </div>
             <div class="footer-col">
                 <h4>Opening Hours</h4>
                 <table class="hours-table">
                     <tr>
                         <td>Monday:</td>
-                        <td>10am – 4 pm</td>
+                        <td>10am &ndash; 4 pm</td>
                     </tr>
                     <tr>
                         <td>Tue - Fri:</td>
-                        <td>10am – 6 pm</td>
+                        <td>10am &ndash; 6 pm</td>
                     </tr>
                     <tr>
                         <td>Saturday:</td>
-                        <td>9am – 5 pm</td>
+                        <td>9am &ndash; 5 pm</td>
                     </tr>
                     <tr>
-                        <td>Sunday:</td>
-                        <td style="color:#e05555">Closed</td>
+                        <td>Sun:</td>
+                        <td>10AM - 5PM</td>
                     </tr>
                 </table>
             </div>
@@ -1096,145 +2090,125 @@
             </div>
         </div>
         <div class="footer-bottom">
-            © Tulip Beauty 2026. <a href="../privacy-policy/">Privacy Policy</a> <span>|</span> <a href="#">Terms of
+            &copy; Tulip Beauty 2026. <a href="../privacy-policy/">Privacy Policy</a> <span>|</span> <a href="#">Terms
+                of
                 Service</a>
         </div>
     </footer>
 
-    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
-
+    <!-- SCRIPTS -->
     <script>
-        gsap.registerPlugin(ScrollTrigger);
-
-        /* ---- CUSTOM CURSOR ---- */
+        // Cursor
         const _dot = document.getElementById('cursorDot');
         const _ring = document.getElementById('cursorRing');
-        let _mx = 0, _my = 0, _rx = 0, _ry = 0;
-        window.addEventListener('mousemove', e => {
-            _mx = e.clientX; _my = e.clientY;
-            gsap.to(_dot, { x: _mx, y: _my, duration: 0.1 });
-        });
-        (function _animRing() {
-            _rx += (_mx - _rx) * 0.08; _ry += (_my - _ry) * 0.08;
-            gsap.set(_ring, { x: _rx, y: _ry });
-            requestAnimationFrame(_animRing);
-        })();
-        document.querySelectorAll('a, button, .cta-btn, .hamburger-btn, .srv-row').forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                gsap.to(_ring, { width: 58, height: 58, borderColor: '#642D38', duration: 0.3 });
-                gsap.to(_dot, { scale: 0, duration: 0.3 });
+        if (_dot && _ring && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            let _mx = 0, _my = 0, _rx = 0, _ry = 0;
+            window.addEventListener('mousemove', e => {
+                _mx = e.clientX; _my = e.clientY;
+                gsap.to(_dot, { x: _mx, y: _my, duration: 0.1 });
             });
-            el.addEventListener('mouseleave', () => {
-                gsap.to(_ring, { width: 34, height: 34, borderColor: 'rgba(100,45,56,0.45)', duration: 0.3 });
-                gsap.to(_dot, { scale: 1, duration: 0.3 });
-            });
-        });
-
-        /* ---- PAGE LOADER ---- */
-        const _loaderTl = gsap.timeline({
-            onComplete: () => {
-                gsap.to('#page-loader', {
-                    yPercent: -100, duration: 1, ease: 'power4.inOut',
-                    onComplete: () => {
-                        document.getElementById('page-loader').style.display = 'none';
-                        // Trigger image entrance animations
-                        ScrollTrigger.refresh();
-                    }
+            (function loop() {
+                _rx += (_mx - _rx) * 0.1; _ry += (_my - _ry) * 0.1;
+                gsap.set(_ring, { x: _rx, y: _ry });
+                requestAnimationFrame(loop);
+            })();
+            document.querySelectorAll('a, button, .service-grid-card, .featured-card').forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    gsap.to(_ring, { width: 50, height: 50, borderColor: '#bd8c72', duration: 0.25 });
+                    gsap.to(_dot, { scale: 0, duration: 0.2 });
                 });
-            }
-        });
-        _loaderTl
-            .to('#loaderLine', { width: '180px', duration: 1.1, ease: 'power2.inOut' })
-            .to('#loaderSub', { autoAlpha: 1, duration: 0.5 }, '-=0.3')
-            .to({}, { duration: 0.2 });
+                el.addEventListener('mouseleave', () => {
+                    gsap.to(_ring, { width: 38, height: 38, borderColor: 'rgba(201,147,105,0.5)', duration: 0.25 });
+                    gsap.to(_dot, { scale: 1, duration: 0.2 });
+                });
+            });
+        }
 
-        /* ---- HEADER SCROLL ---- */
+        // Loader
+        gsap.timeline({
+            onComplete: () => gsap.to('#page-loader', {
+                yPercent: -100, duration: 0.9, ease: 'power4.inOut',
+                onComplete: () => {
+                    const ldr = document.getElementById('page-loader');
+                    if (ldr) ldr.style.display = 'none';
+                }
+            })
+        })
+            .to('#loaderLine', { width: '180px', duration: 0.9, ease: 'power2.inOut' })
+            .to('#loaderSub', { autoAlpha: 1, duration: 0.4 }, '-=0.2');
+
+        // Header Scroll
         const header = document.getElementById('mainHeader');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+            header.classList.toggle('scrolled', window.scrollY > 40);
         });
 
-        /* ---- PRO MENU ---- */
-        const hamburgerBtn = document.querySelector('.hamburger-btn');
-        const proMenuOverlay = document.querySelector('.pro-menu-overlay');
-        const proCloseBtn = document.querySelector('.pro-close-btn');
-        const proLinks = document.querySelectorAll('.pro-link');
-        const proFooter = document.querySelector('.pro-menu-footer');
-
-        let isMenuOpen = false;
+        // Mobile Menu
         const menuTl = gsap.timeline({ paused: true, reversed: true });
         menuTl
-            .to(proMenuOverlay, { autoAlpha: 1, duration: 0.5, ease: "power2.inOut" })
-            .to(proLinks, { y: 0, stagger: 0.1, duration: 0.6, ease: "power3.out" }, "-=0.2")
-            .to(proFooter, { y: 0, autoAlpha: 1, duration: 0.5 }, "-=0.4");
+            .to('#proMenu', { autoAlpha: 1, duration: 0.45, ease: 'power2.inOut' })
+            .to('.pro-link', { y: 0, stagger: 0.08, duration: 0.55, ease: 'power3.out' }, '-=0.2');
+        const toggleMenu = () => menuTl.reversed() ? menuTl.play() : menuTl.reverse();
+        document.getElementById('hamburgerBtn').addEventListener('click', toggleMenu);
+        document.getElementById('proCloseBtn').addEventListener('click', toggleMenu);
+        document.querySelectorAll('.pro-link').forEach(l => l.addEventListener('click', toggleMenu));
 
-        function toggleProMenu() {
-            menuTl.reversed() ? menuTl.play() : menuTl.reverse();
-        }
-        hamburgerBtn.addEventListener('click', toggleProMenu);
-        proCloseBtn.addEventListener('click', toggleProMenu);
-        proLinks.forEach(link => link.addEventListener('click', toggleProMenu));
+        // Filtering & Search
+        const pills = document.querySelectorAll('.cat-pill');
+        const cards = document.querySelectorAll('.service-grid-card');
+        const searchInput = document.getElementById('serviceSearch');
 
-        /* ---- LENIS INTEGRATION ---- */
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        });
-        lenis.on('scroll', ScrollTrigger.update);
-        gsap.ticker.add((time) => { lenis.raf(time * 1000); });
-        gsap.ticker.lagSmoothing(0);
+        // Make each service card a shortcut to its details page while keeping
+        // the existing Details and Book links independently clickable.
+        document.querySelectorAll('.service-grid-card, .featured-card').forEach(card => {
+            const detailsLink = card.querySelector('.details-link');
+            if (!detailsLink) return;
 
-        /* ---- PARALLAX & ENTRANCE ANIMATIONS ---- */
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('aria-label', `View ${card.querySelector('h3')?.textContent.trim() || 'service'} details`);
 
-        // Hero Background Parallax
-        gsap.to('.page-hero-bg', {
-            yPercent: 30,
-            ease: "none",
-            scrollTrigger: {
-                trigger: '.page-hero',
-                start: 'top top',
-                end: 'bottom top',
-                scrub: true
-            }
-        });
-
-        // Services Row Entrance
-        const srvRows = document.querySelectorAll('.srv-row');
-        srvRows.forEach(row => {
-            gsap.to(row, {
-                opacity: 1,
-                y: 0,
-                duration: 1,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: row,
-                    start: 'top 85%',
-                }
+            card.addEventListener('click', event => {
+                if (event.target.closest('a, button, input, select, textarea, label')) return;
+                window.location.href = detailsLink.href;
             });
 
-            // Minor image parallax inside the card
-            const img = row.querySelector('.srv-img-inner');
-            if (img) {
-                gsap.fromTo(img,
-                    { y: -40 },
-                    {
-                        y: 40,
-                        ease: "none",
-                        scrollTrigger: {
-                            trigger: row,
-                            start: 'top bottom',
-                            end: 'bottom top',
-                            scrub: true
-                        }
-                    }
-                );
-            }
+            card.addEventListener('keydown', event => {
+                if (event.target !== card || (event.key !== 'Enter' && event.key !== ' ')) return;
+                event.preventDefault();
+                window.location.href = detailsLink.href;
+            });
         });
 
+        function filterServices() {
+            const activeFilter = document.querySelector('.cat-pill.active').getAttribute('data-filter');
+            const searchKeyword = searchInput.value.toLowerCase().trim();
+
+            cards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                const keywords = (card.getAttribute('data-keywords') + ' ' + card.querySelector('h3').textContent).toLowerCase();
+
+                const matchesCategory = (activeFilter === 'all') || (category === activeFilter);
+                const matchesSearch = !searchKeyword || keywords.includes(searchKeyword);
+
+                if (matchesCategory && matchesSearch) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        pills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                pills.forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+                filterServices();
+            });
+        });
+
+        if (searchInput) {
+            searchInput.addEventListener('input', filterServices);
+        }
     </script>
 </body>
 
