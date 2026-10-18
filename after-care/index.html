@@ -940,6 +940,24 @@ html,body{width:100%;max-width:100%;overflow-x:clip}
 <style id="sitewide-reading-size">
 main p,main li{font-size:16px!important;line-height:1.75}
 </style>
+<style id="footer-shared-exact">
+.site-footer{background:var(--c-dark);color:rgba(255,255,255,.7);font-size:15px;line-height:1.85}
+.site-footer .footer-main{width:100%;max-width:1280px;margin-inline:auto;padding:90px clamp(20px,4vw,56px) 60px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1.3fr;gap:48px}
+.site-footer .footer-logo img{height:60px;margin-bottom:20px;filter:brightness(1.1)}
+.site-footer .footer-about,.site-footer .footer-about-copy{max-width:310px;margin:12px 0 18px;color:rgba(255,255,255,.76);font-size:14px;line-height:1.8}
+.site-footer .footer-socials{display:flex;gap:12px}
+.site-footer .footer-socials a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff;transition:all .3s}
+.site-footer .footer-socials a:hover{background:var(--c-burg);border-color:var(--c-burg);transform:translateY(-2px)}
+.site-footer .footer-col h4{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#fff;font-weight:600;margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.1)}
+.site-footer .footer-col address{font-style:normal;font-size:14px;line-height:1.8}
+.site-footer .footer-col p,.site-footer .footer-col a,.site-footer .hours-table td{font-size:14px;line-height:1.8}
+.site-footer .footer-col a{color:rgba(255,255,255,.7);transition:color .3s}.site-footer .footer-col a:hover{color:var(--c-rose-gold)}
+.site-footer .hours-table{width:100%;border-collapse:collapse}.site-footer .hours-table td{padding:6px 0;color:rgba(255,255,255,.68)}.site-footer .hours-table td:first-child{font-weight:600;color:#fff;padding-right:14px;white-space:nowrap}
+.site-footer .footer-map-link{display:inline-flex;align-items:center;gap:8px;margin-top:10px;color:var(--c-champagne);font-size:13px;font-weight:600}.site-footer .footer-map-link:hover{color:#fff}
+.site-footer .footer-bottom{border-top:1px solid rgba(255,255,255,.08);text-align:center;padding:26px 20px;font-size:13px;color:rgba(255,255,255,.45)}.site-footer .footer-bottom a{color:var(--c-champagne)}
+@media(max-width:1024px){.site-footer .footer-main{grid-template-columns:1fr 1fr;gap:40px}}
+@media(max-width:600px){.site-footer .footer-main{grid-template-columns:1fr}}
+</style>
 </head>
 
 <body>
@@ -1073,18 +1091,23 @@ main p,main li{font-size:16px!important;line-height:1.75}
     </main>
 
     <!-- FOOTER -->
+
     <footer class="site-footer">
         <div class="footer-main">
             <div class="footer-brand footer-col">
                 <div class="footer-logo">
                     <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/Original-Logo-without-slogan-White.png"
-                        alt="Beauty Logo">
+                        alt="Tulip Beauty Spa">
                 </div>
-                <p class="footer-about">A calm beauty sanctuary in Kensington, offering thoughtful lash, brow, cosmetic tattoo and skin treatments tailored to your individual style.</p>
+                <p class="footer-about">A calm beauty sanctuary in Kensington, offering thoughtful lash, brow, cosmetic
+                    tattoo and skin treatments tailored to your individual style.</p>
                 <div class="footer-socials">
-                    <a href="https://www.facebook.com/tulipbeauty.au" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://wa.me/+61404529787" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="https://www.instagram.com/tulipbeauty.au/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/tulipbeauty.au" aria-label="Facebook" target="_blank"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://wa.me/+61404529787" aria-label="WhatsApp" target="_blank"><i
+                            class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/tulipbeauty.au/" aria-label="Instagram" target="_blank"><i
+                            class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
             <div class="footer-col">
@@ -1096,7 +1119,11 @@ main p,main li{font-size:16px!important;line-height:1.75}
                     <strong style="color:rgba(255,255,255,0.9)">Phone:</strong> <a href="tel:0404529787">0404 529
                         787</a>
                 </address>
-                <a class="footer-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=516+Macaulay+Road+Kensington+VIC+3031" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> View on Google Maps</a>
+                <a class="footer-map-link"
+                    href="https://www.google.com/maps/search/?api=1&amp;query=516+Macaulay+Road+Kensington+VIC+3031"
+                    target="_blank" rel="noopener noreferrer">
+                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i> View on Google Maps
+                </a>
             </div>
             <div class="footer-col">
                 <h4>Opening Hours</h4>
@@ -1129,8 +1156,8 @@ main p,main li{font-size:16px!important;line-height:1.75}
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; Tulip Beauty 2026. <a href="../privacy-policy/">Privacy Policy</a> <span>|</span> <a href="#">Terms
-                of Service</a>
+            &copy; Tulip Beauty 2026. <a href="..\privacy-policy/">Privacy Policy</a> <span>|</span> <a href="#">Terms of
+                Service</a>
         </div>
     </footer>
 

@@ -18,9 +18,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
     <style>
-        /* ============================================================
-           RESET & BASE
-        ============================================================ */
         *,
         *::before,
         *::after {
@@ -50,7 +47,6 @@
             background: var(--cream);
             overflow-x: hidden;
             cursor: none;
-            /* custom cursor */
         }
 
         a {
@@ -68,9 +64,6 @@
             display: block;
         }
 
-        /* ============================================================
-           CUSTOM CURSOR
-        ============================================================ */
         .cursor-dot {
             position: fixed;
             top: 0;
@@ -108,7 +101,6 @@
             transform: translate(-50%, -50%) scale(3);
         }
 
-        /* --- HEADER --- */
         header {
             position: fixed;
             top: 0;
@@ -181,7 +173,6 @@
             color: var(--gold);
         }
 
-        /* --- PROFESSIONAL FULLSCREEN MENU STYLES --- */
         .hamburger-btn {
             display: none;
             flex-direction: column;
@@ -292,7 +283,6 @@
             margin-top: 10px;
         }
 
-        /* --- PAGE LOADER — synchronized with homepage --- */
         #page-loader {
             position: fixed;
             inset: 0;
@@ -335,9 +325,6 @@
             font-weight: 500;
         }
 
-        /* ============================================================
-           HERO SECTION &mdash; Fullscreen cinematic
-        ============================================================ */
         .hero {
             position: relative;
             height: 100vh;
@@ -477,9 +464,6 @@
             }
         }
 
-        /* ============================================================
-           STORY SECTION &mdash; Large text + image split
-        ============================================================ */
         .story-section {
             padding: 120px 0;
             background: var(--cream);
@@ -625,9 +609,6 @@
             color: var(--mid);
         }
 
-        /* ============================================================
-           MARQUEE STRIP
-        ============================================================ */
         .marquee-strip {
             background: var(--dark);
             padding: 22px 0;
@@ -669,9 +650,6 @@
             }
         }
 
-        /* ============================================================
-           VALUES SECTION &mdash; Staggered cards
-        ============================================================ */
         .values-section {
             padding: 120px 0;
             background: var(--warm);
@@ -775,9 +753,6 @@
             pointer-events: none;
         }
 
-        /* ============================================================
-           STATS SECTION &mdash; Dark cinematic banner
-        ============================================================ */
         .stats-section {
             position: relative;
             padding: 0;
@@ -867,9 +842,6 @@
             }
         }
 
-        /* ============================================================
-           TEAM / PHOTO GALLERY &mdash; Full-width horizontal
-        ============================================================ */
         .gallery-section {
             padding: 120px 0;
             background: var(--cream);
@@ -917,9 +889,6 @@
             transform: scale(1.02);
         }
 
-        /* ============================================================
-           QUOTE SECTION &mdash; Fullscreen dark
-        ============================================================ */
         .quote-section {
             padding: 180px 40px;
             background: var(--dark);
@@ -971,9 +940,6 @@
             margin: 20px auto;
         }
 
-        /* ============================================================
-           FOOTER &mdash; Dark 4-column
-        ============================================================ */
         .site-footer {
             background: #1a1c22;
             color: rgba(255, 255, 255, 0.7);
@@ -990,9 +956,8 @@
             gap: 50px;
         }
 
-        /* Col 1 - Brand */
         .footer-brand .footer-logo img {
-            height: 70px;
+        height: 70px;
             margin-bottom: 20px;
             filter: brightness(1.1);
         }
@@ -1023,7 +988,6 @@
             color: #fff;
         }
 
-        /* Col 2,3 headings */
         .footer-col h4 {
             font-size: 11px;
             letter-spacing: 3px;
@@ -1053,7 +1017,6 @@
             color: #713246;
         }
 
-        /* Hours table */
         .hours-table {
             width: 100%;
             border-collapse: collapse;
@@ -1076,7 +1039,6 @@
             color: #713246 !important;
         }
 
-        /* Contact form */
         .footer-form {
             display: flex;
             flex-direction: column;
@@ -1131,7 +1093,6 @@
             background: #7a3644;
         }
 
-        /* Bottom bar */
         .footer-bottom {
             background: #13151a;
             text-align: center;
@@ -1151,7 +1112,6 @@
             opacity: 0.3;
         }
 
-        /* Responsive */
         @media (max-width: 900px) {
             .footer-main {
                 grid-template-columns: 1fr 1fr;
@@ -1166,9 +1126,6 @@
             }
         }
 
-        /* ============================================================
-           RESPONSIVE
-        ============================================================ */
         @media (max-width: 900px) {
             header {
                 padding: 15px 20px;
@@ -1238,9 +1195,6 @@
             }
         }
 
-        /* ============================================================
-           LENIS
-        ============================================================ */
         html.lenis,
         html.lenis body {
             height: auto;
@@ -1254,11 +1208,6 @@
             overflow: hidden;
         }
 
-
-        /* ============================================================
-           VISUAL POLISH & RESPONSIVE SAFETY OVERRIDES
-           Additive only: existing page and JavaScript logic preserved.
-        ============================================================ */
         body {
             cursor: auto;
             overflow-x: clip;
@@ -1666,12 +1615,6 @@
             }
         }
 
-
-
-        /* ============================================================
-           SHARED HEADER — matched to the improved homepage
-           Keep this block in sync with index_tulip_improved.html.
-        ============================================================ */
         header {
             padding: 20px 40px;
             gap: 24px;
@@ -1863,7 +1806,6 @@ html,body{max-width:100%;overflow-x:clip}body{background:var(--c-bg);color:var(-
 .site-footer .footer-bottom{border-top:1px solid rgba(255,255,255,.08);text-align:center;padding:26px 20px;font-size:13px;color:rgba(255,255,255,.45)}.site-footer .footer-bottom a{color:var(--c-champagne)}
 @media(max-width:1024px){.site-footer .footer-main{grid-template-columns:1fr 1fr;gap:40px}}
 @media(max-width:600px){.site-footer .footer-main{grid-template-columns:1fr}}
-/* === Shared header alignment: logo left, navigation centered, booking right === */
         @media (min-width: 1025px) {
             header#mainHeader {
                 display: grid;
@@ -2031,22 +1973,37 @@ html,body{width:100%;max-width:100%;overflow-x:clip}
 <style id="sitewide-reading-size">
 main p,main li{font-size:16px!important;line-height:1.75}
 </style>
+<style id="footer-shared-exact">
+.site-footer{background:var(--c-dark);color:rgba(255,255,255,.7);font-size:15px;line-height:1.85}
+.site-footer .footer-main{width:100%;max-width:1280px;margin-inline:auto;padding:90px clamp(20px,4vw,56px) 60px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1.3fr;gap:48px}
+.site-footer .footer-logo img{height:60px;margin-bottom:20px;filter:brightness(1.1)}
+.site-footer .footer-about,.site-footer .footer-about-copy{max-width:310px;margin:12px 0 18px;color:rgba(255,255,255,.76);font-size:14px;line-height:1.8}
+.site-footer .footer-socials{display:flex;gap:12px}
+.site-footer .footer-socials a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff;transition:all .3s}
+.site-footer .footer-socials a:hover{background:var(--c-burg);border-color:var(--c-burg);transform:translateY(-2px)}
+.site-footer .footer-col h4{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#fff;font-weight:600;margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.1)}
+.site-footer .footer-col address{font-style:normal;font-size:14px;line-height:1.8}
+.site-footer .footer-col p,.site-footer .footer-col a,.site-footer .hours-table td{font-size:14px;line-height:1.8}
+.site-footer .footer-col a{color:rgba(255,255,255,.7);transition:color .3s}.site-footer .footer-col a:hover{color:var(--c-rose-gold)}
+.site-footer .hours-table{width:100%;border-collapse:collapse}.site-footer .hours-table td{padding:6px 0;color:rgba(255,255,255,.68)}.site-footer .hours-table td:first-child{font-weight:600;color:#fff;padding-right:14px;white-space:nowrap}
+.site-footer .footer-map-link{display:inline-flex;align-items:center;gap:8px;margin-top:10px;color:var(--c-champagne);font-size:13px;font-weight:600}.site-footer .footer-map-link:hover{color:#fff}
+.site-footer .footer-bottom{border-top:1px solid rgba(255,255,255,.08);text-align:center;padding:26px 20px;font-size:13px;color:rgba(255,255,255,.45)}.site-footer .footer-bottom a{color:var(--c-champagne)}
+@media(max-width:1024px){.site-footer .footer-main{grid-template-columns:1fr 1fr;gap:40px}}
+@media(max-width:600px){.site-footer .footer-main{grid-template-columns:1fr}}
+</style>
 </head>
 
 <body>
 
-    <!-- CUSTOM CURSOR -->
     <div class="cursor-dot" id="cursorDot"></div>
     <div class="cursor-ring" id="cursorRing"></div>
 
-    <!-- PAGE LOADER — same branding and layout as homepage -->
     <div id="page-loader">
         <div class="loader-brand">Tulip Beauty <em>Spa</em></div>
         <div class="loader-line" id="loaderLine"></div>
         <div class="loader-sub" id="loaderSub">Melbourne &bull; Atelier</div>
     </div>
 
-    <!-- =================== HEADER =================== -->
     <header id="mainHeader">
         <div class="hamburger-btn" id="hamburgerBtn">
             <span></span>
@@ -2077,7 +2034,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
         </div>
     </header>
 
-    <!-- MOBILE FULLSCREEN MENU -->
     <div class="pro-menu-overlay" id="proMenu">
         <div class="pro-menu-content">
             <div class="pro-close-btn" id="proCloseBtn">Close <span style="font-size:20px">&times;</span></div>
@@ -2096,7 +2052,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
         </div>
     </div>
 
-    <!-- ===================== HERO ===================== -->
     <section class="hero" id="hero">
         <div class="hero-bg" id="heroBg"></div>
         <div class="hero-overlay"></div>
@@ -2118,7 +2073,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
         </div>
     </section>
 
-    <!-- ===================== MARQUEE ===================== -->
     <div class="marquee-strip">
         <div class="marquee-track">
             <div class="marquee-item"><span class="marquee-dot"></span> Eyelash Extensions</div>
@@ -2127,7 +2081,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
             <div class="marquee-item"><span class="marquee-dot"></span> Nail Care</div>
             <div class="marquee-item"><span class="marquee-dot"></span> Skin Treatments</div>
             <div class="marquee-item"><span class="marquee-dot"></span> Melbourne Since 2012</div>
-            <!-- Duplicate for seamless loop -->
             <div class="marquee-item"><span class="marquee-dot"></span> Eyelash Extensions</div>
             <div class="marquee-item"><span class="marquee-dot"></span> Brow Shaping</div>
             <div class="marquee-item"><span class="marquee-dot"></span> Lash Lifting</div>
@@ -2137,7 +2090,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
         </div>
     </div>
 
-    <!-- ===================== STORY ===================== -->
     <section class="story-section">
         <div class="story-inner">
             <div class="section-badge"><span>TULIP BEAUTY</span></div>
@@ -2173,7 +2125,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
         </div>
     </section>
 
-    <!-- ===================== STATS ===================== -->
     <section class="stats-section">
         <div class="stats-bg"></div>
         <div class="stats-inner">
@@ -2198,7 +2149,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
         </div>
     </section>
 
-    <!-- ===================== VALUES ===================== -->
     <section class="values-section">
         <div class="values-inner">
             <div class="values-header">
@@ -2240,7 +2190,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
         </div>
     </section>
 
-    <!-- ===================== GALLERY ===================== -->
     <section class="gallery-section">
         <div class="gallery-inner">
             <div class="gallery-header" data-reveal>
@@ -2264,7 +2213,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
         </div>
     </section>
 
-    <!-- ===================== QUOTE ===================== -->
     <section class="quote-section">
         <div class="quote-bg-text">LET US MAKE YOU SHINE</div>
         <div class="section-badge" style="justify-content:center; margin-bottom:40px;">
@@ -2277,19 +2225,16 @@ main p,main li{font-size:16px!important;line-height:1.75}
         <div class="quote-author">Tulip Beauty</div>
     </section>
 
-    <!-- ===================== FOOTER ===================== -->
+
     <footer class="site-footer">
         <div class="footer-main">
-
-            <!-- Brand -->
             <div class="footer-brand footer-col">
                 <div class="footer-logo">
                     <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/Original-Logo-without-slogan-White.png"
-                        alt="Tulip Beauty Logo">
+                        alt="Tulip Beauty Spa">
                 </div>
-
-                <p class="footer-about-copy">Tulip Beauty offers personalised beauty treatments in a calm, welcoming
-                    space in Kensington, Melbourne.</p>
+                <p class="footer-about">A calm beauty sanctuary in Kensington, offering thoughtful lash, brow, cosmetic
+                    tattoo and skin treatments tailored to your individual style.</p>
                 <div class="footer-socials">
                     <a href="https://www.facebook.com/tulipbeauty.au" aria-label="Facebook" target="_blank"><i
                             class="fa-brands fa-facebook-f"></i></a>
@@ -2299,24 +2244,21 @@ main p,main li{font-size:16px!important;line-height:1.75}
                             class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
-
-            <!-- Information -->
             <div class="footer-col">
                 <h4>Information</h4>
                 <address>
-                    516 Macaulay Rd, Kensington VIC 3031<br>
-                    <a class="footer-map-link"
-                        href="https://www.google.com/maps/search/?api=1&query=516+Macaulay+Rd+Kensington+VIC+3031"
-                        target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-location-dot"></i> View on
-                        Google Maps</a><br><br>
+                    516 Macaulay Rd, Kensington VIC 3031<br><br>
                     <strong style="color:rgba(255,255,255,0.9)">Email:</strong> <a
                         href="mailto:customer-service@tulipbeauty.com.au">customer-service@tulipbeauty.com.au</a><br><br>
                     <strong style="color:rgba(255,255,255,0.9)">Phone:</strong> <a href="tel:0404529787">0404 529
                         787</a>
                 </address>
+                <a class="footer-map-link"
+                    href="https://www.google.com/maps/search/?api=1&amp;query=516+Macaulay+Road+Kensington+VIC+3031"
+                    target="_blank" rel="noopener noreferrer">
+                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i> View on Google Maps
+                </a>
             </div>
-
-            <!-- Opening Hours -->
             <div class="footer-col">
                 <h4>Opening Hours</h4>
                 <table class="hours-table">
@@ -2338,8 +2280,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
                     </tr>
                 </table>
             </div>
-
-            <!-- Newsletter -->
             <div class="footer-col">
                 <h4>Newsletter</h4>
                 <p style="margin-bottom:18px;">Stay updated with our latest trends and exclusive offers.</p>
@@ -2348,22 +2288,17 @@ main p,main li{font-size:16px!important;line-height:1.75}
                     <button class="submit-btn" type="submit">Subscribe</button>
                 </form>
             </div>
-
         </div>
         <div class="footer-bottom">
-            &copy; Tulip Beauty 2026. <a href="../privacy-policy/">Privacy Policy</a> <span>|</span> <a href="#">Terms
-                of Service</a>
+            &copy; Tulip Beauty 2026. <a href="..\privacy-policy/">Privacy Policy</a> <span>|</span> <a href="#">Terms of
+                Service</a>
         </div>
     </footer>
 
-    <!-- ===================== SCRIPTS ===================== -->
     <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
     <script>
         gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
-        /* =============================================
-           CUSTOM CURSOR
-        ============================================= */
         const dot = document.getElementById('cursorDot');
         const ring = document.getElementById('cursorRing');
         let mouseX = 0, mouseY = 0;
@@ -2393,7 +2328,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
             });
         });
 
-        /* --- PAGE LOADER — synchronized with homepage --- */
         gsap.timeline({
             onComplete: () => gsap.to('#page-loader', {
                 yPercent: -100, duration: 1, ease: 'power4.inOut',
@@ -2408,9 +2342,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
             .to('#loaderSub', { autoAlpha: 1, duration: 0.5 }, '-=0.3')
             .to({}, { duration: 0.2 });
 
-        /* =============================================
-           HERO ANIMATION (after loader)
-        ============================================= */
         function initHeroAnim() {
             const heroTl = gsap.timeline({ delay: 0.1 });
             heroTl
@@ -2427,9 +2358,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
                 }, '-=0.3');
         }
 
-        /* =============================================
-           PARALLAX HERO BACKGROUND
-        ============================================= */
         gsap.to('#heroBg', {
             yPercent: 20,
             ease: 'none',
@@ -2441,9 +2369,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
             }
         });
 
-        /* =============================================
-           STORY IMAGE CLIP-PATH REVEAL
-        ============================================= */
         gsap.to('#storyImg', {
             clipPath: 'inset(0% 0 0 0)',
             duration: 1.4,
@@ -2462,9 +2387,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
             }
         });
 
-        /* =============================================
-           GENERIC REVEAL &mdash; [data-reveal]
-        ============================================= */
         document.querySelectorAll('[data-reveal]').forEach(el => {
             const children = el.children;
             gsap.fromTo([...children],
@@ -2479,9 +2401,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
             );
         });
 
-        /* =============================================
-           VALUE CARDS &mdash; stagger from bottom
-        ============================================= */
         gsap.fromTo('[data-reveal-card]',
             { y: 80, autoAlpha: 0 },
             {
@@ -2493,9 +2412,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
             }
         );
 
-        /* =============================================
-           ANIMATED COUNTERS
-        ============================================= */
         document.querySelectorAll('.counter').forEach(counter => {
             const target = parseInt(counter.dataset.target);
             ScrollTrigger.create({
@@ -2515,9 +2431,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
             });
         });
 
-        /* =============================================
-           GALLERY &mdash; drag-to-scroll horizontal
-        ============================================= */
         const track = document.getElementById('galleryTrack');
         let isDragging = false, startX = 0, scrollLeft = 0;
         track.style.cursor = 'grab';
@@ -2535,7 +2448,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
             track.scrollLeft = scrollLeft - (x - startX) * 1.5;
         });
 
-        // Auto-drift with GSAP when in view
         gsap.to(track, {
             scrollLeft: () => track.scrollWidth - track.clientWidth,
             ease: 'none',
@@ -2547,9 +2459,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
             }
         });
 
-        /* =============================================
-           QUOTE REVEAL &mdash; word by word
-        ============================================= */
         const quoteEl = document.querySelector('[data-reveal-quote]');
         if (quoteEl) {
             const text = quoteEl.textContent.trim();
@@ -2570,9 +2479,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
             });
         }
 
-        /* =============================================
-           MOBILE MENU (GSAP)
-        ============================================= */
         const hamburgerBtn = document.querySelector('.hamburger-btn');
         const proMenuOverlay = document.querySelector('.pro-menu-overlay');
         const proCloseBtn = document.querySelector('.pro-close-btn');
@@ -2592,11 +2498,8 @@ main p,main li{font-size:16px!important;line-height:1.75}
         proCloseBtn.addEventListener('click', toggleProMenu);
         proLinks_m.forEach(l => l.addEventListener('click', toggleProMenu));
 
-        /* =============================================
-           LENIS SMOOTH SCROLL
-        ============================================= */
         const lenis = new Lenis({
-            duration: 1.4,
+            duration: 1.2,
             easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             smoothWheel: true,
         });

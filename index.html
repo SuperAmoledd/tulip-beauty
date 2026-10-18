@@ -19,12 +19,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-        /* ================================================
-           TULIP BEAUTY — Elevated Luxury Design System
-           Aesthetic: Feminine, Quiet Luxury, Rose Gold & Velvet Wine
-        ================================================ */
-
-        /* Brand Fonts */
         @font-face {
             font-family: 'Cotoris';
             src: url('./fonts/Cotoris.ttf') format('truetype');
@@ -50,7 +44,6 @@
         }
 
         :root {
-            /* Palette: Soft Alabaster, Rose Mist, Warm Rose Gold, Velvet Wine */
             --c-bg: #fbf8f6;
             --c-warm: #f4ebe6;
             --c-card-bg: #FFFFFF;
@@ -65,17 +58,14 @@
             --c-text: #332a2a;
             --c-muted: #76696a;
 
-            /* Luxury Gradients */
             --grad-gold: linear-gradient(135deg, #D4A373 0%, #E8C49E 50%, #C68B59 100%);
             --grad-burg: linear-gradient(135deg, #713246 0%, #925367 100%);
             --grad-glow: radial-gradient(circle, rgba(201, 147, 105, 0.18) 0%, rgba(252, 251, 249, 0) 70%);
 
-            /* Typography */
             --serif: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
             --sans: 'Plus Jakarta Sans', 'DM Sans', system-ui, sans-serif;
             --italic: 'The Seasons', 'Cormorant Garamond', Georgia, serif;
 
-            /* Standard Container Width */
             --container-max: 1280px;
             --ease: cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -128,7 +118,6 @@
             cursor: pointer;
         }
 
-        /* Unified Container System */
         .site-container {
             width: 100%;
             max-width: var(--container-max);
@@ -146,7 +135,6 @@
             }
         }
 
-        /* --- CURSOR (Only on non-touch screens) --- */
         @media (hover: hover) and (pointer: fine) {
             body {
                 cursor: none;
@@ -194,7 +182,6 @@
             }
         }
 
-        /* --- PAGE LOADER --- */
         #page-loader {
             position: fixed;
             inset: 0;
@@ -237,12 +224,6 @@
             font-weight: 500;
         }
 
-        /* ================================================
-           HEADER — Luxurious, Prominent & Synchronized
-        ================================================ */
-        /* ============================================================
-           HEADER
-        ============================================================ */
         header {
             position: fixed;
             top: 0;
@@ -316,7 +297,6 @@
             color: var(--c-rose-gold);
         }
 
-        /* Mobile menu */
         .hamburger-btn {
             display: none;
             flex-direction: column;
@@ -336,7 +316,6 @@
             transition: 0.3s;
         }
 
-        /* Fullscreen Mobile Drawer */
         .pro-menu-overlay {
             position: fixed;
             top: 0;
@@ -452,7 +431,6 @@
             }
         }
 
-        /* --- TYPOGRAPHY & BUTTON UTILITIES --- */
         .eyebrow {
             font-size: 12.5px;
             text-transform: uppercase;
@@ -572,9 +550,6 @@
             transform: translateY(-2px);
         }
 
-        /* ================================================
-           HERO SECTION
-        ================================================ */
         .hero {
             position: relative;
             min-height: 100vh;
@@ -772,9 +747,6 @@
             }
         }
 
-        /* ================================================
-           PHILOSOPHY / ABOUT SECTION
-        ================================================ */
         .philosophy-sec {
             padding: 130px 0;
             background: var(--c-bg);
@@ -930,9 +902,6 @@
             }
         }
 
-        /* ================================================
-           SERVICES SECTION — Editorial Showcase
-        ================================================ */
         .services-section {
             background: var(--c-dark);
             color: #fff;
@@ -1106,9 +1075,6 @@
             }
         }
 
-        /* ================================================
-           CUSTOMER REVIEWS SECTION (New)
-        ================================================ */
         .reviews-section {
             padding: 130px 0;
             background: var(--c-warm);
@@ -1258,9 +1224,6 @@
             }
         }
 
-        /* ================================================
-           GALLERY & MEDIA LIBRARY SECTION
-        ================================================ */
         .marquee-section {
             padding: 120px 0;
             background: var(--c-bg);
@@ -1287,7 +1250,6 @@
             font-style: italic;
         }
 
-        /* Media Library Trigger Button */
         .media-lib-trigger {
             display: inline-flex;
             align-items: center;
@@ -1395,9 +1357,6 @@
             }
         }
 
-        /* ================================================
-           MEDIA LIBRARY MODAL
-        ================================================ */
         .media-modal-backdrop {
             position: fixed;
             inset: 0;
@@ -1508,7 +1467,6 @@
             display: block;
         }
 
-        /* Upload Area */
         .upload-dropzone {
             border: 2px dashed rgba(201, 147, 105, 0.5);
             border-radius: 18px;
@@ -1668,9 +1626,6 @@
             }
         }
 
-        /* ================================================
-           BURGUNDY EDITORIAL
-        ================================================ */
         .burg-section {
             background: var(--grad-burg);
             padding: 120px 0;
@@ -1735,9 +1690,6 @@
             }
         }
 
-        /* ================================================
-           BANNER CTA
-        ================================================ */
         .banner {
             padding: 130px 0;
             text-align: center;
@@ -1781,9 +1733,6 @@
             line-height: 1.85;
         }
 
-        /* ============================================================
-           FOOTER — Dark 4-column
-        ============================================================ */
         .site-footer {
             background: #13151a;
             color: rgba(255, 255, 255, 0.7);
@@ -1958,11 +1907,6 @@
             }
         }
 
-        /* ============================================================
-           ACCESSIBILITY, VISUAL POLISH & RESPONSIVE SAFETY OVERRIDES
-           These styles intentionally preserve existing markup, IDs,
-           navigation paths, and JavaScript behavior.
-        ============================================================ */
         :root {
             --container-max: 1280px;
         }
@@ -2342,7 +2286,6 @@ html,body{max-width:100%;overflow-x:clip}body{background:var(--c-bg);color:var(-
 .site-footer .footer-bottom{border-top:1px solid rgba(255,255,255,.08);text-align:center;padding:26px 20px;font-size:13px;color:rgba(255,255,255,.45)}.site-footer .footer-bottom a{color:var(--c-champagne)}
 @media(max-width:1024px){.site-footer .footer-main{grid-template-columns:1fr 1fr;gap:40px}}
 @media(max-width:600px){.site-footer .footer-main{grid-template-columns:1fr}}
-/* === Shared header alignment: logo left, navigation centered, booking right === */
         @media (min-width: 1025px) {
             header#mainHeader {
                 display: grid;
@@ -2510,6 +2453,24 @@ html,body{width:100%;max-width:100%;overflow-x:clip}
 <style id="sitewide-reading-size">
 main p,main li{font-size:16px!important;line-height:1.75}
 </style>
+<style id="footer-shared-exact">
+.site-footer{background:var(--c-dark);color:rgba(255,255,255,.7);font-size:15px;line-height:1.85}
+.site-footer .footer-main{width:100%;max-width:1280px;margin-inline:auto;padding:90px clamp(20px,4vw,56px) 60px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1.3fr;gap:48px}
+.site-footer .footer-logo img{height:60px;margin-bottom:20px;filter:brightness(1.1)}
+.site-footer .footer-about,.site-footer .footer-about-copy{max-width:310px;margin:12px 0 18px;color:rgba(255,255,255,.76);font-size:14px;line-height:1.8}
+.site-footer .footer-socials{display:flex;gap:12px}
+.site-footer .footer-socials a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff;transition:all .3s}
+.site-footer .footer-socials a:hover{background:var(--c-burg);border-color:var(--c-burg);transform:translateY(-2px)}
+.site-footer .footer-col h4{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#fff;font-weight:600;margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.1)}
+.site-footer .footer-col address{font-style:normal;font-size:14px;line-height:1.8}
+.site-footer .footer-col p,.site-footer .footer-col a,.site-footer .hours-table td{font-size:14px;line-height:1.8}
+.site-footer .footer-col a{color:rgba(255,255,255,.7);transition:color .3s}.site-footer .footer-col a:hover{color:var(--c-rose-gold)}
+.site-footer .hours-table{width:100%;border-collapse:collapse}.site-footer .hours-table td{padding:6px 0;color:rgba(255,255,255,.68)}.site-footer .hours-table td:first-child{font-weight:600;color:#fff;padding-right:14px;white-space:nowrap}
+.site-footer .footer-map-link{display:inline-flex;align-items:center;gap:8px;margin-top:10px;color:var(--c-champagne);font-size:13px;font-weight:600}.site-footer .footer-map-link:hover{color:#fff}
+.site-footer .footer-bottom{border-top:1px solid rgba(255,255,255,.08);text-align:center;padding:26px 20px;font-size:13px;color:rgba(255,255,255,.45)}.site-footer .footer-bottom a{color:var(--c-champagne)}
+@media(max-width:1024px){.site-footer .footer-main{grid-template-columns:1fr 1fr;gap:40px}}
+@media(max-width:600px){.site-footer .footer-main{grid-template-columns:1fr}}
+</style>
 </head>
 
 <body>
@@ -2517,14 +2478,12 @@ main p,main li{font-size:16px!important;line-height:1.75}
     <div class="cursor-dot" id="cursorDot"></div>
     <div class="cursor-ring" id="cursorRing"></div>
 
-    <!-- PAGE LOADER -->
     <div id="page-loader">
         <div class="loader-brand">Tulip Beauty <em>Spa</em></div>
         <div class="loader-line" id="loaderLine"></div>
         <div class="loader-sub" id="loaderSub">Melbourne &bull; Atelier</div>
     </div>
 
-    <!-- HEADER -->
     <header id="mainHeader">
         <div class="hamburger-btn" id="hamburgerBtn">
             <span></span>
@@ -2555,7 +2514,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
         </div>
     </header>
 
-    <!-- MOBILE MENU DRAWER -->
     <div class="pro-menu-overlay" id="proMenu">
         <div class="pro-menu-content">
             <div class="pro-close-btn" id="proCloseBtn">Close <span style="font-size:20px">&times;</span></div>
@@ -2576,7 +2534,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
 
     <main>
 
-        <!-- HERO SECTION -->
         <section class="hero">
             <div class="hero-panel-text">
                 <p class="hero-eyebrow" id="heroEyebrow">
@@ -2612,7 +2569,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
             </div>
         </section>
 
-        <!-- PHILOSOPHY / ABOUT SECTION -->
         <section class="philosophy-sec">
             <div class="site-container">
                 <div class="philo-grid">
@@ -2666,7 +2622,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
             </div>
         </section>
 
-        <!-- SERVICES SECTION: Horizontal Scroll Showcase -->
         <section class="services-section" id="servicesSection">
             <div class="site-container">
                 <div class="services-header-wrap">
@@ -2758,7 +2713,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
             </div>
         </section>
 
-        <!-- CUSTOMER REVIEWS SECTION -->
         <section class="reviews-section" id="reviewsSection">
             <div class="site-container">
                 <div class="reviews-header">
@@ -2853,7 +2807,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
             </div>
         </section>
 
-        <!-- GALLERY & MEDIA LIBRARY SECTION -->
         <section class="marquee-section" id="gallerySection">
             <div class="site-container">
                 <div class="gallery-top-bar">
@@ -2868,7 +2821,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
                 </div>
             </div>
 
-            <!-- Continuous Marquee Track -->
             <div class="marquee-track" id="galleryMarqueeTrack">
                 <div class="marquee-item">
                     <img src="img/services/eyelash-extension/eyelash-extension.jpg" alt="Flawless Lashes">
@@ -2912,7 +2864,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
                         <span class="marquee-tag">Lash Care</span>
                     </div>
                 </div>
-                <!-- Duplicate for seamless looping -->
                 <div class="marquee-item">
                     <img src="img/services/eyelash-extension/eyelash-extension.jpg" alt="Flawless Lashes">
                     <div class="marquee-overlay">
@@ -2930,7 +2881,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
             </div>
         </section>
 
-        <!-- BURGUNDY EDITORIAL -->
         <section class="burg-section">
             <div class="site-container">
                 <div class="burg-grid">
@@ -2952,7 +2902,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
             </div>
         </section>
 
-        <!-- BANNER CTA -->
         <section class="banner">
             <div class="site-container">
                 <span class="eyebrow"><i class="fa-solid fa-sparkles"></i> Your Dedicated Moment</span>
@@ -2969,7 +2918,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
 
     </main>
 
-    <!-- MEDIA LIBRARY & ATTACHMENT MODAL -->
     <div class="media-modal-backdrop" id="mediaModalBackdrop">
         <div class="media-modal-box">
             <div class="media-modal-head">
@@ -2986,14 +2934,11 @@ main p,main li{font-size:16px!important;line-height:1.75}
             </div>
 
             <div class="media-modal-body">
-                <!-- Tab Pane 1: Library Items -->
                 <div class="media-tab-pane active" id="paneLibrary">
                     <div class="media-library-grid" id="mediaLibraryGrid">
-                        <!-- Loaded dynamically from storage / presets -->
                     </div>
                 </div>
 
-                <!-- Tab Pane 2: File Upload / Attachment -->
                 <div class="media-tab-pane" id="paneUpload">
                     <div class="upload-dropzone" id="dropZoneArea">
                         <i class="fa-solid fa-cloud-arrow-up"></i>
@@ -3033,7 +2978,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
         </div>
     </div>
 
-    <!-- FOOTER -->
     <footer class="site-footer">
         <div class="footer-main">
             <div class="footer-brand footer-col">
@@ -3103,12 +3047,10 @@ main p,main li{font-size:16px!important;line-height:1.75}
         </div>
     </footer>
 
-    <!-- LENIS SMOOTH SCROLL & SCRIPTS -->
     <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
     <script>
         gsap.registerPlugin(Draggable, ScrollTrigger);
 
-        /* --- CUSTOM CURSOR (DESKTOP ONLY) --- */
         const _dot = document.getElementById('cursorDot');
         const _ring = document.getElementById('cursorRing');
         if (_dot && _ring && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
@@ -3134,7 +3076,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
             });
         }
 
-        /* --- PAGE LOADER --- */
         gsap.timeline({
             onComplete: () => gsap.to('#page-loader', {
                 yPercent: -100, duration: 1, ease: 'power4.inOut',
@@ -3149,13 +3090,11 @@ main p,main li{font-size:16px!important;line-height:1.75}
             .to('#loaderSub', { autoAlpha: 1, duration: 0.5 }, '-=0.3')
             .to({}, { duration: 0.2 });
 
-        /* --- HEADER SCROLL DETECTOR --- */
         const header = document.getElementById('mainHeader');
         window.addEventListener('scroll', () => {
             header.classList.toggle('scrolled', window.scrollY > 40);
         });
 
-        /* --- MOBILE MENU --- */
         const menuTl = gsap.timeline({ paused: true, reversed: true });
         menuTl
             .to('#proMenu', { autoAlpha: 1, duration: 0.45, ease: 'power2.inOut' })
@@ -3166,7 +3105,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
         document.getElementById('proCloseBtn').addEventListener('click', toggleMenu);
         document.querySelectorAll('.pro-link').forEach(l => l.addEventListener('click', toggleMenu));
 
-        /* --- LENIS SMOOTH SCROLLING --- */
         let lenis;
         try {
             lenis = new Lenis({ duration: 1.2, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
@@ -3177,7 +3115,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
             console.log('Lenis initialized with default scroll');
         }
 
-        /* --- HERO ENTRANCE --- */
         function initHeroAnimations() {
             gsap.timeline()
                 .to('#heroEyebrow', { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' })
@@ -3187,7 +3124,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
                 .to('#heroBadge', { opacity: 1, duration: 0.6 }, '-=0.3');
         }
 
-        /* --- PARALLAX EFFECTS --- */
         gsap.to('.hero-bg-img', {
             yPercent: 20, ease: 'none',
             scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
@@ -3201,9 +3137,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
             scrollTrigger: { trigger: '.philosophy-sec', start: 'top bottom', end: 'bottom top', scrub: true }
         });
 
-        /* ================================================
-           MEDIA LIBRARY & ATTACHMENT FUNCTIONALITY
-        ================================================ */
         const initialPresetMedia = [
             { id: 1, title: 'Flawless Volume Lashes', category: 'Eyelash Extensions', url: 'img/services/eyelash-extension/eyelash-extension.jpg' },
             { id: 2, title: 'Natural Peach Lip Blush', category: 'Lip Blush Tattoo', url: 'img/services/lip-blush-tattoo/lip-blush-tattoo.jpg' },
@@ -3265,7 +3198,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
             const customItems = getStoredMedia();
             if (customItems.length === 0) return;
 
-            // Prepend custom images to track
             customItems.forEach(item => {
                 const div = document.createElement('div');
                 div.className = 'marquee-item';
@@ -3281,7 +3213,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
             });
         }
 
-        // Modal Open / Close Functions
         window.openMediaModal = function () {
             const m = document.getElementById('mediaModalBackdrop');
             if (m) {
@@ -3308,7 +3239,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
             });
         }
 
-        // Modal Tabs
         window.switchMediaTab = function (tab) {
             const tLib = document.getElementById('tabLibraryBtn');
             const tUp = document.getElementById('tabUploadBtn');
@@ -3327,7 +3257,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
             }
         };
 
-        // File Upload Handling
         const dropZone = document.getElementById('dropZoneArea');
         const fileInput = document.getElementById('mediaFileInput');
         const previewWrap = document.getElementById('uploadPreviewWrap');
@@ -3408,13 +3337,11 @@ main p,main li{font-size:16px!important;line-height:1.75}
                     return;
                 }
 
-                // Reset
                 currentUploadedDataUrl = '';
                 if (previewWrap) previewWrap.style.display = 'none';
                 document.getElementById('mediaTitleInput').value = '';
                 fileInput.value = '';
 
-                // Switch back to Library tab & refresh
                 window.switchMediaTab('library');
                 renderMediaLibrary();
                 updateMarqueeWithCustomMedia();
@@ -3422,7 +3349,6 @@ main p,main li{font-size:16px!important;line-height:1.75}
             });
         }
 
-        // Initialize custom media in marquee on startup
         updateMarqueeWithCustomMedia();
     </script>
 </body>
