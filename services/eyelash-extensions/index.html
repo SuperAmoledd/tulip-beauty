@@ -3,88 +3,52 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eyelash Extensions </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Eyelash Extensions | Tulip Beauty Spa &amp; Lash Atelier Melbourne</title>
+    <meta name="description" content="Discover our full eyelash extension menu at Tulip Beauty Melbourne — Classic, Volume, Mega Volume, Wispy and Wet-Effect lash sets by licensed master estheticians in Kensington VIC.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-
-
-    <footer class="site-footer">
-        <div class="footer-main">
-            <div class="footer-brand footer-col">
-                <div class="footer-logo">
-                    <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/Original-Logo-without-slogan-White.png"
-                        alt="Tulip Beauty Spa">
-                </div>
-                <p class="footer-about">A calm beauty sanctuary in Kensington, offering thoughtful lash, brow, cosmetic
-                    tattoo and skin treatments tailored to your individual style.</p>
-                <div class="footer-socials">
-                    <a href="https://www.facebook.com/tulipbeauty.au" aria-label="Facebook" target="_blank"><i
-                            class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://wa.me/+61404529787" aria-label="WhatsApp" target="_blank"><i
-                            class="fa-brands fa-whatsapp"></i></a>
-                    <a href="https://www.instagram.com/tulipbeauty.au/" aria-label="Instagram" target="_blank"><i
-                            class="fa-brands fa-instagram"></i></a>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h4>Information</h4>
-                <address>
-                    516 Macaulay Rd, Kensington VIC 3031<br><br>
-                    <strong style="color:rgba(255,255,255,0.9)">Email:</strong> <a
-                        href="mailto:customer-service@tulipbeauty.com.au">customer-service@tulipbeauty.com.au</a><br><br>
-                    <strong style="color:rgba(255,255,255,0.9)">Phone:</strong> <a href="tel:0404529787">0404 529
-                        787</a>
-                </address>
-                <a class="footer-map-link"
-                    href="https://www.google.com/maps/search/?api=1&amp;query=516+Macaulay+Road+Kensington+VIC+3031"
-                    target="_blank" rel="noopener noreferrer">
-                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i> View on Google Maps
-                </a>
-            </div>
-            <div class="footer-col">
-                <h4>Opening Hours</h4>
-                <table class="hours-table">
-                    <tr>
-                        <td>Monday:</td>
-                        <td>10am &ndash; 4 pm</td>
-                    </tr>
-                    <tr>
-                        <td>Tue - Fri:</td>
-                        <td>10am &ndash; 6 pm</td>
-                    </tr>
-                    <tr>
-                        <td>Saturday:</td>
-                        <td>9am &ndash; 5 pm</td>
-                    </tr>
-                    <tr>
-                        <td>Sun:</td>
-                        <td>10AM - 5PM</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="footer-col">
-                <h4>Newsletter</h4>
-                <p style="margin-bottom:18px;">Stay updated with our latest trends and exclusive offers.</p>
-                <form class="footer-form" onsubmit="return false;">
-                    <input type="email" placeholder="Your Email Address">
-                    <button class="submit-btn" type="submit">Subscribe</button>
-                </form>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; Tulip Beauty 2026. <a href="..\..\privacy-policy/">Privacy Policy</a> <span>|</span> <a href="#">Terms of
-                Service</a>
-        </div>
-    </footer>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
     <style>
         /* --- RESET & BASE STYLES --- */
+        :root {
+            --c-bg: #fbf8f6;
+            --c-warm: #f4ebe6;
+            --c-stone: #c7b8ad;
+            --c-rose-gold: #bd8c72;
+            --c-rose-soft: #f6e7e5;
+            --c-champagne: #f3e3d3;
+            --c-burg: #713246;
+            --c-burg-dark: #4f2031;
+            --c-dark: #1e1a17;
+            --c-text: #332a2a;
+            --c-muted: #76696a;
+            --serif: 'Cotoris', 'Cormorant Garamond', Georgia, serif;
+            --sans: 'Plus Jakarta Sans', 'DM Sans', system-ui, sans-serif;
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @font-face {
+            font-family: 'Cotoris';
+            src: url('../../fonts/Cotoris.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Cotoris';
+            src: url('../../fonts/CotorisItalic.ttf') format('truetype');
+            font-weight: 400;
+            font-style: italic;
+            font-display: swap;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -92,40 +56,43 @@
         }
 
         body {
-            font-family: 'DM Sans', sans-serif;
-            color: #333;
-            line-height: 1.6;
-            background-color: #fbf8f6;
+            font-family: var(--sans);
+            color: var(--c-text);
+            line-height: 1.75;
+            background-color: var(--c-bg);
             overflow-x: hidden;
-            cursor: none;
         }
 
-        /* --- CUSTOM CURSOR --- */
-        .cursor-dot {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 9999;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #713246;
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            transition: width 0.3s, height 0.3s, background 0.3s;
+        /* --- CUSTOM CURSOR (touch-safe) --- */
+        @media (hover: hover) and (pointer: fine) {
+            body { cursor: none; }
+            .cursor-dot {
+                position: fixed;
+                top: 0; left: 0;
+                z-index: 9999;
+                width: 7px; height: 7px;
+                border-radius: 50%;
+                background: var(--c-rose-gold);
+                pointer-events: none;
+                transform: translate(-50%, -50%);
+                box-shadow: 0 0 8px rgba(189, 140, 114, 0.5);
+            }
+            .cursor-ring {
+                position: fixed;
+                top: 0; left: 0;
+                z-index: 9998;
+                width: 38px; height: 38px;
+                border-radius: 50%;
+                border: 1.5px solid rgba(189, 140, 114, 0.5);
+                pointer-events: none;
+                transform: translate(-50%, -50%);
+                transition: border-color 0.3s, transform 0.2s var(--ease);
+            }
         }
 
-        .cursor-ring {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 9998;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            border: 1px solid rgba(100, 45, 56, 0.6);
-            pointer-events: none;
-            transform: translate(-50%, -50%);
+        @media (hover: none) or (pointer: coarse), (max-width: 1024px) {
+            .cursor-dot, .cursor-ring { display: none !important; }
+            body { cursor: auto !important; }
         }
 
         /* --- PAGE LOADER --- */
@@ -178,23 +145,46 @@
             display: block;
         }
 
-        /* --- HEADER --- */
+        /* --- HEADER (transparent → scrolled) --- */
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            padding: 15px 40px;
+            background: transparent;
+            padding: 18px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.4s, padding 0.4s, box-shadow 0.4s;
+        }
+
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 14px 40px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        header.scrolled nav a {
+            color: var(--c-dark);
+        }
+
+        header.scrolled .hamburger-btn span {
+            background-color: var(--c-dark);
         }
 
         .logo img {
-            height: 35px;
+            height: 54px;
+            width: auto;
+            object-fit: contain;
+            transition: 0.4s;
+            filter: brightness(10);
+        }
+
+        header.scrolled .logo img {
             filter: brightness(0);
+            height: 48px;
         }
 
         nav ul {
@@ -752,7 +742,7 @@
         }
 
         /* Responsive Logic */
-        @media (max-width: 900px) {
+        @media (max-width: 1024px) {
             .hamburger-btn {
                 display: flex;
             }
@@ -1097,7 +1087,7 @@ main p,main li{font-size:16px!important;line-height:1.75}
         </div>
     </div>
 
-    <div class="container">
+    <main class="container">
 
         <div class="left-col">
             <div class="sub-title">Tulip Beauty</div>
@@ -1172,7 +1162,77 @@ main p,main li{font-size:16px!important;line-height:1.75}
             </div>
 
         </div>
-    </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-main">
+            <div class="footer-brand footer-col">
+                <div class="footer-logo">
+                    <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/Original-Logo-without-slogan-White.png"
+                        alt="Tulip Beauty Spa">
+                </div>
+                <p class="footer-about">A calm beauty sanctuary in Kensington, offering thoughtful lash, brow, cosmetic
+                    tattoo and skin treatments tailored to your individual style.</p>
+                <div class="footer-socials">
+                    <a href="https://www.facebook.com/tulipbeauty.au" aria-label="Facebook" target="_blank"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://wa.me/+61404529787" aria-label="WhatsApp" target="_blank"><i
+                            class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/tulipbeauty.au/" aria-label="Instagram" target="_blank"><i
+                            class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Information</h4>
+                <address>
+                    516 Macaulay Rd, Kensington VIC 3031<br><br>
+                    <strong style="color:rgba(255,255,255,0.9)">Email:</strong> <a
+                        href="mailto:customer-service@tulipbeauty.com.au">customer-service@tulipbeauty.com.au</a><br><br>
+                    <strong style="color:rgba(255,255,255,0.9)">Phone:</strong> <a href="tel:0404529787">0404 529
+                        787</a>
+                </address>
+                <a class="footer-map-link"
+                    href="https://www.google.com/maps/search/?api=1&amp;query=516+Macaulay+Road+Kensington+VIC+3031"
+                    target="_blank" rel="noopener noreferrer">
+                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i> View on Google Maps
+                </a>
+            </div>
+            <div class="footer-col">
+                <h4>Opening Hours</h4>
+                <table class="hours-table">
+                    <tr>
+                        <td>Monday:</td>
+                        <td>10am &ndash; 4 pm</td>
+                    </tr>
+                    <tr>
+                        <td>Tue - Fri:</td>
+                        <td>10am &ndash; 6 pm</td>
+                    </tr>
+                    <tr>
+                        <td>Saturday:</td>
+                        <td>9am &ndash; 5 pm</td>
+                    </tr>
+                    <tr>
+                        <td>Sun:</td>
+                        <td>10am &ndash; 5 pm</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <p style="margin-bottom:18px;">Stay updated with our latest trends and exclusive offers.</p>
+                <form class="footer-form" onsubmit="return false;">
+                    <input type="email" placeholder="Your Email Address">
+                    <button class="submit-btn" type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; Tulip Beauty 2026. <a href="../../privacy-policy/">Privacy Policy</a> <span>|</span> <a href="../../privacy-policy/">Terms of
+                Service</a>
+        </div>
+    </footer>
 
 
 
@@ -1184,26 +1244,28 @@ main p,main li{font-size:16px!important;line-height:1.75}
         /* ---- CUSTOM CURSOR ---- */
         const _dot = document.getElementById('cursorDot');
         const _ring = document.getElementById('cursorRing');
-        let _mx = 0, _my = 0, _rx = 0, _ry = 0;
-        window.addEventListener('mousemove', e => {
-            _mx = e.clientX; _my = e.clientY;
-            gsap.to(_dot, { x: _mx, y: _my, duration: 0.1 });
-        });
-        (function _animRing() {
-            _rx += (_mx - _rx) * 0.08; _ry += (_my - _ry) * 0.08;
-            gsap.set(_ring, { x: _rx, y: _ry });
-            requestAnimationFrame(_animRing);
-        })();
-        document.querySelectorAll('a, button, .comparison-slider').forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                gsap.to(_ring, { width: 60, height: 60, borderColor: '#713246', duration: 0.3 });
-                gsap.to(_dot, { scale: 0, duration: 0.3 });
+        if (_dot && _ring && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            let _mx = 0, _my = 0, _rx = 0, _ry = 0;
+            window.addEventListener('mousemove', e => {
+                _mx = e.clientX; _my = e.clientY;
+                gsap.to(_dot, { x: _mx, y: _my, duration: 0.1 });
             });
-            el.addEventListener('mouseleave', () => {
-                gsap.to(_ring, { width: 36, height: 36, borderColor: 'rgba(100, 45, 56, 0.6)', duration: 0.3 });
-                gsap.to(_dot, { scale: 1, duration: 0.3 });
+            (function _animRing() {
+                _rx += (_mx - _rx) * 0.08; _ry += (_my - _ry) * 0.08;
+                gsap.set(_ring, { x: _rx, y: _ry });
+                requestAnimationFrame(_animRing);
+            })();
+            document.querySelectorAll('a, button, .comparison-slider').forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    gsap.to(_ring, { width: 60, height: 60, borderColor: '#713246', duration: 0.3 });
+                    gsap.to(_dot, { scale: 0, duration: 0.3 });
+                });
+                el.addEventListener('mouseleave', () => {
+                    gsap.to(_ring, { width: 36, height: 36, borderColor: 'rgba(100, 45, 56, 0.6)', duration: 0.3 });
+                    gsap.to(_dot, { scale: 1, duration: 0.3 });
+                });
             });
-        });
+        }
 
         /* ---- PAGE LOADER ---- */
         const _loaderTl = gsap.timeline({
@@ -1328,13 +1390,23 @@ main p,main li{font-size:16px!important;line-height:1.75}
         }
 
         // 4. Bind click events
-        hamburgerBtn.addEventListener('click', toggleProMenu);
-        proCloseBtn.addEventListener('click', toggleProMenu);
+        if (hamburgerBtn && proCloseBtn) {
+            hamburgerBtn.addEventListener('click', toggleProMenu);
+            proCloseBtn.addEventListener('click', toggleProMenu);
+        }
 
         // Close when link is clicked (to navigate)
         proLinks.forEach(link => {
             link.addEventListener('click', toggleProMenu);
         });
+
+        // 5. Header scroll effect
+        const _hdr = document.getElementById('mainHeader');
+        if (_hdr) {
+            window.addEventListener('scroll', () => {
+                _hdr.classList.toggle('scrolled', window.scrollY > 40);
+            });
+        }
 
         // --- 1. SETUP LENIS SMOOTH SCROLL ---
         const lenis = new Lenis({

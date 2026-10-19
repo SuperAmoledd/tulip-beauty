@@ -3,88 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laser Hair Removal - Tulip Beauty Spa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Laser Hair Removal | Tulip Beauty Spa &amp; Lash Atelier Melbourne</title>
     <meta name="description"
         content="Say goodbye to unwanted hair with our safe and effective laser hair removal services in Melbourne. Enjoy long-lasting smooth skin.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-
-    <footer class="site-footer">
-        <div class="footer-main">
-            <div class="footer-brand footer-col">
-                <div class="footer-logo">
-                    <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/Original-Logo-without-slogan-White.png"
-                        alt="Tulip Beauty Spa">
-                </div>
-                <p class="footer-about">A calm beauty sanctuary in Kensington, offering thoughtful lash, brow, cosmetic
-                    tattoo and skin treatments tailored to your individual style.</p>
-                <div class="footer-socials">
-                    <a href="https://www.facebook.com/tulipbeauty.au" aria-label="Facebook" target="_blank"><i
-                            class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://wa.me/+61404529787" aria-label="WhatsApp" target="_blank"><i
-                            class="fa-brands fa-whatsapp"></i></a>
-                    <a href="https://www.instagram.com/tulipbeauty.au/" aria-label="Instagram" target="_blank"><i
-                            class="fa-brands fa-instagram"></i></a>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h4>Information</h4>
-                <address>
-                    516 Macaulay Rd, Kensington VIC 3031<br><br>
-                    <strong style="color:rgba(255,255,255,0.9)">Email:</strong> <a
-                        href="mailto:customer-service@tulipbeauty.com.au">customer-service@tulipbeauty.com.au</a><br><br>
-                    <strong style="color:rgba(255,255,255,0.9)">Phone:</strong> <a href="tel:0404529787">0404 529
-                        787</a>
-                </address>
-                <a class="footer-map-link"
-                    href="https://www.google.com/maps/search/?api=1&amp;query=516+Macaulay+Road+Kensington+VIC+3031"
-                    target="_blank" rel="noopener noreferrer">
-                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i> View on Google Maps
-                </a>
-            </div>
-            <div class="footer-col">
-                <h4>Opening Hours</h4>
-                <table class="hours-table">
-                    <tr>
-                        <td>Monday:</td>
-                        <td>10am &ndash; 4 pm</td>
-                    </tr>
-                    <tr>
-                        <td>Tue - Fri:</td>
-                        <td>10am &ndash; 6 pm</td>
-                    </tr>
-                    <tr>
-                        <td>Saturday:</td>
-                        <td>9am &ndash; 5 pm</td>
-                    </tr>
-                    <tr>
-                        <td>Sun:</td>
-                        <td>10AM - 5PM</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="footer-col">
-                <h4>Newsletter</h4>
-                <p style="margin-bottom:18px;">Stay updated with our latest trends and exclusive offers.</p>
-                <form class="footer-form" onsubmit="return false;">
-                    <input type="email" placeholder="Your Email Address">
-                    <button class="submit-btn" type="submit">Subscribe</button>
-                </form>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; Tulip Beauty 2026. <a href="..\..\privacy-policy/">Privacy Policy</a> <span>|</span> <a href="#">Terms of
-                Service</a>
-        </div>
-    </footer>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
     <style>
         /* --- BRAND FONTS --- */
@@ -125,13 +56,27 @@
             padding: 0;
         }
 
-        body {
+                body {
             font-family: 'DM Sans', sans-serif;
             color: var(--c-text);
             line-height: 1.6;
             background-color: var(--c-bg);
             overflow-x: hidden;
-            cursor: none;
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            body {
+                cursor: none;
+            }
+        }
+
+        @media (hover: none) or (pointer: coarse), (max-width: 1024px) {
+            .cursor-dot, .cursor-ring {
+                display: none !important;
+            }
+            body {
+                cursor: auto !important;
+            }
         }
 
         /* --- CUSTOM CURSOR --- */
@@ -1889,8 +1834,76 @@ main p,main li{font-size:16px!important;line-height:1.75}
         </section>
 
     </main>
-    <!-- MAIN CONTENT END -->
 
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-main">
+            <div class="footer-brand footer-col">
+                <div class="footer-logo">
+                    <img src="https://tulipbeauty.com.au/wp-content/uploads/2023/12/Original-Logo-without-slogan-White.png"
+                        alt="Tulip Beauty Spa">
+                </div>
+                <p class="footer-about">A calm beauty sanctuary in Kensington, offering thoughtful lash, brow, cosmetic
+                    tattoo and skin treatments tailored to your individual style.</p>
+                <div class="footer-socials">
+                    <a href="https://www.facebook.com/tulipbeauty.au" aria-label="Facebook" target="_blank"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://wa.me/+61404529787" aria-label="WhatsApp" target="_blank"><i
+                            class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/tulipbeauty.au/" aria-label="Instagram" target="_blank"><i
+                            class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Information</h4>
+                <address>
+                    516 Macaulay Rd, Kensington VIC 3031<br><br>
+                    <strong style="color:rgba(255,255,255,0.9)">Email:</strong> <a
+                        href="mailto:customer-service@tulipbeauty.com.au">customer-service@tulipbeauty.com.au</a><br><br>
+                    <strong style="color:rgba(255,255,255,0.9)">Phone:</strong> <a href="tel:0404529787">0404 529
+                        787</a>
+                </address>
+                <a class="footer-map-link"
+                    href="https://www.google.com/maps/search/?api=1&amp;query=516+Macaulay+Road+Kensington+VIC+3031"
+                    target="_blank" rel="noopener noreferrer">
+                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i> View on Google Maps
+                </a>
+            </div>
+            <div class="footer-col">
+                <h4>Opening Hours</h4>
+                <table class="hours-table">
+                    <tr>
+                        <td>Monday:</td>
+                        <td>10am &ndash; 4 pm</td>
+                    </tr>
+                    <tr>
+                        <td>Tue - Fri:</td>
+                        <td>10am &ndash; 6 pm</td>
+                    </tr>
+                    <tr>
+                        <td>Saturday:</td>
+                        <td>9am &ndash; 5 pm</td>
+                    </tr>
+                    <tr>
+                        <td>Sun:</td>
+                        <td>10am &ndash; 5 pm</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <p style="margin-bottom:18px;">Stay updated with our latest trends and exclusive offers.</p>
+                <form class="footer-form" onsubmit="return false;">
+                    <input type="email" placeholder="Your Email Address">
+                    <button class="submit-btn" type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; Tulip Beauty 2026. <a href="../../privacy-policy/">Privacy Policy</a> <span>|</span> <a href="../../privacy-policy/">Terms of
+                Service</a>
+        </div>
+    </footer>
 
 
     <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
@@ -1901,16 +1914,18 @@ main p,main li{font-size:16px!important;line-height:1.75}
         /* ---- CUSTOM CURSOR ---- */
         const _dot = document.getElementById('cursorDot');
         const _ring = document.getElementById('cursorRing');
-        let _mx = 0, _my = 0, _rx = 0, _ry = 0;
-        window.addEventListener('mousemove', e => {
-            _mx = e.clientX; _my = e.clientY;
-            gsap.to(_dot, { x: _mx, y: _my, duration: 0.1 });
-        });
-        (function _animRing() {
-            _rx += (_mx - _rx) * 0.08; _ry += (_my - _ry) * 0.08;
-            gsap.set(_ring, { x: _rx, y: _ry });
-            requestAnimationFrame(_animRing);
-        })();
+        if (_dot && _ring && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            let _mx = 0, _my = 0, _rx = 0, _ry = 0;
+            window.addEventListener('mousemove', e => {
+                _mx = e.clientX; _my = e.clientY;
+                gsap.to(_dot, { x: _mx, y: _my, duration: 0.1 });
+            });
+            (function _animRing() {
+                _rx += (_mx - _rx) * 0.08; _ry += (_my - _ry) * 0.08;
+                gsap.set(_ring, { x: _rx, y: _ry });
+                requestAnimationFrame(_animRing);
+            })();
+        }
         document.querySelectorAll('a, button, .cta-btn, .price-item, .comparison-slider').forEach(el => {
             el.addEventListener('mouseenter', () => {
                 gsap.to(_ring, { width: 60, height: 60, borderColor: '#713246', duration: 0.3 });
@@ -1967,8 +1982,10 @@ main p,main li{font-size:16px!important;line-height:1.75}
         function toggleProMenu() {
             menuTl.reversed() ? menuTl.play() : menuTl.reverse();
         }
-        hamburgerBtn.addEventListener('click', toggleProMenu);
-        proCloseBtn.addEventListener('click', toggleProMenu);
+        if (hamburgerBtn && proCloseBtn) {
+            hamburgerBtn.addEventListener('click', toggleProMenu);
+            proCloseBtn.addEventListener('click', toggleProMenu);
+        }
         proLinks.forEach(link => link.addEventListener('click', toggleProMenu));
 
         /* ---- LENIS INTEGRATION ---- */

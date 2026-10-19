@@ -3,18 +3,20 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>After Care - Tulip Beauty Spa & Nail Salon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Aftercare Guide | Tulip Beauty Spa &amp; Lash Atelier Melbourne</title>
+    <meta name="description"
+        content="Official aftercare instructions from Tulip Beauty Melbourne. Learn how to care for your eyelash extensions, lash lift, and cosmetic tattoo treatments.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         /* --- RESET & COLOR TOKENS --- */
@@ -70,7 +72,21 @@
             line-height: 1.6;
             background-color: var(--c-bg);
             overflow-x: hidden;
-            cursor: none;
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            body {
+                cursor: none;
+            }
+        }
+
+        @media (hover: none) or (pointer: coarse), (max-width: 1024px) {
+            .cursor-dot, .cursor-ring {
+                display: none !important;
+            }
+            body {
+                cursor: auto !important;
+            }
         }
 
         /* --- CUSTOM CURSOR --- */
@@ -1142,7 +1158,7 @@ main p,main li{font-size:16px!important;line-height:1.75}
                     </tr>
                     <tr>
                         <td>Sun:</td>
-                        <td>10AM - 5PM</td>
+                        <td>10am &ndash; 5 pm</td>
                     </tr>
                 </table>
             </div>
@@ -1156,7 +1172,7 @@ main p,main li{font-size:16px!important;line-height:1.75}
             </div>
         </div>
         <div class="footer-bottom">
-            &copy; Tulip Beauty 2026. <a href="..\privacy-policy/">Privacy Policy</a> <span>|</span> <a href="#">Terms of
+            &copy; Tulip Beauty 2026. <a href="../privacy-policy/">Privacy Policy</a> <span>|</span> <a href="../privacy-policy/">Terms of
                 Service</a>
         </div>
     </footer>
@@ -1169,26 +1185,28 @@ main p,main li{font-size:16px!important;line-height:1.75}
         /* ---- CUSTOM CURSOR ---- */
         const _dot = document.getElementById('cursorDot');
         const _ring = document.getElementById('cursorRing');
-        let _mx = 0, _my = 0, _rx = 0, _ry = 0;
-        window.addEventListener('mousemove', e => {
-            _mx = e.clientX; _my = e.clientY;
-            gsap.to(_dot, { x: _mx, y: _my, duration: 0.1 });
-        });
-        (function _animRing() {
-            _rx += (_mx - _rx) * 0.08; _ry += (_my - _ry) * 0.08;
-            gsap.set(_ring, { x: _rx, y: _ry });
-            requestAnimationFrame(_animRing);
-        })();
-        document.querySelectorAll('a, button, .hamburger-btn, .care-block').forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                gsap.to(_ring, { width: 60, height: 60, borderColor: '#713246', duration: 0.3 });
-                gsap.to(_dot, { scale: 0, duration: 0.3 });
+        if (_dot && _ring && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            let _mx = 0, _my = 0, _rx = 0, _ry = 0;
+            window.addEventListener('mousemove', e => {
+                _mx = e.clientX; _my = e.clientY;
+                gsap.to(_dot, { x: _mx, y: _my, duration: 0.1 });
             });
-            el.addEventListener('mouseleave', () => {
-                gsap.to(_ring, { width: 36, height: 36, borderColor: 'rgba(100, 45, 56, 0.6)', duration: 0.3 });
-                gsap.to(_dot, { scale: 1, duration: 0.3 });
+            (function _animRing() {
+                _rx += (_mx - _rx) * 0.08; _ry += (_my - _ry) * 0.08;
+                gsap.set(_ring, { x: _rx, y: _ry });
+                requestAnimationFrame(_animRing);
+            })();
+            document.querySelectorAll('a, button, .hamburger-btn, .care-block').forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    gsap.to(_ring, { width: 60, height: 60, borderColor: '#713246', duration: 0.3 });
+                    gsap.to(_dot, { scale: 0, duration: 0.3 });
+                });
+                el.addEventListener('mouseleave', () => {
+                    gsap.to(_ring, { width: 36, height: 36, borderColor: 'rgba(100, 45, 56, 0.6)', duration: 0.3 });
+                    gsap.to(_dot, { scale: 1, duration: 0.3 });
+                });
             });
-        });
+        }
 
         /* ---- PAGE LOADER ---- */
         const _loaderTl = gsap.timeline({
